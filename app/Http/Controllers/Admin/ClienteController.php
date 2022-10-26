@@ -25,7 +25,7 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'nombre' => 'required',
             'apellido' => 'required',
             'direccion' => 'required',
             'cedula' => 'required|unique:clientes',
@@ -36,7 +36,7 @@ class ClienteController extends Controller
 
         $cliente = Cliente::create($request->all());
 
-        return redirect()->route('admin.clientes.edit', compact('cliente'));
+        return redirect()->route('admin.clientes.index', $cliente)->with('info', 'El cliente se creo con exito');
     }
 
     public function show(Cliente $cliente)
