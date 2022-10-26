@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('detalle_historias', function (Blueprint $table) {
+        Schema::create('agenda_cita', function (Blueprint $table) {
             $table->id();
-            $table->string('Responsable', 50);
-            $table->dateTime('Fecha');
-            $table->text('Observaciones');
-            $table->unsignedBigInteger('historia_id');
-            $table->foreign('historia_id')->references('id')->on('historias')->onUpdate('cascade');
+            $table->unsignedBigInteger('agenda_id');
+            $table->foreign('agenda_id')->references('id')->on('agendas')->onDelete('cascade');
+            $table->unsignedBigInteger('cita_id');
+            $table->foreign('cita_id')->references('id')->on('citas')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detalle_historias');
+        Schema::dropIfExists('agenda_cita');
     }
 };

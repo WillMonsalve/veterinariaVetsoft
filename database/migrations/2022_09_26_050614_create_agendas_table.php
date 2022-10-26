@@ -15,15 +15,12 @@ return new class extends Migration
     {
         Schema::create('agendas', function (Blueprint $table) {
             $table->id();
-            $table->string('Mes', 20);
-            $table->string('Semana', 20);
-            $table->string('Dia', 20);
             $table->time('Hora_inicio');
             $table->time('Hora_final');
             $table->date('Fecha_inicio');
             $table->date('Fecha_final');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
