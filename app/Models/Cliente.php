@@ -12,7 +12,16 @@ class Cliente extends Model
 {
     use HasFactory;
 
-    
+    protected $fillable = [
+        'nombre',
+        'apellido',
+        'direccion',
+        'cedula',
+        'edad',
+        'telefono',
+        'email',
+        
+    ];
 
     //Relacion uno a muchos inversa
     public function Users(){
