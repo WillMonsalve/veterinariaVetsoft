@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('detalle_historias', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->string('Responsable', 50);
-            $table->dateTime('Fecha');
-            $table->text('Observaciones');
-            $table->unsignedBigInteger('historia_id');
-            $table->foreign('historia_id')->references('id')->on('historias')->onUpdate('cascade');
+            $table->string('url');
+            $table->unsignedBigInteger('imageable_id');
+            $table->string('imageable_type');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detalle_historias');
+        Schema::dropIfExists('images');
     }
 };
