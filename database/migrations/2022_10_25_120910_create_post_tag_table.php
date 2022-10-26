@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('detalle_historias', function (Blueprint $table) {
+        Schema::create('post_tag', function (Blueprint $table) {
             $table->id();
-            $table->string('Responsable', 50);
-            $table->dateTime('Fecha');
-            $table->text('Observaciones');
-            $table->unsignedBigInteger('historia_id');
-            $table->foreign('historia_id')->references('id')->on('historias')->onUpdate('cascade');
+            $table->unsignedBigInteger('post_id');
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
+            $table->unsignedBigInteger('tag_id');
+            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detalle_historias');
+        Schema::dropIfExists('post_tag');
     }
 };

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Agenda;
 use App\Models\Cliente;
 use App\Models\Servicio;
 use Illuminate\Database\Eloquent\Model;
@@ -19,5 +20,11 @@ class Cita extends Model
     //Relacion uno a muchos inversa
     public function Clientes(){
         return $this->belongsTo(Cliente::class);
+    }
+
+    //Relacion muchos a muchos
+
+    public function Agendas(){
+        return $this->belongsToMany(Agenda::class);
     }
 }
