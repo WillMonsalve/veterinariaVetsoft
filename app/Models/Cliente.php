@@ -15,7 +15,7 @@ class Cliente extends Model
     
 
     //Relacion uno a muchos inversa
-    public function users(){
+    public function Users(){
         return $this->belongsTo(User::class);
     }
 
