@@ -68,14 +68,16 @@
 
                 <div class="form-group">                    
                     {!! Form::label('email', 'Email') !!}
-                    {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el coreeo electronico del cliente']) !!}                    
+                    {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el coreeo electronico del cliente']) !!}  
+                    
+                    @error('email')
+                    <small class="text-danger">{{$message}}</small>
+                    @enderror
                 </div>
 
-                @error('email')
-                <small class="text-danger">{{$message}}</small>
-                @enderror
+               
 
-            {!! Form::submit('Crear cliente', ['class' => 'btn btn-primary mt-2']) !!}
+                 {!! Form::submit('Crear cliente', ['class' => 'btn btn-primary mt-2']) !!}
 
             {!! Form::close() !!}
 
