@@ -14,7 +14,7 @@ use App\Http\Controllers\Admin\MascotaController;
 use App\Http\Controllers\Admin\HistoriaController;
 use App\Http\Controllers\Admin\ServicioController;
 
-Route::get('', [HomeController::class, 'index'])->Middleware('can:admin.home')->name('admin.home');
+Route::get('', [HomeController::class, 'index'])/* ->Middleware('can:admin.home') */->name('admin.home');
 
 Route::resource('users', UserController::class)->names('admin.users');
 

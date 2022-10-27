@@ -315,14 +315,14 @@ return [
             'text'  => 'Dashboard',
             'route' => 'admin.home',
             'icon'  => 'fas fa-tachometer-alt fa-fw',
-            'can'  => 'admin.home',
+            // 'can'  => 'admin.home',
         ],
 
         [
             'text' => 'Usuarios',
             'route' => 'admin.users.index',
             'icon' => 'fas fa-users fa-fw',
-            'can'  => 'admin.users.index',
+            // 'can'  => 'admin.users.index',
         ],
 
         [
@@ -337,7 +337,7 @@ return [
             'text' => 'Servicios',
             'route'  => 'admin.servicios.index',
             'icon' => 'fas fa-user-nurse fa-fw',
-            'can'  => 'admin.servicios.index',
+            //'can'  => 'admin.servicios.index',
         ],
         [
             'text' => 'Clientes',
@@ -349,19 +349,19 @@ return [
             'text' => 'Agendas',
             'route'  => 'admin.agendas.index',
             'icon' => 'fas fa-calendar-alt fa-fw',
-            'can'  => 'admin.agendas.index',
+            //'can'  => 'admin.agendas.index',
         ],
         [
             'text' => 'Citas',
             'route'  => 'admin.citas.index',
             'icon' => 'fas fa-user-md fa-fw',
-            'can'  => 'admin.citas.index',
+            //'can'  => 'admin.citas.index',
         ],
         [
             'text' => 'Historias clinicas',
             'route'  => 'admin.historias.index',
             'icon' => 'fas fa-file-medical fa-fw',
-            'can'  => 'admin.historias.index',
+            //'can'  => 'admin.historias.index',
         ],
         [
             'text' => 'Notas de progreso',
@@ -373,7 +373,7 @@ return [
             'text' => 'Mascotas',
             'route'  => 'admin.mascotas.index',
             'icon' => 'fas fa-paw fa-fw',
-            'can'  => 'admin.mascotas.index',
+            //'can'  => 'admin.mascotas.index',
         ],
         // [
         //     'text' => 'cambiar contraseña',
