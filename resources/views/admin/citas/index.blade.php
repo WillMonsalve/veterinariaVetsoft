@@ -1,1 +1,1 @@
-<h1>Vista Citas</h1>
+<h1>Vista Cita</h1>
