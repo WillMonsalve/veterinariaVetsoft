@@ -1,5 +1,8 @@
 <div>
     <div class="card">
+        <a href="{{route('register')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+            Registrarse
+        </a>
 
         <div class="card-header">
             <input wire:model="search" class="form-control" placeholder="Ingrese el nombre o correo de un usuario">
@@ -34,14 +37,14 @@
                                 <td>{{$user->telefono}}</td>
                                 <td>{{$user->email}}</td>
                                 <td width="10px">
-                                    <a class="btn btn-primary btn-sm" href="{{route('admin.users.edit', $user)}}">Editar</a>
+                                    <a class="btn btn-primary btn-sm" href="{{route('admin.users.edit', $user)}}"><i class="fa fa-fw fa-edit"></i></a>
                                 </td>
                                 <td width="10px">
                                     <form action="{{route('admin.users.destroy', $user)}}" method="POST">
                                         @csrf
                                         @method('delete')
     
-                                        <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+                                        <button class="btn btn-danger btn-sm" type="submit"><i class="fa fa-fw fa-trash"></i></button>
     
                                     </form>
                                 </td>

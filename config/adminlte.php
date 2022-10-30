@@ -367,7 +367,7 @@ return [
             'text' => 'Notas de progreso',
             'route'  => 'admin.detalles.index',
             'icon' => 'fas fa-file-medical-alt fa-fw',
-            'can'  => 'admin.detalles.index',
+            //'can'  => 'admin.detalles.index',
         ],
         [
             'text' => 'Mascotas',

@@ -42,7 +42,7 @@ class ServicioController extends Controller
 
         $servicio = Servicio::create($request->all());
 
-        return redirect()->route('admin.servicios.index', $servicio)->with('info', 'El servicio se creo con exito');;
+        return redirect()->route('admin.servicios.index', $servicio)->with('info', 'El servicio se creo con exito');
     }
 
    

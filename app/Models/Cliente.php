@@ -12,10 +12,19 @@ class Cliente extends Model
 {
     use HasFactory;
 
-    
+    protected $fillable = [
+        'nombre',
+        'apellido',
+        'direccion',
+        'cedula',
+        'edad',
+        'telefono',
+        'email',
+        
+    ];
 
     //Relacion uno a muchos inversa
-    public function users(){
+    public function Users(){
         return $this->belongsTo(User::class);
     }
 
