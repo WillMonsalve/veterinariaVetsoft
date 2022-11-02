@@ -68,7 +68,7 @@ class ServicioController extends Controller
 
         $servicio->update($request->all());
 
-        return redirect()->route('admin.servicios.edit', $servicio)->with('info', 'El servicio se actualizo con exito');
+        return redirect()->route('admin.servicios.index', $servicio)->with('info', 'El servicio se actualizo con exito');
     }
 
    

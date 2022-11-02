@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('cedula');
             $table->integer('edad');
             $table->integer('telefono');
-            $table->string('email', 50)->unique();                            
+            $table->string('email')->unique();                            
             $table->unsignedBigInteger('user_id')->unique();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade'); 
             $table->timestamps();

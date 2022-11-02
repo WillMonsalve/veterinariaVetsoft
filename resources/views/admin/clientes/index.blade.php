@@ -15,7 +15,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        {{-- <th>ID</th> --}}
                         <th>Nombre</th>
                         <th>Apellido</th>
                         <th>Direccion</th>
@@ -30,7 +30,7 @@
                 <tbody>
                     @foreach ($clientes as $cliente)
                         <tr>
-                            <td>{{$cliente->id}}</td>
+                            {{-- <td>{{$cliente->id}}</td> --}}
                             <td>{{$cliente->nombre}}</td>
                             <td>{{$cliente->apellido}}</td>
                             <td>{{$cliente->direccion}}</td>
@@ -39,14 +39,14 @@
                             <td>{{$cliente->telefono}}</td>
                             <td>{{$cliente->email}}</td>
                             <td width="10px">
-                                <a class="btn btn-primary btn-sm" href="{{route('admin.clientes.edit', $cliente)}}">Editar</a>
+                                <a class="btn btn-primary btn-sm" href="{{route('admin.clientes.edit', $cliente)}}"><i class="fas fa-pen-fancy"></i></a>
                             </td>
                             <td width="10px">
                                 <form action="{{route('admin.clientes.destroy', $cliente)}}" method="POST">
                                     @csrf
                                     @method('delete')
 
-                                    <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+                                    <button class="btn btn-danger btn-sm" type="submit"><i class="fa fa-fw fa-trash"></i></button>
 
                                 </form>
                             </td>

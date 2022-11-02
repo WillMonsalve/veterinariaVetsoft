@@ -315,14 +315,14 @@ return [
             'text'  => 'Dashboard',
             'route' => 'admin.home',
             'icon'  => 'fas fa-tachometer-alt fa-fw',
-            'can'  => 'admin.home',
+            //'can'  => 'admin.home',
         ],
 
         [
             'text' => 'Usuarios',
             'route' => 'admin.users.index',
             'icon' => 'fas fa-users fa-fw',
-            'can'  => 'admin.users.index',
+            //'can'  => 'admin.users.index',
         ],
 
         [

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Cliente;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -10,11 +11,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class ClienteFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+    protected $model = Cliente::class;
+
     public function definition()
     {
         return [
@@ -25,7 +23,7 @@ class ClienteFactory extends Factory
             'edad' => $this->faker->random(20),
             'telefono' => $this->faker->word(20),
             'email' => $this->faker->unique()->safeEmail(),
-            'user_id' => User::all()->random()->id, */
+            'user_id' => User::all()->random()->id */
         ];
     }
 }
