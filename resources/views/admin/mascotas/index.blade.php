@@ -20,7 +20,7 @@
                         
                         <div class="card">
                             <div class="card-head">
-                                <h4 class="text-center">Información Mascota</h4>
+                                {{-- <h4 class="text-center">Información Mascota</h4> --}}
                             </div>
                          <div class="row card-body">
                            <div class="form-group col-6">
@@ -30,9 +30,14 @@
 
                            <div class="form-group col-6">
                             <label for="">Raza</label>
-                            <select name="" class="form-control">
-                            </select>
-                          </div>
+                            <input type="text" class="form-control" raza="raza">
+                           </div>
+                           
+                           <div class="form-group col-6">
+                            <label for="">Especie</label>
+                            <input type="text" class="form-control" especie="especie">
+                           </div>
+
                          </div>
                         </div>
                     </div>
@@ -40,13 +45,25 @@
                     
                     <div class="card">
                         <div class="card-head">
-                            <h4 class="text-center">Detalle propietario</h4>
-                        </div>
-                        <div class="row card-body">
+                            {{-- <h4 class="text-center">Detalle propietario</h4> --}}
+                    </div>
+
+                         <div class="row card-body">
                            <div class="form-group col-6">
-                             <label for="">Nombre</label>
-                             <select name="" class="form-control"></select>
+                             <label for="">Color</label>
+                             <input type="text" class="form-control" color="color">
                            </div>
+
+                            <div class="form-group col-6">
+                            <label for="">Peso</label>
+                            <input type="text" class="form-control" peso="peso">
+                            </div>
+
+                            <div class="form-group col-6">
+                            <label for="">Edad</label>
+                            <input type="text" class="form-control" edad="edad">
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -58,5 +75,6 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script> console.log('Hi!'); 
+    </script>
 @stop
