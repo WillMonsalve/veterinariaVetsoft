@@ -18,7 +18,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <table id="usuarios" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+            <table id="clientes" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                 <thead>
                     <tr>
                         <th>ID</th>
