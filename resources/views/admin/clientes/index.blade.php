@@ -29,7 +29,7 @@
                         <th>Edad</th>
                         <th>Telefono</th>
                         <th>Email</th>
-                        <th colspan="2"></th>
+                        <th colspan="3">Acciones</th>
                     </tr>
                 </thead>
 
@@ -47,15 +47,18 @@
                             <td width="10px">
                                 <a class="btn btn-primary btn-sm" href="{{route('admin.clientes.edit', $cliente)}}">Editar</a>
                             </td>
+                            <td>
+                                <button class="btn btn-info btn-sm" type="submit"> + Mascota</button>
+                            </td>
                             <td width="10px">
                                 <form action="{{route('admin.clientes.destroy', $cliente)}}" method="POST">
                                     @csrf
                                     @method('delete')
-
                                     <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
-
+                                                 
                                 </form>
                             </td>
+                            
                         </tr>
                     @endforeach
                 </tbody>
