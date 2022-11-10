@@ -18,7 +18,7 @@
         <div class="card-body">
 
             {!! Form::model($servicio, ['route' => ['admin.servicios.update', $servicio], 'method' => 'put']) !!}
-        
+
                 <div class="form-group">
                     {!! Form::label('nombre', 'Nombre') !!}
                     {!! Form::text('nombre', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del servicio']) !!}
@@ -29,21 +29,30 @@
 
                 </div>
                 <div class="form-group">
-                    {!! Form::label('precio', 'Precio') !!}
-                    {!! Form::number('precio', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el precio del servicio']) !!}
+                    {!! Form::label('descripcion', 'Descripcion') !!}
+                    {!! Form::text('descripcion', null, ['class' => 'form-control', 'placeholder' => 'Descripción de servicio']) !!}
 
-                    @error('precio')
+                    @error('descripcion')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
 
                 </div>
                 <div class="form-group">
                     {!! Form::label('duracion', 'Duracion') !!}
-                    {!! Form::time('duracion', null, ['class' => 'form-control', 'placeholder' => 'Ingrese la hora del servicio']) !!}
+                    {!! Form::time('duracion', null, ['class' => 'form-control', 'placeholder' => 'Ingrese la duración del servicio']) !!}
 
                     @error('duracion')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
+
+                </div>
+
+                <div class="form-group">
+                    <label for="estado">Estado</label>
+                    <select class="form-control" name="estado" id="estado">
+                        <option value="1">Activo</option>
+                        <option value="2">Inactivo</option>
+                    </select>
 
                 </div>
 

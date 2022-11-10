@@ -10,7 +10,7 @@ class Servicio extends Model
 {
     use HasFactory;
 
-
+    protected $guarded = ['servicio'];
 
     // public function getRouteKeyName()
     // {

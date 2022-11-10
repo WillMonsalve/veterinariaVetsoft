@@ -11,7 +11,7 @@
     <div class="card">
         <div class="card-body">
             {!! Form::open(['route' => 'admin.servicios.store']) !!}
-           
+
                 <div class="form-group">
                     {!! Form::label('nombre', 'Nombre') !!}
                     {!! Form::text('nombre', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del servicio']) !!}
@@ -22,10 +22,10 @@
 
                 </div>
                 <div class="form-group">
-                    {!! Form::label('precio', 'Precio') !!}
-                    {!! Form::number('precio', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el precio del servicio']) !!}
+                    {!! Form::label('descripcion', 'Descripcion') !!}
+                    {!! Form::text('descripcion', null, ['class' => 'form-control', 'placeholder' => 'Descripción de servicio']) !!}
 
-                    @error('precio')
+                    @error('descripcion')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
 
@@ -40,12 +40,21 @@
 
                 </div>
 
+                <div class="form-group">
+                    <label for="estado">Estado</label>
+                    <select class="form-control" name="estado" id="estado">
+                        <option value="1">Activo</option>
+                        <option value="2">Inactivo</option>
+                    </select>
+
+                </div>
+
                 {!! Form::submit('Crear Servicio', ['class' => 'btn btn-primary']) !!}
 
             {!! Form::close() !!}
         </div>
     </div>
-    
+
 @stop
 
 @section('js')

@@ -4,6 +4,10 @@
 
 @section('content_header')
     <h1>Registrar Nueva Cita</h1>
+
+    @can('admin.citas.create')
+    <a class="btn btn-success btn-sm float-right" href="{{route('admin.citas.create')}}">Agregar Cita</a>
+@endcan
 @stop
 
 
@@ -23,6 +27,17 @@
 
                 </div>
                 <div class="form-group">
+                    {!! Form::label('servicio', 'Servicio') !!}
+                    {!! Form::number('servicio', null, ['class' => 'form-control', 'placeholder' => 'Servicio']) !!}
+
+
+                    @error('servicio')
+                    <span class="text-danger">{{$message}}</span>
+                    @enderror
+
+                </div>
+
+                <div class="form-group">
                     {!! Form::label('fecha', 'Fecha') !!}
                     {!! Form::date('fecha', null, ['class' => 'form-control', 'placeholder' => 'Fecha']) !!}
 
@@ -36,15 +51,6 @@
                     {!! Form::time('hora', null, ['class' => 'form-control', 'placeholder' => 'Hora']) !!}
 
                     @error('hora')
-                    <span class="text-danger">{{$message}}</span>
-                    @enderror
-
-                </div>
-                <div class="form-group">
-                    {!! Form::label('servicio', 'Servicio') !!}
-                    {!! Form::number('servicio', null, ['class' => 'form-control', 'placeholder' => 'Servicio']) !!}
-
-                    @error('servicio')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
 

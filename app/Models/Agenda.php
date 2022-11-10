@@ -11,6 +11,12 @@ class Agenda extends Model
 {
     use HasFactory;
 
+    protected $guarded=['agenda'];
+
+    protected $fillable = [
+        'day','active','morning_start','morning_end','afternoon_start','afternoon_end','user_id'
+    ];
+
     //Relacion uno a muchos inversa
     public function users()
     {
