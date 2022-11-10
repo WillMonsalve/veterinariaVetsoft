@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('name', 45);
             $table->string('apellido', 45);
-            $table->string('direccion', 45);
+            $table->string('direccion', 100);
             $table->integer('cedula')->unique();
             $table->integer('edad');
-            $table->string('telefono', 15);
+            $table->string('telefono', 20);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->enum('estado', [1, 2])->default(1);

@@ -15,9 +15,9 @@ class ServicioFactory extends Factory
     public function definition()
     {
         return [
-            'nombre' => $this->faker->word(20),
-            'precio' => $this->faker->random_int(10, 20),
-            'duracion' => $this->faker->date(10)
+            'nombre' => $this->faker->name(),
+            'precio' => $this->faker->randomFloat(2, 1, 1000000),
+            'duracion' => $this->faker->time()
         ];
     }
 }

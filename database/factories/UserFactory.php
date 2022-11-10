@@ -17,11 +17,11 @@ class UserFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'apellido' => $this->faker->apellido(),
-            'direccion' => $this->faker->direccion(),
-            'cedula' => $this->faker->cedula()->unique(),
-            'edad' => $this->faker->edad(),
-            'telefono' => $this->faker->telefono(),
+            'apellido' => $this->faker->lastName(),
+            'direccion' => $this->faker->address(),
+            'cedula' => $this->faker->randomNumber(9, true),
+            'edad' => $this->faker->randomDigit(),
+            'telefono' => $this->faker->phoneNumber(),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'estado' => $this->faker->randomElement([1, 2]),
