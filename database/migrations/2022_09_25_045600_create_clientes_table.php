@@ -17,12 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('nombre', 45);
             $table->string('apellido', 45);
-            $table->string('direccion', 45);
+            $table->string('direccion');
             $table->integer('cedula');
             $table->integer('edad');
-            $table->integer('telefono');
-            $table->string('email', 50)->unique();                            
-            $table->unsignedBigInteger('user_id')->unique();
+            $table->string('telefono', 20);
+            $table->string('email')->unique();                            
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade'); 
             $table->timestamps();
         });

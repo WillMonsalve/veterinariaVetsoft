@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Servicio;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,17 +10,14 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class ServicioFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+    protected $model = Servicio::class;
+
     public function definition()
     {
         return [
-           /*  'nombre' => $this->faker->word(20),
-            'precio' => $this->faker->random_int(10, 20),
-            'duracion' => $this->faker->date(10), */
+            'nombre' => $this->faker->name(),
+            'precio' => $this->faker->randomFloat(2, 1, 1000000),
+            'duracion' => $this->faker->time()
         ];
     }
 }
