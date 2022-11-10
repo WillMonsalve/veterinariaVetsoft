@@ -16,6 +16,12 @@ class UserController extends Controller
 //         $this->middleware('can:admin.users.edit')->only('edit', 'update');
 //         $this->middleware('can:admin.users.destroy')->only('destroy');
 //    }
+   /* public function __construct()
+   {
+        $this->middleware('can:admin.users.index')->only('index');
+        $this->middleware('can:admin.users.edit')->only('edit', 'update');
+        $this->middleware('can:admin.users.destroy')->only('destroy');
+   } */
 
     public function index()
     {
@@ -54,7 +60,7 @@ class UserController extends Controller
     {
         $user->roles()->sync($request->roles);
 
-        return redirect()->route('admin.users.edit', $user)->with('info', 'Se asignó los roles correctamente');
+        return redirect()->route('admin.users.index', $user)->with('info', 'Se asignó los roles correctamente');
     }
 
    

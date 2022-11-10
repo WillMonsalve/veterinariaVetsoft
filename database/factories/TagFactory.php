@@ -2,16 +2,16 @@
 
 namespace Database\Factories;
 
-use App\Models\Category;
-use Illuminate\Support\Str;
+use App\Models\Tag;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Category>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Tag>
  */
-class CategoryFactory extends Factory
+class TagFactory extends Factory
 {
-    protected $model = Category::class;
+    protected $model = Tag::class;
 
     public function definition()
     {
@@ -19,7 +19,7 @@ class CategoryFactory extends Factory
 
         return [
             'name' => $name,
-            'slug' => Str::slug($name)
+            'slug' => Str::slug($name) 
         ];
     }
 }

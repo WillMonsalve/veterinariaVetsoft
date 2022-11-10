@@ -21,7 +21,7 @@
             <table id="clientes" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        {{-- <th>ID</th> --}}
                         <th>Nombre</th>
                         <th>Apellido</th>
                         <th>Direccion</th>
@@ -36,7 +36,7 @@
                 <tbody>
                     @foreach ($clientes as $cliente)
                         <tr>
-                            <td>{{$cliente->id}}</td>
+                            {{-- <td>{{$cliente->id}}</td> --}}
                             <td>{{$cliente->nombre}}</td>
                             <td>{{$cliente->apellido}}</td>
                             <td>{{$cliente->direccion}}</td>
@@ -45,9 +45,9 @@
                             <td>{{$cliente->telefono}}</td>
                             <td>{{$cliente->email}}</td>
                             <td width="10px">
-                                <a class="btn btn-primary btn-sm" href="{{route('admin.clientes.edit', $cliente)}}">Editar</a>
+                                <a class="btn btn-primary btn-sm" href="{{route('admin.clientes.edit', $cliente)}}"><i class="fas fa-pen-fancy"></i></a>
                             </td>
-                            <td>
+                           <td>
                                 <button class="btn btn-info btn-sm" type="submit"> + Mascota</button>
                             </td>
                             <td width="10px">

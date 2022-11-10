@@ -315,7 +315,7 @@ return [
             'text'  => 'Dashboard',
             'route' => 'admin.home',
             'icon'  => 'fas fa-tachometer-alt fa-fw',
-            'can'  => 'admin.home',
+            //'can'  => 'admin.home',
         ],
 
         [
