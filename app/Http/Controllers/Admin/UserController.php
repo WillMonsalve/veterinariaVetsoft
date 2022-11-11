@@ -19,8 +19,8 @@ class UserController extends Controller
 
     public function index()
     {
-        //$users = User::all();
-        return view('admin.users.index');
+
+       return view('admin.users.index');
     }
 
 
@@ -54,7 +54,7 @@ class UserController extends Controller
     {
         $user->roles()->sync($request->roles);
 
-        return redirect()->route('admin.users.edit', $user)->with('info', 'Se asignó los roles correctamente');
+        return redirect()->route('admin.users.index', $user)->with('info', 'Se asignó los roles correctamente');
     }
 
    

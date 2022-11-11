@@ -19,7 +19,7 @@
     <div class="card">
         <div class="card-body">
 
-            <table class="table table striped">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -35,7 +35,7 @@
                             <td>{{$role->name}}</td>
 
                             <td width="10px">
-                                <a href="{{route('admin.roles.edit', $role)}}" class="btn btn-sm btn-primary">Editar</a>
+                                <a href="{{route('admin.roles.edit', $role)}}" class="btn btn-sm btn-primary"><i class="fas fa-pen-fancy"></i></a>
                             </td>
 
                             <td width="10px">
@@ -43,7 +43,7 @@
                                 @csrf
                                 @method('DELETE')
 
-                                    <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+                                    <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-fw fa-trash"></i></button>
                                </form>
                             </td>
                         </tr>

@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Tag;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Image extends Model
 {
@@ -12,6 +13,6 @@ class Image extends Model
     //Relacion polimorfica
 
     public function imageable(){
-        return $this->morphTo(Tag::class);
+        return $this->morphTo();
     }
 }

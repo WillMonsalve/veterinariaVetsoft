@@ -52,7 +52,19 @@ class ClienteController extends Controller
     
     public function update(Request $request, Cliente $cliente)
     {
-        //
+        $request->validate([
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'direccion' => 'required',
+            'cedula' => 'required',
+            'edad' => 'required',
+            'telefono' => 'required',
+            'email' => 'required',
+        ]);
+
+        $cliente->update($request->all());
+
+        return redirect()->route('admin.clientes.index', $cliente)->with('info', 'El cliente se actualizo con exito');
     }
 
     

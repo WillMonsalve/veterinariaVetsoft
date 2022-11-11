@@ -1,8 +1,15 @@
+@section ('css')
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+ <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
+ <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap4.min.css">
+ @endsection
 <div>
+    @if (session('info'))
+        <div class="alert alert-success">
+            <strong>{{session('info')}}</strong>
+        </div>
+    @endif
     <div class="card">
-        <a href="{{route('register')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-            Registrarse
-        </a>
 
         <div class="card-header">
             <input wire:model="search" class="form-control" placeholder="Ingrese el nombre o correo de un usuario">
@@ -10,7 +17,7 @@
 
         @if($users->count())
             <div class="card-body">
-                <table class="table table-striped">
+                <table id="users" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%"">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -37,7 +44,7 @@
                                 <td>{{$user->telefono}}</td>
                                 <td>{{$user->email}}</td>
                                 <td width="10px">
-                                    <a class="btn btn-primary btn-sm" href="{{route('admin.users.edit', $user)}}"><i class="fa fa-fw fa-edit"></i></a>
+                                    <a class="btn btn-primary btn-sm" href="{{route('admin.users.edit', $user)}}"><i class="fas fa-pen-fancy"></i></a>
                                 </td>
                                 <td width="10px">
                                     <form action="{{route('admin.users.destroy', $user)}}" method="POST">
@@ -69,3 +76,16 @@
            
     </div>
 </div>
+@section('js')
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap4.min.js"></script>
+<script>
+    $('#usuarios').DataTable({
+        responsive: true,
+        autoWidth: false
+    });
+</script>
+@endsection

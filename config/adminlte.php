@@ -107,7 +107,7 @@ return [
     */
 
     'preloader' => [
-        'enabled' => true,
+        'enabled' => false,
         'img' => [
             'path' => 'vendor/adminlte/dist/img/logo.png',
             'alt' => 'AdminLTE Preloader Image',
@@ -315,21 +315,21 @@ return [
             'text'  => 'Dashboard',
             'route' => 'admin.home',
             'icon'  => 'fas fa-tachometer-alt fa-fw',
-            // 'can'  => 'admin.home',
+            //'can'  => 'admin.home',
         ],
 
         [
             'text' => 'Usuarios',
             'route' => 'admin.users.index',
             'icon' => 'fas fa-users fa-fw',
-            // 'can'  => 'admin.users.index',
+            'can'  => 'admin.users.index',
         ],
 
         [
             'text' => 'Lista de roles',
             'route' => 'admin.roles.index',
             'icon' => 'fas fa-users-cog fa-fw',
-            //'can'  => 'admin.roles.index',
+            // 'can'  => 'admin.roles.index',
         ],
 
         // ['header' => 'ADMINISTRADOR'],
