@@ -322,8 +322,7 @@ return [
             'text' => 'Usuarios',
             'route' => 'admin.users.index',
             'icon' => 'fas fa-users fa-fw',
-            //'can'  => 'admin.users.index',
- 
+            'can'  => 'admin.users.index',
         ],
 
         [
@@ -338,7 +337,7 @@ return [
             'text' => 'Servicios',
             'route'  => 'admin.servicios.index',
             'icon' => 'fas fa-user-nurse fa-fw',
-            'can'  => 'admin.servicios.index',
+            //'can'  => 'admin.servicios.index',
         ],
         [
             'text' => 'Clientes',
