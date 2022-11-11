@@ -2,9 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\CitaController;
+use App\Http\Controllers\PostController;
 
-Route::get('/', [CitaController::class, 'index'])->name('citas.index');
+Route::get('/', [PostController::class, 'index'])->name('posts.index');
 
 Route::middleware([
     'auth:sanctum',

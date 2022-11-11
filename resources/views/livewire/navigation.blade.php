@@ -46,16 +46,11 @@
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                         {{-- <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                             aria-current="page">Dashboard</a> --}}
-                        @foreach ($servicios as $servicio)
+                        @foreach ($categories as $category)
                             <a href="#"
-                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">{{ $servicio->nombre }}</a>
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">{{ $category->name }}</a>
                         @endforeach
 
-                        {{-- <a href="#"
-                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
-
-                        <a href="#"
-                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calendar</a> --}}
                     </div>
                 </div>
             </div>
@@ -110,9 +105,6 @@
                                     role="menuitem" tabindex="-1" id="user-menu-item-0">Dashboard</a>
                             @endcan
 
-                            {{-- <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
-                                id="user-menu-item-1">Settings</a> --}}
-
                             <form method="POST" action="{{ route('logout') }}" x-data>
                                 @csrf
                                 <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm text-gray-700"
@@ -148,16 +140,11 @@
             {{-- <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
                 aria-current="page">Dashboard</a> --}}
 
-            @foreach ($servicios as $servicio)
+            @foreach ($categories as $category)
                 <a href="#"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{{ $servicio->nombre }}</a>
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{{ $category->name }}</a>
             @endforeach
 
-            {{-- <a href="#"
-                class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
-
-            <a href="#"
-                class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a> --}}
         </div>
     </div>
 </nav>
