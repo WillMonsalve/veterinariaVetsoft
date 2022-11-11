@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    
+
     @can('admin.servicios.create')
         <a class="btn btn-success btn-sm float-right" href="{{route('admin.servicios.create')}}">Agregar Servicio</a>
     @endcan
@@ -27,8 +27,9 @@
                     <tr>
                         <th>ID</th>
                         <th>Nombre</th>
-                        <th>Precio</th>
+                        <th>Descripción</th>
                         <th>Duracion</th>
+                        <th>Estado</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
@@ -38,9 +39,17 @@
                         <tr>
                             <th>{{$servicio->id}}</th>
                             <th>{{$servicio->nombre}}</th>
-                            <th>{{$servicio->precio}}</th>
+                            <th>{{$servicio->descripcion}}</th>
                             <th>{{$servicio->duracion}}</th>
-                            
+                            <td>
+                                @if($servicio->estado == '2')
+                                <span class="text-danger">Inctivo</span>
+                                @else
+                                <span class="text-success">Activo</span>
+                                @endif
+
+                            </td>
+
                             <th width= "10px">
                                 @can('admin.servicios.edit')
                                     <a class="btn btn-primary btn-sm" href="{{route('admin.servicios.edit', $servicio)}}">Editar</a>
@@ -49,7 +58,7 @@
                             <th width= "10px">
                                 @can('admin.servicios.destroy')
                                     <form action="{{route('admin.servicios.destroy', $servicio)}}" method="POST">
-                                        @csrf                                
+                                        @csrf
                                         @method('delete')
 
                                         <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
@@ -57,8 +66,8 @@
                                 @endcan
                             </th>
                         </tr>
-                        
-                        
+
+
                     @endforeach
                 </tbody>
             </table>

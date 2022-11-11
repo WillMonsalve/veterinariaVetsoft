@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use App\Models\Agenda;
 use Illuminate\Http\Request;
@@ -15,73 +15,65 @@ class AgendaController extends Controller
      */
     public function index()
     {
+        $days =[
+            'Lunes',
+            'Martes',
+            'Miercoles',
+            'Jueves',
+            'Viernes',
+            'Sabado',
+            'Domingo'
+        ];
         $agendas = Agenda::all();
-        return view('admin.agendas.index', compact('agendas'));
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+        return view('admin.agendas.index', compact('days','agendas',));
+    }
     public function create()
     {
-        return view('admin.agendas.create');
+
+
+        return view('admin.agendas.create',);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'estado' => 'required',
+            'morning_start' => 'required',
+            'morning_end' => 'required',
+            'afternoon_start' => 'required',
+            'afternoon_end' => 'required'
+            ]);
+        return redirect()->route('admin.agendas.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Agenda $agenda)
-    {
-        return view('admin.agendas.show', compact('agenda'));
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Agenda $agenda)
     {
-        return view('admin.agendas.edit', compact('agenda'));
+        return view('admin.agendas.edit', compact('Agenda'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Agenda $agenda)
-    {
-        //
-    }
+    public function update(Request $request, agenda $agenda)
+{
+    $request->validate([
+        'active' => 'required',
+        'morning_start' => 'required',
+        'morning_end' => 'required',
+        'afternoon_start' => 'required',
+        'afternoon_end' => 'required'
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Agenda $agenda)
-    {
-        //
-    }
+    ]);
+
+    $agenda->update($request->all());
+
+    return redirect()->route('admin.agendas.index', $agenda)->with('info', 'El agendas se actualizo con exito');
+}
+public function destroy(Agenda $agenda)
+{
+    $agenda->delete();
+
+    return redirect()->route('admin.agendas.index')->with('info', 'El agendas se elimino con exito');;
+}
+
+
 }

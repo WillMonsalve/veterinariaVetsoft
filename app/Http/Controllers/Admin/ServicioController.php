@@ -8,7 +8,7 @@ use App\Models\Servicio;
 
 class ServicioController extends Controller
 {
-    
+
     public function __construct()
     {
          $this->middleware('can:admin.servicios.index')->only('index');
@@ -36,7 +36,7 @@ class ServicioController extends Controller
     {
         $request->validate([
             'nombre' => 'required',
-            'precio' => 'required',
+            'descripcion'=>'nullable',
             'duracion' => 'required'
         ]);
 
@@ -45,13 +45,13 @@ class ServicioController extends Controller
         return redirect()->route('admin.servicios.index', $servicio)->with('info', 'El servicio se creo con exito');
     }
 
-   
+
    /*  public function show(Servicio $servicio)
     {
         return view('admin.servicios.show', compact('servicio'));
     } */
 
-   
+
     public function edit(Servicio $servicio)
     {
         return view('admin.servicios.edit', compact('servicio'));
@@ -62,7 +62,7 @@ class ServicioController extends Controller
     {
         $request->validate([
             'nombre' => 'required',
-            'precio' => 'required',
+            'descripcion' => 'nullable',
             'duracion' => 'required'
         ]);
 
@@ -71,7 +71,7 @@ class ServicioController extends Controller
         return redirect()->route('admin.servicios.edit', $servicio)->with('info', 'El servicio se actualizo con exito');
     }
 
-   
+
     public function destroy(Servicio $servicio)
     {
         $servicio->delete();
