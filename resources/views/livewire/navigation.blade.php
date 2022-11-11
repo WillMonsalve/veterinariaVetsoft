@@ -40,9 +40,9 @@
                 {{-- logotipo --}}
                 <a href="/" class="flex flex-shrink-0 items-center">
                     <img class="block h-8 w-auto lg:hidden"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+                        src='vendor/adminlte/dist/img/logo.png' alt="Your Company">
                     <img class="hidden h-8 w-auto lg:block"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+                        src="vendor/adminlte/dist/img/logo.png" alt="Your Company">
                 </a>
                 {{-- Menu lg --}}
                 <div class="hidden sm:ml-6 sm:block">
@@ -100,7 +100,7 @@
                             To: "transform opacity-0 scale-95"
                     -->
                         <div x-show="open" x-on:click.away="open = false"
-                            class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                            class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-success ring-opacity-5 focus:outline-none"
                             role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
 
                             <!-- Active: "bg-gray-100", Not Active: "" -->
