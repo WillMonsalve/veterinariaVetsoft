@@ -16,7 +16,7 @@ class ServicioFactory extends Factory
     {
         return [
             'nombre' => $this->faker->name(),
-            'precio' => $this->faker->randomFloat(2, 1, 1000000),
+            'descripcion' => $this->faker->randomFloat(2, 1, 1000000),
             'duracion' => $this->faker->time()
         ];
     }

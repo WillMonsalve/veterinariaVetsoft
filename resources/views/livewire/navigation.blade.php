@@ -36,9 +36,9 @@
                 {{-- logotipo --}}
                 <a href="/" class="flex flex-shrink-0 items-center">
                     <img class="block h-8 w-auto lg:hidden"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+                        src='vendor/adminlte/dist/img/logo.png' alt="Your Company">
                     <img class="hidden h-8 w-auto lg:block"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+                        src="vendor/adminlte/dist/img/logo.png" alt="Your Company">
                 </a>
                 {{-- Menu lg / Menu de categorias o servicios--}}
                 <div class="hidden sm:ml-6 sm:block">
@@ -46,16 +46,11 @@
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                         {{-- <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                             aria-current="page">Dashboard</a> --}}
-                        @foreach ($servicios as $servicio)
+                        @foreach ($categories as $category)
                             <a href="#"
-                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">{{ $servicio->nombre }}</a>
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">{{ $category->name }}</a>
                         @endforeach
 
-                        {{-- <a href="#"
-                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
-
-                        <a href="#"
-                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calendar</a> --}}
                     </div>
                 </div>
             </div>
@@ -97,7 +92,7 @@
                                 To: "transform opacity-0 scale-95"
                         -->
                         <div x-show="open" x-on:click.away="open = false"
-                            class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                            class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-success ring-opacity-5 focus:outline-none"
                             role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
 
                             <!-- Active: "bg-gray-100", Not Active: "" -->
@@ -109,9 +104,6 @@
                                 <a href="{{ route('admin.home') }}" class="block px-4 py-2 text-sm text-gray-700"
                                     role="menuitem" tabindex="-1" id="user-menu-item-0">Dashboard</a>
                             @endcan
-
-                            {{-- <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
-                                id="user-menu-item-1">Settings</a> --}}
 
                             <form method="POST" action="{{ route('logout') }}" x-data>
                                 @csrf
@@ -148,16 +140,11 @@
             {{-- <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
                 aria-current="page">Dashboard</a> --}}
 
-            @foreach ($servicios as $servicio)
+            @foreach ($categories as $category)
                 <a href="#"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{{ $servicio->nombre }}</a>
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{{ $category->name }}</a>
             @endforeach
 
-            {{-- <a href="#"
-                class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
-
-            <a href="#"
-                class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a> --}}
         </div>
     </div>
 </nav>
