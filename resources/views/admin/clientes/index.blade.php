@@ -31,7 +31,7 @@
                 <tbody>
                     @foreach ($clientes as $cliente)
                         <tr>
-                            {{-- <td>{{$cliente->id}}</td> --}}
+                            <td>{{$cliente->id}}</td>
                             <td>{{$cliente->nombre}}</td>
                             <td>{{$cliente->apellido}}</td>
                             <td>{{$cliente->direccion}}</td>
