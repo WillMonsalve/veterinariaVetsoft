@@ -43,28 +43,19 @@
                             <th>{{$servicio->duracion}}</th>
                             <td>
                                 @if($servicio->estado == '2')
-                                <span class="text-danger">Inctivo</span>
+                                <span class="btn btn-danger">Inctivo</span>
                                 @else
-                                <span class="text-success">Activo</span>
+                                <span class="btn btn-success">Activo</span>
                                 @endif
 
                             </td>
 
-                            <th width= "10px">
+                            <th width= "20px">
                                 @can('admin.servicios.edit')
                                     <a class="btn btn-primary btn-sm" href="{{route('admin.servicios.edit', $servicio)}}">Editar</a>
                                 @endcan
                             </th>
-                            <th width= "10px">
-                                @can('admin.servicios.destroy')
-                                    <form action="{{route('admin.servicios.destroy', $servicio)}}" method="POST">
-                                        @csrf
-                                        @method('delete')
 
-                                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                                    </form>
-                                @endcan
-                            </th>
                         </tr>
 
 
