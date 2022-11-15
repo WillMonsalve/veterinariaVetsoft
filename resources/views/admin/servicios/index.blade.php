@@ -5,6 +5,7 @@
 @section ('css')
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap4.min.css">
  @endsection
 
@@ -50,28 +51,19 @@
                             <th>{{$servicio->duracion}}</th>
                             <td>
                                 @if($servicio->estado == '2')
-                                <span class="btn btn-danger">Inctivo</span>
+                                <span class="btn btn-danger"><i class="bi bi-toggle-off"></i></span>
                                 @else
-                                <span class="text-success">Activo</span>
+                                <span class="btn btn-success"><i class="bi bi-toggle-on"></i></span>
                                 @endif
 
                             </td>
 
                             <th width= "20px">
                                 @can('admin.servicios.edit')
-                                    <a class="btn btn-success " href="{{route('admin.servicios.edit', $servicio)}}"><i class="bi bi-pencil-square"></i></a>
+                                    <a class="btn btn-info " href="{{route('admin.servicios.edit', $servicio)}}"><i class="bi bi-pencil-square"></i></a>
                                 @endcan
                             </th>
-                            <th width= "10px">
-                                @can('admin.servicios.destroy')
-                                    <form action="{{route('admin.servicios.destroy', $servicio)}}" method="POST">
-                                        @csrf
-                                        @method('delete')
-
-                                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                                    </form>
-                                @endcan
-                            </th>
+                
                         </tr>
 
 

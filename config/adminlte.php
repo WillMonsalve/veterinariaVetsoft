@@ -352,7 +352,7 @@ return [
         ],
         [
             'text' => 'Agendas',
-            'route'  => 'admin.agendas.index',
+            'route'  => 'admin.agendas.edit',
             'icon' => 'fas fa-calendar-alt fa-fw',
             //'can'  => 'admin.agendas.index',
         ],
