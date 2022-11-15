@@ -291,7 +291,7 @@ return [
 
     'menu' => [
         // Navbar items:
-        [
+        [ 
             'type'         => 'navbar-search',
             'text'         => 'search',
             'topnav_right' => true,
@@ -312,6 +312,7 @@ return [
             'can'  => 'manage-blog',
         ],
         [
+            
             'text'  => 'Dashboard',
             'route' => 'admin.home',
             'icon'  => 'fas fa-tachometer-alt fa-fw',
@@ -322,7 +323,11 @@ return [
             'text' => 'Usuarios',
             'route' => 'admin.users.index',
             'icon' => 'fas fa-users fa-fw',
+
+ 
+
             //'can'  => 'admin.users.index',
+
         ],
 
         [

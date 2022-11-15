@@ -45,7 +45,14 @@
                     @foreach ($citas as $cita)
                         <tr>
                             <th>{{$cita->id}}</th>
-                            <th>{{$cita->estado}}</th>
+                            <td>
+                                @if($cita->estado == '2')
+                                <span class="btn btn-danger">Inctivo</span>
+                                @else
+                                <span class="btn btn-success">Activo</span>
+                                @endif
+
+                            </td>
                             <th>{{$cita->fecha}}</th>
                             <th>{{$cita->hora}}</th>
                             <th>{{$cita->servicio_id}}</th>

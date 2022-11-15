@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Cita;
+use App\Models\Cliente;
+use App\Models\Servicio;
 
 class CitaController extends Controller
 {
@@ -28,7 +30,9 @@ class CitaController extends Controller
 
     public function create()
     {
-        return view('admin.citas.create');
+        $servicios = Servicio::all();
+        $cliente = Cliente::all();
+        return view('admin.citas.create', compact('servicios'),compact('cliente'));
     }
 
 
