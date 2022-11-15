@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+
 
 class PostController extends Controller
 {
     
     public function index()
     {
-        $posts = Post::where('estado', 2)->get();
+        $posts = Post::where('estado', 2)->latest('id')->paginate(8);
 
         return view('posts.index', compact('posts'));
     }
@@ -27,9 +29,9 @@ class PostController extends Controller
     }
 
     
-    public function show($id)
+    public function show(Post $post)
     {
-        //
+        return view('posts.show', compact('post'));
     }
 
     
