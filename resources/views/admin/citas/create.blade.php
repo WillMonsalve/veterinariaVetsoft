@@ -17,37 +17,48 @@
         <div class="card-body">
             {!! Form::open(['route' => 'admin.citas.store']) !!}
 
+            <div class="form-group">
+                <label for="name">Estado Cita</label>
+                <select class="form-control" name="estado" id="estado" >
+                    <option value="1">Activo</option>
+                    <option value="2">Inactivo</option>
+                </select>
+
+            </div>
+
+            <div class="form-group">
+                <label for="name">Servicios</label>
+                <select name="" id="" class="form-control">
+                @foreach ($servicios as $servicio)
+                    <option value="{{$servicio->servicio_id}}">{{$servicio->nombre}}</option>
+                @endforeach
+                </select>
+
+                @error('servicio')
+                <span class="text-danger">{{$message}}</span>
+                @enderror
+
+               </div>
+
                 <div class="form-group">
-                    {!! Form::label('estado', 'Estado') !!}
-                    {!! Form::text('estado', null, ['class' => 'form-control', 'placeholder' => 'Estado']) !!}
+                    <label for="fecha">Fecha</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                        </div>
+                        <input class="form-control datepicker" placeholder="Seleccionar Fecha" type="text" value="{{date('Y-m-d')}}"
+                        data-date-format="yyyy-mm-dd" data-date-start-date="{{date ('Y-m-d')}}" data-date-end-date="+30d">
+                        </div>
 
-                    @error('estado')
-                        <span class="text-danger">{{$message}}</span>
-                    @enderror
-
-                </div>
-                <div class="form-group">
-                    {!! Form::label('servicio', 'Servicio') !!}
-                    {!! Form::number('servicio', null, ['class' => 'form-control', 'placeholder' => 'Servicio']) !!}
-
-
-                    @error('servicio')
-                    <span class="text-danger">{{$message}}</span>
-                    @enderror
-
-                </div>
-
-                <div class="form-group">
-                    {!! Form::label('fecha', 'Fecha') !!}
-                    {!! Form::date('fecha', null, ['class' => 'form-control', 'placeholder' => 'Fecha']) !!}
 
                     @error('fecha')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
-
                 </div>
+
+
                 <div class="form-group">
-                    {!! Form::label('hora', 'Tiempo') !!}
+                    {!! Form::label('hora', 'Hora') !!}
                     {!! Form::time('hora', null, ['class' => 'form-control', 'placeholder' => 'Hora']) !!}
 
                     @error('hora')
@@ -56,14 +67,18 @@
 
                 </div>
                 <div class="form-group">
-                    {!! Form::label('cliente', 'Cliente') !!}
-                    {!! Form::text('cliente', null, ['class' => 'form-control', 'placeholder' => 'Cliente']) !!}
+                    <label for="name">Cliente</label>
+                    <select name="" id="" class="form-control">
+                    @foreach ($cliente as $clientes)
+                        <option value="{{$clientes->cliente_id}}">{{$clientes->nombre}}</option>
+                    @endforeach
+                    </select>
 
                     @error('cliente')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
 
-                </div>
+                   </div>
 
                 {!! Form::submit('Crear Cita', ['class' => 'btn btn-primary']) !!}
 
@@ -80,6 +95,7 @@
 @section('js')
 
     <script src="{{asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}"></script>
+    <script src="{{asset('vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 
     <script>
         $(document).ready( function() {
@@ -92,3 +108,4 @@
     </script>
 
 @endsection
+
