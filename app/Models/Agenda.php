@@ -2,24 +2,11 @@
 
 namespace App\Models;
 
-use App\Models\Cita;
-use App\Models\User;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Agenda extends Model
+class agenda extends Model
 {
+    
     use HasFactory;
-
-    //Relacion uno a muchos inversa
-    public function users()
-    {
-        return $this->belongsTo(User::class);
-    }
-
-    //Relacion muchos a muchos
-
-    public function Citas(){
-        return $this->belongsToMany(Cita::class);
-    }
 }
