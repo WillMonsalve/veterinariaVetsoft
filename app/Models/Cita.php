@@ -12,6 +12,8 @@ class Cita extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['cita'];
+
     //Relacion uno a muchos inversa
     public function Servicios(){
         return $this->belongsTo(Servicio::class);

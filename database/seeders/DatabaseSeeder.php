@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
         Tag::factory(8)->create();
         Servicio::factory(4)->create();
         $this->call(PostSeeder::class);
+        
         Cliente::factory(8)->create();
         
         $this->call(RoleSeeder::class);

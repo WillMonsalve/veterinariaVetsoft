@@ -3,14 +3,14 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\Servicio;
+use App\Models\Category;
 
 class Navigation extends Component
 {
     public function render()
     {
-        $servicios = Servicio::all();
+        $categories = Category::all();
 
-        return view('livewire.navigation', compact('servicios'));
+        return view('livewire.navigation', compact('categories'));
     }
 }
