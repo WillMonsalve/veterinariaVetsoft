@@ -43,7 +43,8 @@
                                 <a class="btn btn-primary btn-sm" href="{{route('admin.clientes.edit', $cliente)}}"><i class="fas fa-pen-fancy"></i></a>
                             </td>
                            <td>
-                                <button class="btn btn-info btn-sm" type="submit"> + Mascota</button>
+                                <input type ='button' class="btn btn-info btn-sm"  value = '+ Mascota' onclick="location.href = '{{ route('admin.mascotas.index')}}'"/>
+                                <!-- <button class="btn btn-info btn-sm" type="submit"> + Mascota</button> -->
                             </td>
                             <td width="10px">
                                 <form action="{{route('admin.clientes.destroy', $cliente)}}" method="POST">

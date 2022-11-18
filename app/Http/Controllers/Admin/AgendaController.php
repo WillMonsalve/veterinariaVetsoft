@@ -4,11 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\agenda;
+use App\Models\Agenda;
+
 
 class AgendaController extends Controller
 {
-    public function edit(){
+    public function index(){
         $days =[
             'Lunes',
             'Martes',
@@ -20,6 +21,6 @@ class AgendaController extends Controller
         ];
         $agendas = Agenda::all();
 
-        return view('admin.agendas.edit', compact('days'));
+        return view('admin.agendas.index', compact('days'));
     }
 }
