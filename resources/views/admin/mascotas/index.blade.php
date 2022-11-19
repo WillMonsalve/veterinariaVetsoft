@@ -15,7 +15,7 @@
 @stop
 
 @section('content')
-     <h1>.</h1>
+     <h5>.</h5>
     {{-- <p>Mascotas</p> --}}
      <div class="row">
         <div class="col">
