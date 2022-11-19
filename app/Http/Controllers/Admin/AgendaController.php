@@ -5,7 +5,6 @@ use App\Models\User;
 use App\Http\Controllers\Controller;
 use App\Models\Agenda;
 use Illuminate\Http\Request;
-use App\Models\Agenda;
 
 
 class AgendaController extends Controller
