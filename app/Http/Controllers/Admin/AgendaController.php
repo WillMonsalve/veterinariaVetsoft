@@ -50,7 +50,7 @@ class AgendaController extends Controller
 
     public function edit(Agenda $agenda)
     {
-        return view('admin.agendas.edit', compact('Agenda'));
+        return view('admin.agendas.index', compact('Agenda'));
     }
 
     public function update(Request $request, agenda $agenda)

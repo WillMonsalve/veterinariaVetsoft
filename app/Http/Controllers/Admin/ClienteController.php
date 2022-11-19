@@ -70,6 +70,8 @@ class ClienteController extends Controller
     
     public function destroy(Cliente $cliente)
     {
-        //
+        $cliente->delete();
+
+        return redirect()->route('admin.cliente.index')->with('info', 'El servicio se elimino con exito');
     }
 }
