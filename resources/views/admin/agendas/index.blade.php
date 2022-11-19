@@ -18,7 +18,7 @@
  @endsection
 
 @can('admin.servicios.create')
-    <a class="btn btn-success btn-sm float-right" href="{{route('admin.agendas.create')}}">+horario</a>
+    <a class="btn btn-success btn-sm float-right" href="{{route('admin.agendas.create')}}">Horario <i class="bi bi-calendar-plus"></i></a>
 @endcan
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 <h1>Lista de agenda</h1>
