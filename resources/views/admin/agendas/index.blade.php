@@ -1,26 +1,29 @@
 @extends('adminlte::page')
-@section('content_header')
+
+@section('title', 'Lista de agendas')
+
+@section ('css')
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+ <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+ <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap4.min.css">
+ @endsection
+
+ @section('content_header')
+ @section ('css')
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+ <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+ <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap4.min.css">
+ @endsection
+
+@can('admin.servicios.create')
+    <a class="btn btn-success btn-sm float-right" href="{{route('admin.agendas.create')}}">+horario</a>
+@endcan
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-
-
-
-    <h1>Lista de horarios</h1>
-    <div class="row card-body">
-                    <div class="col-6">
-                        <div class="form-group ">
-                            <label for="">rol</label>
-                            <select name="caracteristicas" id="caracteristicas" class="form-control">
-                            <option value="">SELECCIONE</option>
-                            <option value="">VETERINARIO</option>
-                                <option value="">ASISTENTE</option>
-                            </select>
-                        </div>
-                    </div>
-                 
+<h1>Lista de agenda</h1>
 @stop
-
 @section('content')
-
 
     @if (session('info'))
     <div class="alert alert-success">
@@ -28,104 +31,70 @@
     </div>
     @endif
 
-<form action="">
     <div class="card">
-    <!-- {!! Form::open(['route' => 'admin.agendas.store']) !!} -->
-    <div class="card-body">
 
-            <table class="table table-striped">
+        <div class="card-body">
+            <table id="usuarios" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                 <thead>
                     <tr>
-
-                        <th>Dia</th>
-                        <th>Disponibilidad</th>
-                        <th>Turno mañana</th>
-                        <th>Turno tarde</th>
-
-
-
-
+                    <th>ID</th>
+                    <th>Usuario</th>
+                        <th>Fecha inicio</th>
+                        <th>Fecha final</th>
+                        <th>Hora inicio</th>
+                        <th>hora intermedia mañana</th>
+                        <th>hora intermedia tarde</th>
+                        <th>Hora final</th>
+                        <th>Opciones</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
 
                 <tbody>
-                  @foreach ($days as $day)
+            
+                        @foreach ($agendas as $agenda)
+                        <tr> 
+                            <th>{{$agenda->id}}</th>
+                            <th>{{$agenda->user_id}}</th>
+                            <th>{{$agenda->fecha_inicio}}</th>
+                            <th>{{$agenda->fecha_final}}</th>
+                            <th>{{$agenda->hora_inicio}}</th>
+                            <th>{{$agenda->hora_intermedia_mañana}}</th>
+                            <th>{{$agenda->hora_intermedia_tarde}}</th>
+                            <th>{{$agenda->hora_final}}</th>
+                            
+                           
 
-                    <th>{{$day}}</th>
-                    <td>
-                    <div class="form-group">
+                            <td width="10px">
+                               <form action="{{route('admin.agendas.destroy', $agenda)}}" method="POST">
+                                @csrf
+                                @method('DELETE')
 
-                            <select class="form-control" name="estado" id="estado" >
-                                <option value="1">Activo</option>
-                                <option value="2">Inactivo</option>
-                            </select>
-
-                        </div>
-                    </td>
-                    <td>
-                    <div class= "row">
-                        <div class="col">
-                            <select class="form-control" name="morning_start[]">
-                                @for ($i=8; $i<=11; $i++)
-                                <option value="{{$i+12}}:00">{{$i}}:00 AM</option>
-                                <option value="{{$i+12}}:30">{{$i}}:30 AM</option>
-
-                                @endfor
-                            </select>
-                        </div>
-                             <div class="col">
-                            <select class="form-control" name="morning_end[]">
-                                @for ($i=8; $i<=11; $i++)
-                                <option value="{{$i+12}}:00">{{$i}}:00 AM</option>
-                                <option value="{{$i+12}}:30">{{$i}}:30 AM</option>
-
-                                @endfor
-                            </select>
-                        </div>
-
-                    </div>
-                    </td>
-                    <td>
-                    <div class= "row">
-                        <div class="col">
-                            <select class="form-control" name="afternoon_start[]">
-                                @for ($i=2; $i<=11; $i++)
-                                <option value="{{$i+12}}:00">{{$i}}:00 PM</option>
-                                <option value="{{$i+12}}:30">{{$i}}:30 PM</option>
-
-                                @endfor
-                            </select>
-                        </div>
-                             <div class="col">
-                            <select class="form-control" name="afternoon_end[]">
-                                @for ($i=2; $i<=11; $i++)
-                                <option value="{{$i+12}}:00">{{$i}}:00 PM</option>
-                                <option value="{{$i+12}}:30">{{$i}}:30 PM</option>
-
-                                @endfor
-                            </select>
-                        </div>
-
-                    </div>
-                    </td>
-                  </tr>
+                                    <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-fw fa-trash"></i></button>
+                               </form>
+                            </td>
+                
+                        </tr>
 
 
-                  @endforeach
+                    @endforeach
                 </tbody>
             </table>
-
-
-
-
-
-
         </div>
     </div>
-    <!-- {!! Form::submit('AGENDAR', ['class' => "btn btn-outline-success"]) !!}
-     {!! Form::close() !!} -->
-     </form>
-
 @stop
+@section('js')
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap4.min.js"></script>
+<script>
+    $('#usuarios').DataTable({
+        responsive: true,
+        autoWidth: false
+    });
+</script>
+
+@endsection
 

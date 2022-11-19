@@ -29,6 +29,3 @@ Route::resource('historias', HistoriaController::class)->names('admin.historias'
 Route::resource('mascotas', MascotaController::class)->names('admin.mascotas');
 
 
-Route::group(['middleware' => ['auth', 'admin']], function(){
-    Route::get('/agendas', [App\Http\Controllers\Admin\AgendaController::class, 'edit']);
-});
