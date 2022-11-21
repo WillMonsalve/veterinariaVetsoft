@@ -15,7 +15,7 @@ return [
     */
 
     'title' => '',
-    'title_prefix' => 'Vetsoft | ',
+    'title_prefix' => 'VETSOFT | ',
     'title_postfix' => '',
 
     /*
@@ -63,8 +63,8 @@ return [
     |
     */
 
-    'logo' => '<b>Vet</b>SOFT',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => 'VETSOFT',
+    'logo_img' => 'vendor/adminlte/dist/img/logo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -107,9 +107,9 @@ return [
     */
 
     'preloader' => [
-        'enabled' => true,
+        'enabled' => false,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+            'path' => 'vendor/adminlte/dist/img/logo.png',
             'alt' => 'AdminLTE Preloader Image',
             'effect' => 'animation__shake',
             'width' => 60,
@@ -291,7 +291,7 @@ return [
 
     'menu' => [
         // Navbar items:
-        [
+        [ 
             'type'         => 'navbar-search',
             'text'         => 'search',
             'topnav_right' => true,
@@ -312,24 +312,29 @@ return [
             'can'  => 'manage-blog',
         ],
         [
+            
             'text'  => 'Dashboard',
             'route' => 'admin.home',
             'icon'  => 'fas fa-tachometer-alt fa-fw',
-            // 'can'  => 'admin.home',
+            //'can'  => 'admin.home',
         ],
 
         [
             'text' => 'Usuarios',
             'route' => 'admin.users.index',
             'icon' => 'fas fa-users fa-fw',
-            // 'can'  => 'admin.users.index',
+
+ 
+
+            //'can'  => 'admin.users.index',
+
         ],
 
         [
             'text' => 'Lista de roles',
             'route' => 'admin.roles.index',
             'icon' => 'fas fa-users-cog fa-fw',
-            //'can'  => 'admin.roles.index',
+            // 'can'  => 'admin.roles.index',
         ],
 
         // ['header' => 'ADMINISTRADOR'],

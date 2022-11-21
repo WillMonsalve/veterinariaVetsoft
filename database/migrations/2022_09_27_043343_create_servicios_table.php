@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nombre', 45);
             $table->string('descripcion',100)->nullable();
             $table->time('duracion');
-            $table->integer('estado');
+            $table->enum('estado', [1, 2]);
             $table->timestamps();
         });
     }

@@ -22,7 +22,7 @@ class RoleSeeder extends Seeder
         $role4 = Role::create(['name' => 'cliente']);
 
         Permission::create(['name' => 'admin.home',
-                            'description' => 'Ver el dashboard'])->syncRoles([$role1, $role2, $role3, $role4]);
+                            'description' => 'Ver dashboard'])->syncRoles([$role1, $role2, $role3, $role4]);
 
         Permission::create(['name' => 'admin.users.index',
                             'description' => 'Ver listado de usuarios'])->syncRoles([$role1, $role2, $role3, $role4]);
