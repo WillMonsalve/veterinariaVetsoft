@@ -46,7 +46,7 @@
                         <th>hora intermedia tarde</th>
                         <th>Hora final</th>
                         <th>Opciones</th>
-                        <th colspan="2"></th>
+                       
                     </tr>
                 </thead>
 
@@ -55,7 +55,7 @@
                         @foreach ($agendas as $agenda)
                         <tr> 
                             <th>{{$agenda->id}}</th>
-                            <th>{{$agenda->user_id}}</th>
+                            <th>{{$agenda->user_id->name}}</th>
                             <th>{{$agenda->fecha_inicio}}</th>
                             <th>{{$agenda->fecha_final}}</th>
                             <th>{{$agenda->hora_inicio}}</th>

@@ -14,6 +14,6 @@ class agenda extends Model
     protected $fillable=['fecha_inicio', 'fecha_final','hora_inicio','hora_intermedia_mañana','hora_intermedia_tarde','hora_final'];
    
     public function Users(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'user_id');
     }
 }

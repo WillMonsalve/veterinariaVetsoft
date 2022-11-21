@@ -30,6 +30,7 @@ class AgendaController extends Controller
             'hora_intermedia_mañana'=>'required',
             'hora_intermedia_tarde'=>'required',
             'hora_final' => 'required',
+            'user_id'=> 'nullable',
             
            
         ]);
