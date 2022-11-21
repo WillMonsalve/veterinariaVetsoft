@@ -11,13 +11,13 @@ use App\Models\Servicio;
 class CitaController extends Controller
 {
 
-    /* public function __construct()
+    public function __construct()
     {
          $this->middleware('can:admin.citas.index')->only('index');
          $this->middleware('can:admin.citas.create')->only('create', 'store');
          $this->middleware('can:admin.citas.edit')->only('edit', 'update');
          $this->middleware('can:admin.citas.destroy')->only('destroy');
-    } */
+    }
 
 
     public function index()
@@ -32,21 +32,21 @@ class CitaController extends Controller
     {
         $servicios = Servicio::all();
         $cliente = Cliente::all();
-        return view('admin.citas.create', compact('servicios'),compact('cliente'));
+        return view('admin.citas.create', compact('servicios','cliente'));
     }
 
 
     public function store(Request $request)
     {
-        $request->validate([
-            'estado' => 'required',
-            'fecha' => 'required',
-            'hora' => 'required',
-            'servicio' => 'required',
-            'cliente' => 'required',
-        ]);
+        /* $request->validate([
+            'Estado' => 'nullable',
+            'Fecha' => 'nullable',
+            'Hora' => 'required',
+            'servicio' => 'nullable',
+            'cliente' => 'nullable',
+        ]); */
 
-        $cita = Cita::create($request->all());
+        $cita = Cita::create(/* $request->all() */);
 
         return redirect()->route('admin.citas.index', $cita)->with('info', 'La cita se registro con exito');;
     }

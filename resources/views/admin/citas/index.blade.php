@@ -27,11 +27,11 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Estado</th>
+                        <th>Cliente</th>
+                        <th>Servicio</th>
                         <th>Fecha</th>
                         <th>Hora</th>
-                        <th>Servicio</th>
-                        <th>Cliente</th>
+                        <th>Estado</th>
                         <th colspan="2"></th>
 
 
@@ -44,7 +44,11 @@
                 <tbody>
                     @foreach ($citas as $cita)
                         <tr>
+                            <th>{{$cita->cliente_id}}</th>
+                            <th>{{$cita->servicio_id}}</th>
                             <th>{{$cita->id}}</th>
+                            <th>{{$cita->Fecha}}</th>
+                            <th>{{$cita->Hora}}</th>
                             <td>
                                 @if($cita->estado == '2')
                                 <span class="btn btn-danger">Inctivo</span>
@@ -53,28 +57,24 @@
                                 @endif
 
                             </td>
-                            <th>{{$cita->fecha}}</th>
-                            <th>{{$cita->hora}}</th>
-                            <th>{{$cita->servicio_id}}</th>
-                            <th>{{$cita->cliente_id}}</th>
 
 
 
 
                             <th width= "10px">
-                                //@can('admin.citas.edit')
+                                @can('admin.citas.edit')
                                     <a class="btn btn-primary btn-sm" href="{{route('admin.citas.edit', $cita)}}">Editar</a>
-                                //@endcan
+                                @endcan
                             </th>
                             <th width= "10px">
-                                //@can('admin.citas.destroy')
+                                {{--  @can('admin.citas.destroy')
                                     <form action="{{route('admin.cita.destroy', $cita)}}" method="POST">
                                         @csrf
                                         @method('delete')
 
                                         <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                                     </form>
-                                //@endcan
+                                @endcan  --}}
                             </th>
                         </tr>
 
