@@ -11,6 +11,17 @@ class Mascota extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'nombre',
+        'raza',
+        'color',
+        'peso',
+        'especie',
+        'edad',
+        'sexo',
+        
+    ];
+
     //Relacion uno a muchos inversa
     public function Clientes(){
         return $this->belongsTo(Cliente::class);

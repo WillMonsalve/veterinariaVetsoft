@@ -1,153 +1,96 @@
 @extends('adminlte::page')
 
-@section('title', 'Mascota')
-@section ('css')
- <link rel="stylesheet" href="/css/admin_custom.css">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
- <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
- <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap4.min.css">
- @endsection
+@section('title', 'mascotas')
+
+@section('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.0/css/responsive.bootstrap4.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+@endsection
 
 @section('content_header')
-   
-<a class="btn btn-success btn-sm float-right" href="{{route('admin.mascotas.create')}}">Nueva mascota</a>
 
-<h1>Mascotas</h1>
+    <a class="btn btn-success btn-sm float-right" href="{{route('admin.mascotas.create')}}">Nueva mascota</a>
+
+    <h1>mascota</h1>
 @stop
 
 @section('content')
-     
-    {{-- <p>Mascotas</p> --}}
-     <div class="row">
-        <div class="col">
-            <!-- <h3 class="text-center">Mascotas</h3> -->
-            </div>
-            </div>
-            <form action="#" method="post">
-                @csrf
-                <div class="row">
-                    <div class="col-sm-6">
-                        
-                        <div class="card">
-                            <div class="card-head">
-                                {{-- <h4 class="text-center">Información Mascota</h4> --}}
-                            </div>
-                         <div class="row card-body">
-                           <div class="form-group col-6">
-                             <label for="">Nombre</label>
-                             <input type="text" id="nombre" class="form-control" nombre="nombre">
-                           </div>
+    <div class="card">
+        <div class="card-body">
+            <table id="mascotas" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                <thead>
+                    <tr>
+                        {{-- <th>ID</th> --}}
+                        <th>Nombre</th>
+                        <th>Raza</th>
+                        <th>Especie</th>
+                        <th>Propietario</th>
+                        <th>Editar</th>
+                        <th>Ver</th>
+                        <th>Acción</th>
 
-                           <div class="form-group col-6">
-                            <label for="">Raza</label>
-                            <input type="text" class="form-control" raza="raza">
-                           </div>
-                           
-                           <div class="form-group col-6">
-                            <label for="">Especie</label>
-                            <input type="text" class="form-control" especie="especie">
-                           </div>
+                    </tr>
+                </thead>
 
-                           <div class="form-group col-6">
-                            <label for="">Sexo</label>
-                            <input type="text" class="form-control" sexo="sexo">
-                           </div>
-
-                         </div>
-                         </div>
-
-                         <table class="table">
-                            <thead>
-                              <tr>
-                                <th>Mascota</th>
-                                <th>Propietario</th>
-                                <th>Opciones</th>
-
-                              </tr>
-                            </thead>
-                            <tbody id="tblmascotas">
-                              <tr>
-                                <td>firulais</td>
-                                <td>Fabiana</td>
-                                <td>Activo</td>
-                              </tr>
-    
-                            </tbody>
-                        </table>
-
-                    </div>
-                <div class="col-sm-6">
-                    
-                    <div class="card">
-                        <div class="card-head">
-                            {{-- <h4 class="text-center">Detalle propietario</h4> --}}
-                    </div>
-
-                         <div class="row card-body">
-                           <div class="form-group col-6">
-                             <label for="">Color</label>
-                             <input type="text" class="form-control" color="color">
-                           </div>
-
-                            <div class="form-group col-6">
-                            <label for="">Peso</label>
-                            <input type="text" class="form-control" peso="peso">
-                            </div>
-
-                            <div class="form-group col-6">
-                            <label for="">Edad</label>
-                            <input type="text" class="form-control" edad="edad">
-                            </div>
-
-                            <div class="col-12">
-                            <button onclick="agregar_mascota()" type="button" class=" btn btn-info float-right">Verificar</button>
-                            </div>
-
-                        </div>
-                    </div>
-                    
-                </div>
-            </form>
+                <tbody>
+                                           
+                    @foreach ($mascotas as $mascota)
+                   
+                    <tr>
+                            {{-- <td>{{$cliente->id}}</td> --}}
+                            <td>{{$mascota->nombre}}</td>
+                            <td>{{$mascota->raza}}</td>
+                            <td>{{$mascota->especie}}</td>
+                            <td>{{$mascota->cliente_id}}</td>
+                            
+                            <td>
+                               <a class="btn btn-primary btn-sm" href="{{route('admin.mascotas.edit', $mascota)}}"><i class="bi bi-pen"></i></a>
+                            </td>
+                                                                                    
+                            <td>
+                                <a class="btn btn-warning btn-sm" href="{{route('admin.mascotas.show', $mascota)}}"><i class="bi bi-eye"></i></a>
+                            </td>
+                            
+                            <td>
+                               <form action="{{route('admin.clientes.destroy', $mascota)}}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-success btn-sm" type="submit">Activo</button>
+                               </form>
+                            </td>
+                        </tr>                                     
+                      @endforeach
+                    </tbody>
+            </table>
+        </div>
+    </div>
 @stop
-
-@section("script")
-<script>
-      function agregar_mascota(){
-        let mascota_id = $('#agregar_mascota').val();
-        let mascota_text = $('#agregar_mascota').text();
-        let nombre = $('#nombre').val();
-
-          $("#tblmascotas").append(`
-              <tr>
-                
-                <td>
-                    <input type="hidden" name="mascota_id[]" value="${mascota_id}" />
-                    <input type="hidden" name="nombre[]" value="${nombre}" />
-
-                    ${mascota_text}}
-                    
-                </td>
-                <td> ${nombre} </td>
-                <td>
-                    <button class="btn btn-danger btn-sm">X</button>
-                </td>
-
-                             
-              </tr>
-            `)
-
-
-      }
-</script>
-@endsection
-
 
 @section('js')
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap4.min.js"></script>
-    <script> console.log('Hi!'); 
-    
-@stop
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.4.0/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.4.0/js/responsive.bootstrap4.min.js"></script>
+<script>
+    $('#mascotas').DataTable({
+        responsive:true,
+        autoWidth: false,
+       
+        "language": {
+            "lengthMenu": "Mostrar _MENU_ registros por página",
+            "zeroRecords": "Nada encontrado - disculpa",
+            "info": "Mostrando la página _PAGE_ de _PAGES_",
+            "infoEmpty": "No records available",
+            "infoFiltered": "(filtrado de _MAX_ registros totales)",
+            'search': 'Buscar:',
+            'paginate':{
+                'next':'Siguiente',
+                'previous':'Anterior'
+            }
+        }
+    });
+</script>
+@endsection
