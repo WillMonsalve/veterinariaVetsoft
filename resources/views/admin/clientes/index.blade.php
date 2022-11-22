@@ -2,6 +2,13 @@
 
 @section('title', 'clientes')
 
+@section('css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.0/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+@endsection
+
 @section('content_header')
 
 
@@ -19,25 +26,27 @@
                         {{-- <th>ID</th> --}}
                         <th>Nombre</th>
                         <th>Apellido</th>
-                        <th>Direccion</th>
+                        {{-- <th>Direccion</th> --}}
                         <th>Cedula</th>
-                        <th>Edad</th>
-                        <th>Telefono</th>
+                        {{-- <th>Edad</th>
+                        <th>Telefono</th> --}}
                         <th>Email</th>
-                        <th colspan="3">Acciones</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
 
                 <tbody>
                     @foreach ($clientes as $cliente)
                         <tr>
-                            <td>{{$cliente->id}}</td>
+                            {{-- <td>{{$cliente->id}}</td> --}}
                             <td>{{$cliente->nombre}}</td>
                             <td>{{$cliente->apellido}}</td>
-                            <td>{{$cliente->direccion}}</td>
+                            {{-- <td>{{$cliente->direccion}}</td> --}}
                             <td>{{$cliente->cedula}}</td>
-                            <td>{{$cliente->edad}}</td>
-                            <td>{{$cliente->telefono}}</td>
+                            {{-- <td>{{$cliente->edad}}</td>
+                            <td>{{$cliente->telefono}}</td> --}}
                             <td>{{$cliente->email}}</td>
                             <td width="10px">
                                 <a class="btn btn-primary btn-sm" href="{{route('admin.clientes.edit', $cliente)}}"><i class="fas fa-pen-fancy"></i></a>
@@ -61,4 +70,31 @@
             </table>
         </div>
     </div>
+@stop
+
+@section('js')
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.0/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.0/js/responsive.bootstrap4.min.js"></script>
+    <script>
+        $('#clientes').DataTable({
+            responsive:true,
+            autoWidth: false,
+        
+            "language": {
+                "lengthMenu": "Mostrar MENU registros por página",
+                "zeroRecords": "Nada encontrado - disculpa",
+                "info": "Mostrando la página PAGE de PAGES",
+                "infoEmpty": "No records available",
+                "infoFiltered": "(filtrado de MAX registros totales)",
+                'search': 'Buscar:',
+                'paginate':{
+                    'next':'Siguiente',
+                    'previous':'Anterior'
+                }
+            }
+        });
+    </script>
 @stop

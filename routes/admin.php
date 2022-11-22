@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AgendaController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ClienteController;
 use App\Http\Controllers\Admin\DetalleController;
 use App\Http\Controllers\Admin\MascotaController;
@@ -15,6 +16,7 @@ use App\Http\Controllers\Admin\HistoriaController;
 use App\Http\Controllers\Admin\ServicioController;
 
 Route::get('', [HomeController::class, 'index'])/* ->Middleware('can:admin.home') */->name('admin.home');
+Route::resource('categories', CategoryController::class)->names('admin.categories');
 
 Route::resource('users', UserController::class)->names('admin.users');
 
