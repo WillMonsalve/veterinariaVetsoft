@@ -6,15 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Agenda;
 use Illuminate\Http\Request;
 
+
 class AgendaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
+    public function index(){
         $days =[
             'Lunes',
             'Martes',
@@ -26,31 +21,7 @@ class AgendaController extends Controller
         ];
         $agendas = Agenda::all();
 
-        return view('admin.agendas.index', compact('days','agendas',));
-    }
-    public function create()
-    {
-
-
-        return view('admin.agendas.create',);
-    }
-
-    public function store(Request $request)
-    {
-        $request->validate([
-            'estado' => 'required',
-            'morning_start' => 'required',
-            'morning_end' => 'required',
-            'afternoon_start' => 'required',
-            'afternoon_end' => 'required'
-            ]);
-        return redirect()->route('admin.agendas.index');
-    }
-
-
-    public function edit(Agenda $agenda)
-    {
-        return view('admin.agendas.edit', compact('Agenda'));
+        return view('admin.agendas.edit', compact('days'));
     }
 
     public function update(Request $request, agenda $agenda)

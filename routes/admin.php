@@ -29,3 +29,5 @@ Route::resource('clientes', ClienteController::class)->names('admin.clientes');
 Route::resource('detalles', DetalleController::class)->names('admin.detalles');
 Route::resource('historias', HistoriaController::class)->names('admin.historias');
 Route::resource('mascotas', MascotaController::class)->names('admin.mascotas');
+
+
