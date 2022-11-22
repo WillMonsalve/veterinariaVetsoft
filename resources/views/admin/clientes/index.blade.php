@@ -39,7 +39,7 @@
                 </thead>
 
                 <tbody>
-                    <tfoot>
+                    {{-- <tfoot> --}}
                         
                     @foreach ($clientes as $cliente)
                    
@@ -73,7 +73,7 @@
                             </td>
                         </tr>                                     
                       @endforeach
-                    </tfoot>
+                    {{-- </tfoot> --}}
                 </tbody>
             </table>
         </div>

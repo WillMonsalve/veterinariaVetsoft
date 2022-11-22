@@ -9,8 +9,8 @@
        <div class="col-md-12">
         <div class="card">
          <div class="card-header card-header-primary">
-          <div class="card-title">Clientes</div>
-           <p class="card-categoy">Vista detallada de clientes...</p>  
+          <div class="card-title"></div>
+           <p class="card-category">Vista detallada del cliente {{ $cliente->name}} </p>  
            </div>
            {{-- body --}}
            <div class="card-body">
@@ -22,12 +22,17 @@
                  <div class="author">
                   <a href="#">
                    <img src="{{ asset('/img/avatarDefault.jpg')}}" alt="image" class="avatar">
-                    <h5 class="title mt-3">Nombre</h5> 
+                    <h5 class="title mt-3">Datos</h5> 
                   </a>   
                   <p class="descripcion">
-                   {{-- {{}} --}} <br>
-                   {{-- {{}} --}} <br>
-                   {{-- {{}} --}} <br>
+                   {{ $cliente->nombre}} <br>
+                   {{ $cliente->apellido}} <br>
+                   {{ $cliente->direccion}} <br>
+                   {{ $cliente->cedula}} <br>
+                   {{ $cliente->edad}} <br>
+                   {{ $cliente->telefono}} <br>
+                   {{ $cliente->email}} <br>
+                   
                 
                   </p>           
             </div>   
@@ -38,8 +43,9 @@
          </div>
          <div class="card-footer">
           <div class="button-container">
-           <button class="btn btn-sm btn-primary">Editar</button> 
-          </div>
+            <a href="{{ route('admin.clientes.index')}}" class="btn btn-sm btn-success mr-3"> Volver </a>
+            <a href="{{ route('admin.clientes.edit', $cliente)}}" class="btn btn-sm btn-primary mr-3"> Editar </a>
+           </div>
          </div>  
         </div>
      </div>

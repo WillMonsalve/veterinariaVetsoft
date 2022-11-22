@@ -10,12 +10,13 @@
 
 @section('content_header')
    
-<a class="btn btn-success btn-sm float-left" href="{{route('admin.mascotas.create')}}">Nueva mascota</a>
+<a class="btn btn-success btn-sm float-right" href="{{route('admin.mascotas.create')}}">Nueva mascota</a>
 
+<h1>Mascotas</h1>
 @stop
 
 @section('content')
-     <h5>.</h5>
+     
     {{-- <p>Mascotas</p> --}}
      <div class="row">
         <div class="col">
@@ -65,6 +66,11 @@
                               </tr>
                             </thead>
                             <tbody id="tblmascotas">
+                              <tr>
+                                <td>firulais</td>
+                                <td>Fabiana</td>
+                                <td>Activo</td>
+                              </tr>
     
                             </tbody>
                         </table>
