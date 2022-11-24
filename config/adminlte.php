@@ -316,6 +316,7 @@ return [
             'text'  => 'Dashboard',
             'route' => 'admin.home',
             'icon'  => 'fas fa-tachometer-alt fa-fw',
+            'active' => ['admin/dashboard*'],
             //'can'  => 'admin.home',
         ],
 
@@ -323,6 +324,7 @@ return [
             'text' => 'Usuarios',
             'route' => 'admin.users.index',
             'icon' => 'fas fa-users fa-fw',
+            'active' => ['admin/users*'],
 
  
 
@@ -333,6 +335,7 @@ return [
             'text' => 'Lista de roles',
             'route' => 'admin.roles.index',
             'icon' => 'fas fa-users-cog fa-fw',
+            'active' => ['admin/roles*'],
             // 'can'  => 'admin.roles.index',
         ],
 
@@ -341,6 +344,7 @@ return [
             'text' => 'Servicios',
             'route'  => 'admin.servicios.index',
             'icon' => 'fas fa-user-nurse fa-fw',
+            'active' => ['admin/servicios*'],
             //'can'  => 'admin.servicios.index',
         ],
         [
@@ -393,6 +397,13 @@ return [
                     'text' => 'Categorias',
                     'route'  => 'admin.categories.index',
                     'icon' => 'fab fa-fw fa-buffer fa-fw',
+                    'active' => ['admin/categories*'],
+                ],
+                [
+                    'text' => 'Etiquetas',
+                    'route'  => 'admin.tags.index',
+                    'icon' => 'far fa-fw fa-bookmark fa-fw',
+                    'active' => ['admin/tags*'],
                 ],
             ],
         ]

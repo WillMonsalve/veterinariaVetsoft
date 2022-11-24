@@ -63,6 +63,6 @@ class UserController extends Controller
     {
         $user->delete();
 
-        return redirect()->route('admin.users.index')->with('info', 'El servicio se elimino con exito');
+        return redirect()->route('admin.users.index')->with('info', 'El usuario se elimino con exito');;
     }
 }
