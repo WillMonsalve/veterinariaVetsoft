@@ -28,9 +28,9 @@
     </div>
     @endif
 
-
+<form action="">
     <div class="card">
-    {!! Form::open(['route' => 'admin.agendas.store']) !!}
+    
     <div class="card-body">
 
             <table class="table table-striped">
@@ -123,9 +123,8 @@
 
         </div>
     </div>
-    {!! Form::submit('AGENDAR', ['class' => "btn btn-outline-success"]) !!}
-     {!! Form::close() !!}
-
+    
+     </form>
 
 @stop
 
