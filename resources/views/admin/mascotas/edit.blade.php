@@ -82,15 +82,15 @@
                     @enderror
 
                 </div>
-                {{-- <div class="form-group">
-                    {!! Form::label('email', 'Email') !!}
-                    {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el correo electrónico']) !!}
+                <div class="form-group">
+                    {!! Form::label('cliente_id', 'Propietario') !!}
+                    {!! Form::email('cliente_id', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el propietario']) !!}
 
-                    @error('email')
+                    @error('cliente_id')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
 
-                </div> --}}
+                </div>
 
                 {!! Form::submit('Actualizar', ['class' => 'btn btn-primary']) !!} 
                 

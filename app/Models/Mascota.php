@@ -19,6 +19,7 @@ class Mascota extends Model
         'especie',
         'edad',
         'sexo',
+        'id',
         
     ];
 

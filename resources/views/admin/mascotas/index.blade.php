@@ -43,7 +43,7 @@
                             <td>{{$mascota->nombre}}</td>
                             <td>{{$mascota->raza}}</td>
                             <td>{{$mascota->especie}}</td>
-                            <td>{{$mascota->cliente_id}}</td>
+                            <td>{{$mascota->Clientes->id}}</td>
                             
                             <td>
                                <a class="btn btn-primary btn-sm" href="{{route('admin.mascotas.edit', $mascota)}}"><i class="bi bi-pen"></i></a>
