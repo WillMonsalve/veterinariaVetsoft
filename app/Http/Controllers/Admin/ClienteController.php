@@ -8,11 +8,11 @@ use Illuminate\Http\Request;
 
 class ClienteController extends Controller
 {
+   
     public function index()
     {
         $clientes = Cliente::all();
-        
-        return view('admin.clientes.index', compact('clientes'));
+         return view('admin.clientes.index', compact('clientes'));
     }
 
     
@@ -79,6 +79,6 @@ class ClienteController extends Controller
     {
         $cliente->delete();
 
-        return redirect()->route('admin.cliente.index')->with('info', 'El servicio se elimino con exito');
+        return redirect()->route('admin.clientes.index')->with('info', 'El servicio se elimino con exito');
     }
 }

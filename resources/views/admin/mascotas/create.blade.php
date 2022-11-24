@@ -76,9 +76,22 @@
                     @enderror
                 </div>
 
-               
+                <div class="form-group">
+                    {!! Form::label('cliente_id', 'Propietario') !!}
+                    {!! Form::text('cliente_id', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el propietario']) !!}
+                    
+                    <select name="" id="" class="form-control">
+                         @foreach ($clientes as $cliente)
+                   <option value="{{$cliente->cliente_id}}">{{$cliente->nombre}}</option>
+                         @endforeach
+                    </select>
 
-                 {!! Form::submit('Crear mascota', ['class' => 'btn btn-primary mt-2']) !!}
+                    @error('cliente_id')
+                    <span class="text-danger">{{$message}}</span>
+                    @enderror
+                </div>
+                        
+                {!! Form::submit('Crear mascota', ['class' => 'btn btn-primary mt-2']) !!}
 
             {!! Form::close() !!}
 
