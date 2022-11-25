@@ -15,7 +15,7 @@
         <a class="btn btn-success btn-sm float-right" href="{{route('admin.citas.create')}}">Crear Cita</a>
     @endcan  --}}
 
-    <a class="btn btn-success btn-sm float-right" href="{{route('admin.citas.create')}}">Crear Cita</a>
+    <a class="btn btn-success btn-sm float-right" href="{{route('admin.citas.create')}}">Registrar Nueva Cita</a>
     <h1>Lista de Citas</h1>
 @stop
 
@@ -52,11 +52,11 @@
                             {{--  <th>{{$cita->id}}</th>  --}}
                             <th>{{$cita->cliente_id}}</th>
                             <th>{{$cita->servicio_id}}</th>
-                            <th>{{$cita->Fecha}}</th>
-                            <th>{{$cita->Hora}}</th>
+                            <th>{{$cita->fecha}}</th>
+                            <th>{{$cita->hora}}</th>
                             <th>
                                 @if($cita->estado == '2')
-                                <span class="btn btn-danger">Inctivo</span>
+                                <span class="btn btn-danger">Cancelada</span>
                                 @else
                                 <span class="btn btn-success">Activo</span>
                                 @endif
@@ -64,13 +64,13 @@
                             </th>
 
 
-
-
-                            <th width= "10px">
-                                @can('admin.citas.edit')
+                            <td width= "10px">
+                                {{--  @can('admin.citas.edit')  --}}
                                     <a class="btn btn-primary btn-sm" href="{{route('admin.citas.edit', $cita)}}">Editar</a>
-                                @endcan
-                            </th>
+                                {{--  @endcan  --}}
+                            </td>
+
+
                             {{--  <th width= "10px">
                                 {{--  @can('admin.citas.destroy')
                                     <form action="{{route('admin.cita.destroy', $cita)}}" method="POST">

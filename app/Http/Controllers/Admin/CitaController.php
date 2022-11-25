@@ -11,13 +11,13 @@ use App\Models\Servicio;
 class CitaController extends Controller
 {
 
-    public function __construct()
+    /* public function __construct()
     {
          $this->middleware('can:admin.citas.index')->only('index');
          $this->middleware('can:admin.citas.create')->only('create', 'store');
          $this->middleware('can:admin.citas.edit')->only('edit', 'update');
          $this->middleware('can:admin.citas.destroy')->only('destroy');
-    }
+    } */
 
 
     public function index()
@@ -39,14 +39,14 @@ class CitaController extends Controller
     public function store(Request $request)
     {
         /* $request->validate([
-            'Estado' => 'nullable',
-            'Fecha' => 'nullable',
-            'Hora' => 'required',
-            'servicio' => 'nullable',
-            'cliente' => 'nullable',
+            'estado' => 'required',
+            'fecha' => 'required',
+            'hora' => 'nullable',
+            'servicio_id' => 'required',
+            'cliente_id' => 'required',
         ]); */
 
-        $cita = Cita::create(/* $request->all() */);
+        $cita = Cita::create($request->all());
 
         return redirect()->route('admin.citas.index', $cita)->with('info', 'La cita se registro con exito');;
     }
@@ -60,7 +60,9 @@ class CitaController extends Controller
 
     public function edit(Cita $cita)
     {
-        return view('admin.citas.edit', compact('cita'));
+        $servicios = Servicio::all();
+        $cliente = Cliente::all();
+        return view('admin.citas.edit', compact('cita','servicios','cliente'));
     }
 
 
@@ -70,13 +72,13 @@ class CitaController extends Controller
             'estado' => 'required',
             'fecha' => 'required',
             'hora' => 'required',
-            'servicio' => 'required',
-            'cliente' => 'required',
+            'servicio_id' => 'nullable',
+            'cliente_id' => 'nullable',
         ]);
 
         $cita->update($request->all());
 
-        return redirect()->route('admin.citas.edit', $cita)->with('info', 'La Cita Se actualizo con exito');
+        return redirect()->route('admin.citas.index', $cita)->with('info', 'La Cita Se actualizo con exito');
     }
 
 

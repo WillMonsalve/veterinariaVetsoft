@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('citas', function (Blueprint $table) {
             $table->id();
-            $table->integer('Estado')->nullable();
-            $table->date('Fecha');
-            $table->time('Hora');
+            $table->enum('estado', [1, 2]);
+            $table->date('fecha');
+            $table->time('hora');
             $table->unsignedBigInteger('servicio_id');
             $table->foreign('servicio_id')->references('id')->on('servicios');
             $table->unsignedBigInteger('cliente_id');
