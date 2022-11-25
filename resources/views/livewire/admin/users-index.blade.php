@@ -7,9 +7,9 @@
     <div class="card">
         
 
-        {{-- <div class="card-header">
+        <div class="card-header">
             <input wire:model="search" class="form-control" placeholder="Ingrese el nombre o correo de un usuario">
-        </div> --}}
+        </div>
 
         @if($users->count())
             <div class="card-body">
@@ -24,8 +24,8 @@
                             {{-- <th>Edad</th>
                             <th>Teléfono</th> --}}
                             <th>Email</th>
-                            <th>Editar</th>
-                            <th>Elimiinar</th>    
+                            <th colspan="2"></th>
+                                
                         </tr>
                     </thead>
 
@@ -59,15 +59,15 @@
                 </table>
             </div>
 
-            {{-- <div class="card-footer">
+            <div class="card-footer">
                 {{$users->links()}}
             </div>
- --}}
-        {{-- @else
+
+        @else
 
             <div class="card-body">
-                <strong>No hay registros</strong>
-            </div> --}}
+                <strong>No hay ningún registro</strong>
+            </div>
 
        @endif
            

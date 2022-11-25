@@ -57,7 +57,7 @@
                             </td>
                             
                             <td>
-                                <input type ='button' class="btn btn-info btn-sm"  value = '+ Mascota' onclick="location.href = '{{ route('admin.mascotas.index')}}'"/>
+                                <input type ='button' class="btn btn-info btn-sm"  value = '+ Mascota' onclick="location.href = '{{ route('admin.mascotas.create')}}'"/>
                             </td>
                             
                             <td>
