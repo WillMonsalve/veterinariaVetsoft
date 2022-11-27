@@ -20,12 +20,12 @@
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="direccion" value="{{ __('Direccion') }}" />
+                <x-jet-label for="direccion" value="{{ __('Dirección') }}" />
                 <x-jet-input id="direccion" class="block mt-1 w-full" type="text" name="direccion" :value="old('direccion')" required />
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="cedula" value="{{ __('Cedula') }}" />
+                <x-jet-label for="cedula" value="{{ __('Cédula') }}" />
                 <x-jet-input id="cedula" class="block mt-1 w-full" type="number" name="cedula" :value="old('cedula')" required />
             </div>
 
@@ -35,7 +35,7 @@
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="telefono" value="{{ __('Telefono') }}" />
+                <x-jet-label for="telefono" value="{{ __('Teléfono') }}" />
                 <x-jet-input id="telefono" class="block mt-1 w-full" type="text" name="telefono" :value="old('telefono')" required />
             </div>
 
