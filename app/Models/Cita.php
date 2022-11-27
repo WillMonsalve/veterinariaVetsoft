@@ -12,7 +12,15 @@ class Cita extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['cita'];
+    protected $fillable = [
+        'estado',
+        'fecha',
+        'hora',
+        'servicio',
+        'cliente',
+        'agenda_id',
+
+    ];
 
     //Relacion uno a muchos inversa
     public function Servicios(){

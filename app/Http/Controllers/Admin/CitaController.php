@@ -32,19 +32,19 @@ class CitaController extends Controller
     {
         $servicios = Servicio::all();
         $cliente = Cliente::all();
-        return view('admin.citas.create', compact('servicios'),compact('cliente'));
+        return view('admin.citas.create', compact('servicios','cliente'));
     }
 
 
     public function store(Request $request)
     {
-        $request->validate([
+        /* $request->validate([
             'estado' => 'required',
             'fecha' => 'required',
-            'hora' => 'required',
-            'servicio' => 'required',
-            'cliente' => 'required',
-        ]);
+            'hora' => 'nullable',
+            'servicio_id' => 'required',
+            'cliente_id' => 'required',
+        ]); */
 
         $cita = Cita::create($request->all());
 
@@ -60,7 +60,9 @@ class CitaController extends Controller
 
     public function edit(Cita $cita)
     {
-        return view('admin.citas.edit', compact('cita'));
+        $servicios = Servicio::all();
+        $cliente = Cliente::all();
+        return view('admin.citas.edit', compact('cita','servicios','cliente'));
     }
 
 
@@ -70,13 +72,13 @@ class CitaController extends Controller
             'estado' => 'required',
             'fecha' => 'required',
             'hora' => 'required',
-            'servicio' => 'required',
-            'cliente' => 'required',
+            'servicio_id' => 'nullable',
+            'cliente_id' => 'nullable',
         ]);
 
         $cita->update($request->all());
 
-        return redirect()->route('admin.citas.edit', $cita)->with('info', 'La Cita Se actualizo con exito');
+        return redirect()->route('admin.citas.index', $cita)->with('info', 'La Cita Se actualizo con exito');
     }
 
 
