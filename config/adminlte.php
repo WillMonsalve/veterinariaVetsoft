@@ -379,52 +379,26 @@ return [
             'icon' => 'fas fa-paw fa-fw',
             //'can'  => 'admin.mascotas.index',
         ],
+        
         // [
         //     'text' => 'cambiar contraseña',
         //     'url'  => 'admin/settings',
         //     'icon' => 'fas fa-fw fa-lock',
         // ],
-      /*   [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
+        [
+            'text' => 'Administrador',
+            'icon' => 'fas fa-fw fa-share fa-fw',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Categorias',
+                    'route'  => 'admin.categories.index',
+                    'icon' => 'fab fa-fw fa-buffer fa-fw',
                 ],
             ],
-        ], */
+        ]
 
 
-        ['header' => 'labels'],
+        /* ['header' => 'labels'],
         [
             'text'       => 'important',
             'icon_color' => 'red',
@@ -439,7 +413,7 @@ return [
             'text'       => 'information',
             'icon_color' => 'cyan',
             'url'        => '#',
-        ],
+        ], */
     ],
 
     /*

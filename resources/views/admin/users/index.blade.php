@@ -1,14 +1,16 @@
 @extends('adminlte::page')
 
 @section('title', 'usuarios')
-@section ('css')
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
- <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
- <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap4.min.css">
- @endsection
+
+    @section('css')
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+            <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap4.min.css">
+            <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.0/css/responsive.bootstrap4.min.css">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    @endsection
 
 @section('content_header')
-
+    {{-- <a class="btn btn-success btn-sm float-right" href="{{route('admin.users.create', $user)}}">Agregar Rol</a> --}}
     <h1>Lista de usuarios</h1>
 @stop
 
@@ -26,13 +28,7 @@
         responsive: true,
         autoWidth: false
     });
-</script>
-@endsection
-
-{{-- @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
-@section('js')
-    <script> console.log('Hi!'); </script>
+        
+        
+    </script>
 @stop --}}
