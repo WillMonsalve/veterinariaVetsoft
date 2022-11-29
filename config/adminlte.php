@@ -316,6 +316,7 @@ return [
             'text'  => 'Dashboard',
             'route' => 'admin.home',
             'icon'  => 'fas fa-tachometer-alt fa-fw',
+            'active' => ['admin/dashboard*'],
             //'can'  => 'admin.home',
         ],
 
@@ -323,17 +324,18 @@ return [
             'text' => 'Usuarios',
             'route' => 'admin.users.index',
             'icon' => 'fas fa-users fa-fw',
+            'active' => ['admin/users*'],
 
 
 
             //'can'  => 'admin.users.index',
-
         ],
 
         [
             'text' => 'Lista de roles',
             'route' => 'admin.roles.index',
             'icon' => 'fas fa-users-cog fa-fw',
+            'active' => ['admin/roles*'],
             // 'can'  => 'admin.roles.index',
         ],
 
@@ -342,6 +344,7 @@ return [
             'text' => 'Servicios',
             'route'  => 'admin.servicios.index',
             'icon' => 'fas fa-user-nurse fa-fw',
+            'active' => ['admin/servicios*'],
             //'can'  => 'admin.servicios.index',
         ],
         [
@@ -380,67 +383,44 @@ return [
             'icon' => 'fas fa-paw fa-fw',
             //'can'  => 'admin.mascotas.index',
         ],
+        
         // [
         //     'text' => 'cambiar contraseña',
         //     'url'  => 'admin/settings',
         //     'icon' => 'fas fa-fw fa-lock',
         // ],
-      /*   [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
+        [
+            'text' => 'Administrador',
+            'icon' => 'fas fa-fw fa-share fa-fw',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Categorias',
+                    'route'  => 'admin.categories.index',
+                    'icon' => 'fab fa-fw fa-buffer fa-fw',
+                    'active' => ['admin/categories*'],
                 ],
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Etiquetas',
+                    'route'  => 'admin.tags.index',
+                    'icon' => 'far fa-fw fa-bookmark fa-fw',
+                    'active' => ['admin/tags*'],
                 ],
             ],
-        ], */
+        ],
 
 
-        ['header' => 'labels'],
+        ['header' => 'OPCIONES DE BLOG'],
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
+            'text'       => 'Lista de post',
+            'route'        => 'admin.posts.index',
+            'icon'      => 'fas fa-fw fa-clipboard',
         ],
         [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
+            'text'       => 'Crear nuevo post',
+            'route'        => 'admin.posts.create',
+            'icon'      => 'fas fa-fw fa-file',
         ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ],
+        
     ],
 
     /*
@@ -595,5 +575,5 @@ return [
     |
     */
 
-    'livewire' => false,
+    'livewire' => true,
 ];
