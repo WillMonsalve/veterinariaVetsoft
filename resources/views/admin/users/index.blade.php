@@ -31,7 +31,7 @@
         $('#users').DataTable({
             responsive:true,
             autoWidth: false,
-        
+
             "language": {
                 "lengthMenu": "Mostrar MENU registros por página",
                 "zeroRecords": "Nada encontrado - disculpa",
@@ -46,7 +46,7 @@
             }
         });
     });
-        
-        
+
+
     </script>
-@stop --}}
+@stop --}} --}}
