@@ -55,10 +55,11 @@
                             <th>{{$cita->fecha}}</th>
                             <th>{{$cita->hora}}</th>
                             <th>
+
                                 @if($cita->estado == '2')
-                                <span class="btn btn-danger">Cancelada</span>
+                                <span class="bi bi-toggle-off btn btn-danger">Cancelada</span>
                                 @else
-                                <span class="btn btn-success">Activo</span>
+                                <span class="bi bi-toggle-on btn btn-success">Activo</span>
                                 @endif
 
                             </th>

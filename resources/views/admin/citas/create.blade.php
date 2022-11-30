@@ -2,6 +2,8 @@
 
 @section('title', 'Citas')
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
 @section('content_header')
     <h1>Registrar Nueva Cita</h1>
 @stop
@@ -75,10 +77,11 @@
                     </select>
                 </div>
 
-                {!! Form::submit('Registrar Cita', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Registrar Cita', ['class' => 'btn btn-susccess']) !!}
 
                 <td>
-                <a class="btn btn-danger" href="{{route('admin.citas.index')}}">Regresar</a>
+
+                <a  class="bi bi-backspace-fill btn btn-danger"  href="{{route('admin.citas.index')}}" >Regresar</a>
                 </td>
             {!! Form::close() !!}
         </div>
