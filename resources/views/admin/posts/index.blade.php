@@ -11,7 +11,7 @@
 
 @section('content_header')
 
-    <a class="btn btn-success float-right" href="">Nuevo Post</a>
+    <a class="btn btn-success float-right" href="{{route('admin.posts.create')}}">Nuevo Post</a>
     <h1>Lista de post</h1>
 @stop
 

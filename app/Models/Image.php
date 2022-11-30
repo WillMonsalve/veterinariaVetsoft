@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Image extends Model
 {
-    protected $guarded = [];
+    protected $fillable = ['url'];
 
     use HasFactory;
 
