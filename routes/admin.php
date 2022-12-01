@@ -36,3 +36,4 @@ Route::resource('historias', HistoriaController::class)->names('admin.historias'
 Route::resource('mascotas', MascotaController::class)->names('admin.mascotas');
 
 
+

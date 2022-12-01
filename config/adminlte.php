@@ -1,4 +1,6 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 <?php
+
 
 return [
 
@@ -363,7 +365,7 @@ return [
             'text' => 'Citas',
             'route'  => 'admin.citas.index',
             'icon' => 'fas fa-user-md fa-fw',
-            'can'  => 'admin.citas.index',
+            //'can'  => 'admin.citas.index',
         ],
         [
             'text' => 'Historias clinicas',
@@ -383,7 +385,9 @@ return [
             'icon' => 'fas fa-paw fa-fw',
             //'can'  => 'admin.mascotas.index',
         ],
-        
+
+
+
         // [
         //     'text' => 'cambiar contraseña',
         //     'url'  => 'admin/settings',
@@ -408,6 +412,15 @@ return [
             ],
         ],
 
+        [
+            'text' => 'Ayudas',
+            'route'  => 'admin.mascotas.index',
+            'icon' => 'bi bi-question-diamond',
+            //'can'  => 'admin.mascotas.index',
+        ],
+
+
+
 
         ['header' => 'OPCIONES DE BLOG'],
         [
@@ -420,7 +433,7 @@ return [
             'route'        => 'admin.posts.create',
             'icon'      => 'fas fa-fw fa-file',
         ],
-        
+
     ],
 
     /*
