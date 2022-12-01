@@ -13,8 +13,9 @@ class AgendaController extends Controller
     public function index()
     {
         $agendas = Agenda::all();
+        $users = user::all();
        
-        return view('admin.agendas.index', compact('agendas'));
+        return view('admin.agendas.index', compact('agendas'), compact('users'));
     }
     public function create()
     {
@@ -30,8 +31,7 @@ class AgendaController extends Controller
             'hora_intermedia_mañana'=>'required',
             'hora_intermedia_tarde'=>'required',
             'hora_final' => 'required',
-            'user_id'=> 'nullable',
-            
+            'user_id'=> 'nullable'
            
         ]);
 

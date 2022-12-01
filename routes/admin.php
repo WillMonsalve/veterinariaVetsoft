@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\DetalleController;
 use App\Http\Controllers\Admin\MascotaController;
 use App\Http\Controllers\Admin\HistoriaController;
 use App\Http\Controllers\Admin\ServicioController;
+use App\Http\Controllers\Admin\horario_agendaController;
 
 Route::get('', [HomeController::class, 'index'])/* ->Middleware('can:admin.home') */->name('admin.home');
 
@@ -23,6 +24,7 @@ Route::resource('roles', RoleController::class)->names('admin.roles');
 Route::resource('servicios', ServicioController::class)->except('show')->names('admin.servicios');
 Route::resource('citas', CitaController::class)->names('admin.citas');
 Route::resource('agendas', AgendaController::class)->names('admin.agendas');
+Route::resource('horario_agenda', horario_agendaController::class)->names('admin.horario_agenda');
 Route::resource('clientes', ClienteController::class)->names('admin.clientes');
 Route::resource('detalles', DetalleController::class)->names('admin.detalles');
 Route::resource('historias', HistoriaController::class)->names('admin.historias');
