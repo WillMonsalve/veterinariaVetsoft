@@ -13,15 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('citas', function (Blueprint $table) {
+        Schema::create('horario_agendas', function (Blueprint $table) {
             $table->id();
             $table->integer('Estado');
             $table->date('Fecha');
-            $table->time('Hora');
-            $table->unsignedBigInteger('cliente_id');
-            $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade');
-            $table->unsignedBigInteger('agenda_id');
-            $table->foreign('agenda_id')->references('id')->on('agendas')->onDelete('cascade');
+            $table->time('Hora_ini');
+            $table->time('Hora_fin');
+            $table->unsignedBigInteger('id_Rol');
+            $table->foreign('id_Rol')->references('id')->on('roles');
+            $table->unsignedBigInteger('id_servi');
+            $table->foreign('id_servi')->references('id')->on('servicios');
             $table->timestamps();
         });
     }
@@ -33,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('citas');
+        Schema::dropIfExists('horario_agendas');
     }
 };

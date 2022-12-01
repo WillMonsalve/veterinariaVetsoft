@@ -17,12 +17,11 @@
  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap4.min.css">
  @endsection
 
- <a class="btn btn-info btn-sm float-right " href="{{route('admin.horario_agenda.index')}}">Dias <i class="bi bi-plus-circle-fill"></i></a> 
- 
- <a class="btn btn-success btn-sm float-right" href="{{route('admin.agendas.create')}}">Horario <i class="bi bi-calendar-plus"></i></a>
+    <a class="btn btn-success btn-sm float-right" href="{{route('admin.horario_agenda.create')}}">AGREGAR <i class="bi bi-plus-circle-fill"></i></a>
+
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-<h1>Lista de agenda</h1>
+<h1>Lista de horarios</h1>
 @stop
 @section('content')
 
@@ -38,42 +37,43 @@
             <table id="usuarios" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                 <thead>
                     <tr>
-                    <th>ID</th>
-                    <th>Usuario</th>
-                        <th>Fecha inicio</th>
-                        <th>Fecha final</th>
+              
+                    
+                        <th>Fecha</th>
                         <th>Hora inicio</th>
-                        <th>hora intermedia mañana</th>
-                        <th>hora intermedia tarde</th>
                         <th>Hora final</th>
+                        <th>Estado</th>
+                        <th>Rol</th>
+                        <th>Servicio</th>
                         <th>Opciones</th>
+                        
+                        
+
                        
                     </tr>
                 </thead>
 
                 <tbody>
             
-                        @foreach ($agendas as $agenda)
+                        @foreach ($horarios as $horario)
                         <tr> 
-                            <th>{{$agenda->id}}</th>
-                            <th>{{$agenda->user_id}}</th>
-                            <th>{{$agenda->fecha_inicio}}</th>
-                            <th>{{$agenda->fecha_final}}</th>
-                            <th>{{$agenda->hora_inicio}}</th>
-                            <th>{{$agenda->hora_intermedia_mañana}}</th>
-                            <th>{{$agenda->hora_intermedia_tarde}}</th>
-                            <th>{{$agenda->hora_final}}</th>
-                            
+                            <th>{{$horario->Fecha}}</th>
+                            <th>{{$horario->Hora_ini}}</th>
+                            <th>{{$horario->Hora_fin}}</th>
+                            <th>
+                                @if($horario->estado == '2')
+                                <span class="btn btn-danger"><i class="bi bi-toggle-off"></i></span>
+                                @else
+                                <span class="btn btn-success"><i class="bi bi-toggle-on"></i></span>
+                                @endif
+
+                            </th>
+                                 
+                            <th>{{$horario->id_servi}}</th>
+                                                  
                            
-
-                            <td width="10px">
-                               <form action="{{route('admin.agendas.destroy', $agenda)}}" method="POST">
-                                @csrf
-                                @method('DELETE')
-
-                                    <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-fw fa-trash"></i></button>
-                               </form>
-                            </td>
+                           
+    
                 
                         </tr>
 
@@ -81,14 +81,9 @@
                     @endforeach
                 </tbody>
             </table>
-           
-        </div>
-        
-       
-             
-    </div>
 
-   
+        </div>
+    </div>
 @stop
 @section('js')
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -104,4 +99,3 @@
 </script>
 
 @endsection
-
