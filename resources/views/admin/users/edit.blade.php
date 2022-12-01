@@ -10,17 +10,8 @@
 
     <div class="card">
         <div class="card-body">
-            <p class="h5">Nombre</p>
-            <p class="form-control">{{$user->name}}</p>
-            <div class="form-group">
-                {!! Form::label('telefono', 'Telefono') !!}
-                {!! Form::number('telefono', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el telefono']) !!}
-
-                @error('telefono')
-                <span class="text-danger">{{$message}}</span>
-                @enderror
-
-            </div>
+            <p class="h5">Nombre y Apellido</p>
+            <p class="form-control">{{$user->name}} {{$user->apellido}}</p>
 
             <h2 class="h5">Listado de roles</h2>
             {!! Form::model($user, ['route' => ['admin.users.update', $user], 'method' => 'put']) !!}

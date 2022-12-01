@@ -10,6 +10,7 @@ use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
+
    /* public function __construct()
    {
         $this->middleware('can:admin.users.index')->only('index');
@@ -19,8 +20,8 @@ class UserController extends Controller
 
     public function index()
     {
-
-       return view('admin.users.index');
+        //$users = User::all();
+        return view('admin.users.index');
     }
 
 
@@ -62,6 +63,6 @@ class UserController extends Controller
     {
         $user->delete();
 
-        return redirect()->route('admin.users.index')->with('info', 'El servicio se elimino con exito');;
+        return redirect()->route('admin.users.index')->with('info', 'El usuario se elimino con exito');;
     }
 }
