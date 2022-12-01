@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\HistoriaController;
 use App\Http\Controllers\Admin\ServicioController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\AyudaController;
 
 Route::get('', [HomeController::class, 'index'])/* ->Middleware('can:admin.home') */->name('admin.home');
 Route::resource('categories', CategoryController::class)->names('admin.categories');
@@ -34,6 +35,11 @@ Route::resource('clientes', ClienteController::class)->names('admin.clientes');
 Route::resource('detalles', DetalleController::class)->names('admin.detalles');
 Route::resource('historias', HistoriaController::class)->names('admin.historias');
 Route::resource('mascotas', MascotaController::class)->names('admin.mascotas');
-
+Route::resource('ayudas', AyudaController::class)->names('admin.ayudas');
+/* Route::controller(AyudaController::class)->group(
+    function () {
+        Route::get('ayudas', 'index');
+    }
+); */
 
 

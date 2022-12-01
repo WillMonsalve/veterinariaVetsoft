@@ -414,9 +414,9 @@ return [
 
         [
             'text' => 'Ayudas',
-            'route'  => 'admin.mascotas.index',
+            'route'  => 'admin.ayudas.index',
             'icon' => 'bi bi-question-diamond',
-            //'can'  => 'admin.mascotas.index',
+            //'can'  => 'admin.ayudas.index',
         ],
 
 
