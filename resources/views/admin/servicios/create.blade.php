@@ -46,7 +46,6 @@
                         <option value="1">Activo</option>
                         <option value="2">Inactivo</option>
                     </select>
-
                 </div>
 
                 {!! Form::submit('Crear Servicio', ['class' => 'btn btn-primary']) !!}

@@ -14,8 +14,14 @@ use App\Http\Controllers\Admin\MascotaController;
 use App\Http\Controllers\Admin\HistoriaController;
 use App\Http\Controllers\Admin\ServicioController;
 use App\Http\Controllers\Admin\horario_agendaController;
+use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\AyudaController;
 
 Route::get('', [HomeController::class, 'index'])/* ->Middleware('can:admin.home') */->name('admin.home');
+Route::resource('categories', CategoryController::class)->names('admin.categories');
+Route::resource('tags', TagController::class)->names('admin.tags');
+Route::resource('posts', PostController::class)->names('admin.posts');
 
 Route::resource('users', UserController::class)->names('admin.users');
 
@@ -29,5 +35,5 @@ Route::resource('clientes', ClienteController::class)->names('admin.clientes');
 Route::resource('detalles', DetalleController::class)->names('admin.detalles');
 Route::resource('historias', HistoriaController::class)->names('admin.historias');
 Route::resource('mascotas', MascotaController::class)->names('admin.mascotas');
-
+Route::resource('ayudas', AyudaController::class)->names('admin.ayudas');
 

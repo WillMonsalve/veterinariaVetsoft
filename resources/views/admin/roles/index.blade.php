@@ -2,9 +2,17 @@
 
 @section('title', 'Roles')
 
+@section('css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.0/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+@endsection
+
 @section('content_header')
 
     <a class="btn btn-success btn-sm float-right" href="{{route('admin.roles.create')}}">Nuevo rol</a>
+
     <h1>Lista de roles</h1>
 @stop
 
@@ -19,12 +27,13 @@
     <div class="card">
         <div class="card-body">
 
-            <table class="table table-striped">
+            <table id="roles" class="table table-striped table-bordered" style="width:100%">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Role</th>
-                        <th colspan="2"></th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
                     </tr>
                 </thead>
 
@@ -55,15 +64,29 @@
     </div>
 @stop
 
-
-
-
-
-
-{{-- @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
 @section('js')
-    <script> console.log('Hi!'); </script>
-@stop --}}
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.0/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.0/js/responsive.bootstrap4.min.js"></script>
+    <script>
+        $('#roles').DataTable({
+            responsive:true,
+            autoWidth: false,
+        
+            "language": {
+                "lengthMenu": "Mostrar MENU registros por página",
+                "zeroRecords": "Nada encontrado - disculpa",
+                "info": "Mostrando la página PAGE de PAGES",
+                "infoEmpty": "No records available",
+                "infoFiltered": "(filtrado de MAX registros totales)",
+                'search': 'Buscar:',
+                'paginate':{
+                    'next':'Siguiente',
+                    'previous':'Anterior'
+                }
+            }
+        });
+    </script>
+@stop

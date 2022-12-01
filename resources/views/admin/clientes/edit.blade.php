@@ -83,8 +83,10 @@
 
                 </div>
 
-                {!! Form::submit('Actualizar', ['class' => 'btn btn-primary']) !!}
-
+                {!! Form::submit('Actualizar', ['class' => 'btn btn-primary']) !!} 
+                
+                <a href="{{ route('admin.clientes.show', $cliente)}}" class="btn btn-sm btn-success mr-3"> Volver </a>
+                
             {!! Form::close() !!}
         </div>
     </div>

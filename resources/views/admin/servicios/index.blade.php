@@ -63,7 +63,7 @@
                                     <a class="btn btn-info " href="{{route('admin.servicios.edit', $servicio)}}"><i class="bi bi-pencil-square"></i></a>
                                 @endcan
                             </th>
-                
+
                         </tr>
 
 
