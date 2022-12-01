@@ -30,7 +30,7 @@ class CitaController extends Controller
 
     public function create()
     {
-        $servicios = Servicio::all();
+        $servicios = Servicio::all('nombre');
         $cliente = Cliente::all();
         return view('admin.citas.create', compact('servicios','cliente'));
     }
