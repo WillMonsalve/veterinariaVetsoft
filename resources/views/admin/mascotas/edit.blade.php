@@ -57,7 +57,7 @@
                 </div>
                 <div class="form-group">
                     {!! Form::label('especie', 'Especie') !!}
-                    {!! Form::number('especie', null, ['class' => 'form-control', 'placeholder' => 'Ingrese especie']) !!}
+                    {!! Form::text('especie', null, ['class' => 'form-control', 'placeholder' => 'Ingrese especie']) !!}
 
                     @error('especie')
                     <span class="text-danger">{{$message}}</span>
@@ -75,7 +75,7 @@
                 </div>
                 <div class="form-group">
                     {!! Form::label('sexo', 'Sexo') !!}
-                    {!! Form::number('sexo', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el sexo']) !!}
+                    {!! Form::text('sexo', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el sexo']) !!}
 
                     @error('sexo')
                     <span class="text-danger">{{$message}}</span>
@@ -84,7 +84,7 @@
                 </div>
                 <div class="form-group">
                     {!! Form::label('cliente_id', 'Propietario') !!}
-                    {!! Form::email('cliente_id', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el propietario']) !!}
+                    {!! Form::text('cliente_id', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el propietario']) !!}
 
                     @error('cliente_id')
                     <span class="text-danger">{{$message}}</span>

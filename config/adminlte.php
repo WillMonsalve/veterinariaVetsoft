@@ -1,4 +1,6 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 <?php
+
 
 return [
 
@@ -291,7 +293,7 @@ return [
 
     'menu' => [
         // Navbar items:
-        [ 
+        [
             'type'         => 'navbar-search',
             'text'         => 'search',
             'topnav_right' => true,
@@ -312,7 +314,7 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            
+
             'text'  => 'Dashboard',
             'route' => 'admin.home',
             'icon'  => 'fas fa-tachometer-alt fa-fw',
@@ -386,7 +388,9 @@ return [
             'active' => ['admin/mascotas*'],
             //'can'  => 'admin.mascotas.index',
         ],
-        
+
+
+
         // [
         //     'text' => 'cambiar contraseña',
         //     'url'  => 'admin/settings',
@@ -411,6 +415,15 @@ return [
             ],
         ],
 
+        [
+            'text' => 'Ayudas',
+            'route'  => 'admin.ayudas.index',
+            'icon' => 'bi bi-question-diamond',
+            //'can'  => 'admin.ayudas.index',
+        ],
+
+
+
 
         ['header' => 'OPCIONES DE BLOG'],
         [
@@ -423,7 +436,7 @@ return [
             'route'        => 'admin.posts.create',
             'icon'      => 'fas fa-fw fa-file',
         ],
-        
+
     ],
 
     /*

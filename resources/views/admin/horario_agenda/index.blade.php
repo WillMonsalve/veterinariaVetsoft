@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Lista de agendas')
 
 @section ('css')
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
@@ -9,15 +9,20 @@
  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap4.min.css">
  @endsection
 
-@section('content_header')
+ @section('content_header')
+ @section ('css')
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+ <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+ <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap4.min.css">
+ @endsection
 
-    @can('admin.servicios.create')
-        <a class="btn btn-success btn-sm float-right" href="{{route('admin.servicios.create')}}">Agregar Servicio</a>
-    @endcan
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <h1>Lista de Servicios</h1>
+    <a class="btn btn-success btn-sm float-right" href="{{route('admin.horario_agenda.create')}}">AGREGAR <i class="bi bi-plus-circle-fill"></i></a>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<h1>Lista de horarios</h1>
 @stop
-
 @section('content')
 
     @if (session('info'))
@@ -32,44 +37,51 @@
             <table id="usuarios" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Descripción</th>
-                        <th>Duracion</th>
+              
+                    
+                        <th>Fecha</th>
+                        <th>Hora inicio</th>
+                        <th>Hora final</th>
                         <th>Estado</th>
+                        <th>Rol</th>
+                        <th>Servicio</th>
                         <th>Opciones</th>
-                        <th colspan="2"></th>
+                        
+                        
+
+                       
                     </tr>
                 </thead>
 
                 <tbody>
-                    @foreach ($servicios as $servicio)
-                        <tr>
-                            <th>{{$servicio->id}}</th>
-                            <th>{{$servicio->nombre}}</th>
-                            <th>{{$servicio->descripcion}}</th>
-                            <th>{{$servicio->duracion}}</th>
-                            <td>
-                                @if($servicio->estado == '2')
+            
+                        @foreach ($horarios as $horario)
+                        <tr> 
+                            <th>{{$horario->Fecha}}</th>
+                            <th>{{$horario->Hora_ini}}</th>
+                            <th>{{$horario->Hora_fin}}</th>
+                            <th>
+                                @if($horario->estado == '2')
                                 <span class="btn btn-danger"><i class="bi bi-toggle-off"></i></span>
                                 @else
                                 <span class="btn btn-success"><i class="bi bi-toggle-on"></i></span>
                                 @endif
 
-                            </td>
-
-                            <th width= "20px">
-                                @can('admin.servicios.edit')
-                                    <a class="btn btn-info " href="{{route('admin.servicios.edit', $servicio)}}"><i class="bi bi-pencil-square"></i></a>
-                                @endcan
                             </th>
-
+                                 
+                            <th>{{$horario->id_servi}}</th>
+                                                  
+                           
+                           
+    
+                
                         </tr>
 
 
                     @endforeach
                 </tbody>
             </table>
+
         </div>
     </div>
 @stop
@@ -85,4 +97,5 @@
         autoWidth: false
     });
 </script>
+
 @endsection

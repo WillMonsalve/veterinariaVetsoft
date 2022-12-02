@@ -19,13 +19,13 @@ class Mascota extends Model
         'especie',
         'edad',
         'sexo',
-        'id',
+        'cliente_id',
         
     ];
 
     //Relacion uno a muchos inversa
     public function Clientes(){
-        return $this->belongsTo(Cliente::class);
+        return $this->belongsTo(Cliente::class, 'cliente_id', 'id');
     }
 
     //Relacion de uno a uno

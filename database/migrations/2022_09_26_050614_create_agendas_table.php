@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('agendas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedSmallInteger('day');
-            $table->enum('estado', ['activo', 'inactivo']);
-            $table->time('morning_start');
-            $table->time('morning_end');
-            $table->time('afternoon_start');
-            $table->time('afternoon_end');
+            $table->date('fecha_inicio');
+            $table->date('fecha_final');
+            $table->time('hora_inicio');
+            $table->time('hora_intermedia_mañana');
+            $table->time('hora_intermedia_tarde');
+            $table->time('hora_final');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

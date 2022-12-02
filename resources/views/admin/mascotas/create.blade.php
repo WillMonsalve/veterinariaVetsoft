@@ -80,11 +80,11 @@
                     {!! Form::label('cliente_id', 'Propietario') !!}
                     {!! Form::text('cliente_id', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el propietario']) !!}
                     
-                    <select name="" id="" class="form-control">
+                    {{-- <select name="" id="" class="form-control">
                          @foreach ($clientes as $cliente)
                    <option value="{{$cliente->cliente_id}}">{{$cliente->nombre}}</option>
                          @endforeach
-                    </select>
+                    </select> --}}
 
                     @error('cliente_id')
                     <span class="text-danger">{{$message}}</span>

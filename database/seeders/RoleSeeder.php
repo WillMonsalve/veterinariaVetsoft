@@ -73,6 +73,15 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'admin.servicios.destroy',
                             'description' => 'Eliminar servicios'])->syncRoles([$role1, $role2]);
 
+                            Permission::create(['name' => 'admin.citas.index',
+                            'description' => 'Ver listado de citas'])->syncRoles([$role1, $role2, $role3, $role4]);
+        Permission::create(['name' => 'admin.citas.create',
+                            'description' => 'Crear citas'])->syncRoles([$role1, $role2, $role3]);
+        Permission::create(['name' => 'admin.citas.edit',
+                            'description' => 'Editar citas'])->syncRoles([$role1, $role2]);
+        Permission::create(['name' => 'admin.citas.destroy',
+                            'description' => 'Eliminar citas'])->syncRoles([$role1, $role2]);
+
         //lo mismo para las demas entidades
     }
 }
