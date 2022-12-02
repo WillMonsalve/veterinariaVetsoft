@@ -44,7 +44,6 @@
 
     @else
         <strong>No hay ningún registro</strong>
-
     @endif
 
 </div>

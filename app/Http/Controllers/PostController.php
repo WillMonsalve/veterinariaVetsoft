@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 
+use App\Http\Requests\PostRequest;
 class PostController extends Controller
 {
     
@@ -33,6 +34,8 @@ class PostController extends Controller
     
     public function show(Post $post)
     {
+        /* $this->authorize('published', $post); */
+
         $similares = Post::where('category_id', $post->category_id)
                             ->where('estado', 2)
                             ->where('id', '!=', $post->id)
