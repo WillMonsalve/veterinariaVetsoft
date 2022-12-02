@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('servicios', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre', 45);
+            $table->string('nombre_servicio', 45);
             $table->string('descripcion',100)->nullable();
             $table->time('duracion');
             $table->enum('estado', [1, 2]);
