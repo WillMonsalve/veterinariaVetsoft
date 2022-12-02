@@ -389,7 +389,12 @@ return [
             //'can'  => 'admin.mascotas.index',
         ],
 
-
+        [
+            'text' => 'Ayudas',
+            'route'  => 'admin.ayudas.index',
+            'icon' => 'bi bi-question-diamond',
+            //'can'  => 'admin.ayudas.index',
+        ],
 
         // [
         //     'text' => 'cambiar contraseña',
@@ -414,16 +419,6 @@ return [
                 ],
             ],
         ],
-
-        [
-            'text' => 'Ayudas',
-            'route'  => 'admin.ayudas.index',
-            'icon' => 'bi bi-question-diamond',
-            //'can'  => 'admin.ayudas.index',
-        ],
-
-
-
 
         ['header' => 'OPCIONES DE BLOG'],
         [
