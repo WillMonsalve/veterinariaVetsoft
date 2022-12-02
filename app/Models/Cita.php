@@ -16,11 +16,9 @@ class Cita extends Model
         'estado',
         'fecha',
         'hora',
-        'servicio',
-        'cliente',
         'servicio_id',
         'cliente_id',
-        'agenda_id',
+
     ];
 
     //Relacion uno a muchos inversa

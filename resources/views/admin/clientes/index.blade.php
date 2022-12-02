@@ -40,12 +40,12 @@
 
                 <tbody>
                     {{-- <tfoot> --}}
-                        
+
                     @foreach ($clientes as $cliente)
-                   
+
                     <tr>
                             {{-- <td>{{$cliente->id}}</td> --}}
-                            <td>{{$cliente->nombre}}</td>
+                            <td>{{$cliente->nombre_cliente}}</td>
                             <td>{{$cliente->apellido}}</td>
                             {{-- <td>{{$cliente->direccion}}</td> --}}
                             <td>{{$cliente->cedula}}</td>
@@ -55,15 +55,15 @@
                             <td>
                                <a class="btn btn-primary btn-sm" href="{{route('admin.clientes.edit', $cliente)}}"><i class="bi bi-pen"></i></a>
                             </td>
-                            
+
                             <td>
                                 <input type ='button' class="btn btn-info btn-sm"  value = '+ Mascota' onclick="location.href = '{{ route('admin.mascotas.create')}}'"/>
                             </td>
-                            
+
                             <td>
                                 <a class="btn btn-warning btn-sm" href="{{route('admin.clientes.show', $cliente)}}"><i class="bi bi-eye"></i></a>
                             </td>
-                            
+
                             <td>
                                <form action="{{route('admin.clientes.destroy', $cliente)}}" method="POST">
                                     @csrf
@@ -71,7 +71,7 @@
                                     <button class="btn btn-success btn-sm" type="submit">Activo</button>
                                </form>
                             </td>
-                        </tr>                                     
+                        </tr>
                       @endforeach
                     {{-- </tfoot> --}}
                 </tbody>
@@ -90,7 +90,7 @@
     $('#clientes').DataTable({
         responsive:true,
         autoWidth: false,
-       
+
         "language": {
             "lengthMenu": "Mostrar _MENU_ registros por página",
             "zeroRecords": "Nada encontrado - disculpa",

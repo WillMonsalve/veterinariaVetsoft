@@ -41,6 +41,8 @@
                         <th>Hora</th>
                         <th>Estado</th>
                         <th>Opciones</th>
+                        <th></th>
+
 
 
                     </tr>
@@ -48,15 +50,17 @@
 
                 <tbody>
                     @foreach ($citas as $cita)
+
                         <tr>
                             {{--  <th>{{$cita->id}}</th>  --}}
-                            <th>{{$cita->cliente_id}}</th>
-                            <th>{{$cita->servicio_id}}</th>
-                            <th>{{$cita->fecha}}</th>
-                            <th>{{$cita->hora}}</th>
+
+                            <th>{{$cita->nombre_cliente}}</th>
+                            <th>{{$cita->nombre_servicio}}</th>
+                            <th>{{$cita->Fecha}}</th>
+                            <th>{{$cita->Hora}}</th>
                             <th>
 
-                                @if($cita->estado == '2')
+                                @if($cita->Estado == '2')
                                 <span class="bi bi-toggle-off btn btn-danger">Cancelada</span>
                                 @else
                                 <span class="bi bi-toggle-on btn btn-success">Activo</span>
@@ -64,24 +68,18 @@
 
                             </th>
 
+                            <td>
+                                <a class="btn btn-warning btn-sm" href="{{route('admin.citas.show', $cita)}}"><i class="bi bi-eye"></i></a>
+                            </td>
 
-                            <td width= "10px">
+                            <td >
                                 {{--  @can('admin.citas.edit')  --}}
-                                    <a class="btn btn-primary btn-sm" href="{{route('admin.citas.edit', $cita)}}">Editar</a>
+                                    <a class="btn btn-primary bi bi-pen" href="{{route('admin.citas.edit', $cita)}}"></a>
                                 {{--  @endcan  --}}
                             </td>
 
 
-                            {{--  <th width= "10px">
-                                {{--  @can('admin.citas.destroy')
-                                    <form action="{{route('admin.cita.destroy', $cita)}}" method="POST">
-                                        @csrf
-                                        @method('delete')
 
-                                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                                    </form>
-                                @endcan
-                            </th> --}}
                         </tr>
 
 
