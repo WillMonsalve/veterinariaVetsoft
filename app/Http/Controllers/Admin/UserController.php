@@ -27,7 +27,7 @@ class UserController extends Controller
 
     public function create()
     {
-        //
+        return view('admin.users.create');
     }
 
    
@@ -53,9 +53,21 @@ class UserController extends Controller
     
     public function update(Request $request, User $user)
     {
+        $request->validate([
+            'name' => 'required',
+            'apellido' => 'required',
+            'direccion' => 'required',
+            'cedula' => 'required',
+            'edad' => 'required',
+            'telefono' => 'required',
+            'email' => 'required',
+        ]);
+
+        $user->update($request->all());
+
         $user->roles()->sync($request->roles);
 
-        return redirect()->route('admin.users.index', $user)->with('info', 'Se asignó los roles correctamente');
+        return redirect()->route('admin.users.index', $user)->with('info', 'Se actualizó los datos correctamente');
     }
 
    

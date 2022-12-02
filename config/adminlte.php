@@ -325,9 +325,6 @@ return [
             'route' => 'admin.users.index',
             'icon' => 'fas fa-users fa-fw',
             'active' => ['admin/users*'],
-
- 
-
             //'can'  => 'admin.users.index',
         ],
 
@@ -351,36 +348,42 @@ return [
             'text' => 'Clientes',
             'route'  => 'admin.clientes.index',
             'icon' => 'fas fa-user-tie fa-fw',
+            'active' => ['admin/clientes*'],
             //'can'  => 'admin.clientes.index',
         ],
         [
             'text' => 'Agendas',
             'route'  => 'admin.agendas.index',
             'icon' => 'fas fa-calendar-alt fa-fw',
+            'active' => ['admin/agendas*'],
             //'can'  => 'admin.agendas.index',
         ],
         [
             'text' => 'Citas',
             'route'  => 'admin.citas.index',
             'icon' => 'fas fa-user-md fa-fw',
+            'active' => ['admin/citas*'],
             //'can'  => 'admin.citas.index',
         ],
         [
             'text' => 'Historias clinicas',
             'route'  => 'admin.historias.index',
             'icon' => 'fas fa-file-medical fa-fw',
+            'active' => ['admin/historias*'],
             //'can'  => 'admin.historias.index',
         ],
         [
             'text' => 'Notas de progreso',
             'route'  => 'admin.detalles.index',
             'icon' => 'fas fa-file-medical-alt fa-fw',
+            'active' => ['admin/detalles*'],
             //'can'  => 'admin.detalles.index',
         ],
         [
             'text' => 'Mascotas',
             'route'  => 'admin.mascotas.index',
             'icon' => 'fas fa-paw fa-fw',
+            'active' => ['admin/mascotas*'],
             //'can'  => 'admin.mascotas.index',
         ],
         

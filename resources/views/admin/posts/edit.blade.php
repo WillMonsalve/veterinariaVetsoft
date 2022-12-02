@@ -7,15 +7,14 @@
 @stop
 
 @section('content')
+
     <div class="card">
         <div class="card-body">
-            {!! Form::model($post, ['route' => 'admin.posts.store', 'autocomplete' => 'off', 'files' => true]) !!}
-
-                {!! Form::hidden('user_id', auth()->user()->id) !!}
+            {!! Form::model($post, ['route' => ['admin.posts.update', $post], 'autocomplete' => 'off', 'files' => true, 'method' => 'put']) !!}
 
                     @include('admin.posts.partials.form')
 
-                    {!! Form::submit('Crear Post', ['class' => 'btn btn-primary']) !!}
+                    {!! Form::submit('Actualizar Post', ['class' => 'btn btn-primary']) !!}
 
             {!! Form::close() !!}
         </div>

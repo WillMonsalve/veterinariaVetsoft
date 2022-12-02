@@ -1,11 +1,5 @@
-<div>
-    @if (session('info'))
-        <div class="alert alert-success">
-            <strong>{{session('info')}}</strong>
-        </div>
-    @endif
-    <div class="card">
-        
+<div>    
+    <div class="card">        
 
         <div class="card-header">
             <input wire:model="search" class="form-control" placeholder="Ingrese el nombre o correo de un usuario">
@@ -19,10 +13,10 @@
                            {{--  <th>ID</th> --}}
                             <th>Nombre</th>
                             <th>Apellido</th>
-                            {{-- <th>Dirección</th> --}}
+                            <th>Dirección</th>
                             <th>Cédula</th>
-                            {{-- <th>Edad</th>
-                            <th>Teléfono</th> --}}
+                            <th>Edad</th>
+                            <th>Teléfono</th>
                             <th>Email</th>
                             <th colspan="2"></th>
                                 
@@ -35,15 +29,15 @@
                                 {{-- <td>{{$user->id}}</td> --}}
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->apellido}}</td>
-                                {{-- <td>{{$user->direccion}}</td> --}}
+                                <td>{{$user->direccion}}</td>
                                 <td>{{$user->cedula}}</td>
-                               {{--  <td>{{$user->edad}}</td>
-                                <td>{{$user->telefono}}</td> --}}
+                                <td>{{$user->edad}}</td>
+                                <td>{{$user->telefono}}</td>
                                 <td>{{$user->email}}</td>
                                 <td width="10px">
                                     <a class="btn btn-primary btn-sm" href="{{route('admin.users.edit', $user)}}"><i class="fas fa-pen-fancy"></i></a>
                                 </td>
-                                <td width="10px">
+                                {{-- <td width="10px">
                                     <form action="{{route('admin.users.destroy', $user)}}" method="POST">
                                         @csrf
                                         @method('delete')
@@ -51,7 +45,7 @@
                                         <button class="btn btn-danger btn-sm" type="submit"><i class="fa fa-fw fa-trash"></i></button>
     
                                     </form>
-                                </td>
+                                </td> --}}
                             </tr>
                         @endforeach
                     </tbody>

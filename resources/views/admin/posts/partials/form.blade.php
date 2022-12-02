@@ -66,7 +66,11 @@
 <div class="row mb-3">
     <div class="col">
         <div class="image-wrapper">
-            <img id="picture" src="https://cdn.pixabay.com/photo/2022/10/19/22/15/cat-7533717_960_720.jpg" alt="">
+            @isset ($post->image)
+                <img id="picture" src="{{Storage::url($post->image->url)}}" alt="">
+            @else
+                <img id="picture" src="https://cdn.pixabay.com/photo/2022/10/19/22/15/cat-7533717_960_720.jpg" alt="">
+            @endisset
         </div>
     </div>
 
