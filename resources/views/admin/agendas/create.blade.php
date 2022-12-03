@@ -14,13 +14,13 @@
 
             <div class="form-group">
                 <label for="name">Usuarios</label>
-                <select name="" id="" class="form-control">
-                @foreach ($users as $user)
-                    <option value="{{$user->user_id}}">{{$user->name}}</option>
+                <select class="form-control" name="user_id" id="" >
+                @foreach ($users as $key =>$value)
+                    <option value="{{$value->id}}">{{$value->name}}</option>
                 @endforeach
                 </select>
 
-                @error('user')
+                @error('users')
                 <span class="text-danger">{{$message}}</span>
                 @enderror
 
@@ -28,7 +28,7 @@
 
             <div class="row">
                             <div class="form-group col-md-6">
-                            <small id="fecha_inicio" class="form-text text-muted-success">Fecha Inicio</small>  
+                            <small id="fecha_inicio" class="form-text text-muted-success">Fecha Inicio</small>
                             <input type="date" class="form-control" name="fecha_inicio" id="fecha_inicio" aria-describedby="fecha_inicio" placeholder="">
 
                             </div>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="row">
                             <div class="form-group col-md-6">
-                            <small id="fecha_final" class="form-text text-muted">Fecha Final</small>  
+                            <small id="fecha_final" class="form-text text-muted">Fecha Final</small>
                             <input type="date" class="form-control" name="fecha_final" id="fecha_final" aria-describedby="fecha_final" placeholder="">
 
                             </div>
@@ -50,12 +50,12 @@
                     @enderror
 
                 </div>
-               
-                
+
+
 
                 <div class="row">
                             <div class="form-group col-md-6">
-                            <small id="hora_inicio" class="form-text text-muted">Hora inicio</small>  
+                            <small id="hora_inicio" class="form-text text-muted">Hora inicio</small>
                             <input type="time" class="form-control" name="hora_inicio" id="hora_inicio" aria-describedby="hora_inicio" placeholder="">
                             </div>
 
@@ -66,7 +66,7 @@
                 </div>
                 <div class="row">
                             <div class="form-group col-md-6">
-                            <small id="hora_intermedia_mañana" class="form-text text-muted">Hora intermedia mañana</small>  
+                            <small id="hora_intermedia_mañana" class="form-text text-muted">Hora intermedia mañana</small>
                             <input type="time" class="form-control" name="hora_intermedia_mañana" id="hora_intermedia_mañana" aria-describedby="hora_intermedia_mañana" placeholder="">
                             </div>
 
@@ -78,7 +78,7 @@
 
                 <div class="row">
                             <div class="form-group col-md-6">
-                            <small id="hora_intermedia_tarde" class="form-text text-muted">Hora intermedia tarde</small>  
+                            <small id="hora_intermedia_tarde" class="form-text text-muted">Hora intermedia tarde</small>
                             <input type="time" class="form-control" name="hora_intermedia_tarde" id="hora_intermedia_tarde" aria-describedby="hora_intermedia_tarde" placeholder="">
                             </div>
 
@@ -90,7 +90,7 @@
 
                 <div class="row">
                             <div class="form-group col-md-6">
-                            <small id="hora_final" class="form-text text-muted">Hora final</small>  
+                            <small id="hora_final" class="form-text text-muted">Hora final</small>
                             <input type="time" class="form-control" name="hora_final" id="hora_final" aria-describedby="hora_final" placeholder="">
                             </div>
 
@@ -100,7 +100,7 @@
 
                 </div>
 
-                
+
 
                 {!! Form::submit('Crear horario', ['class' => 'btn btn-dark']) !!}
 
