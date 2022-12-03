@@ -12,10 +12,11 @@ class horario_agendaController extends Controller
 {
     public function index()
     {
+
         $horarios = horario_agenda::select("horario_agendas.*","servicios.nombre_servicio")
-        ->join("servicios", "horarios.id_servi","=", "servicios.id")
+        ->join("servicios", "horario_agendas.id_servi","=", "servicios.id")
         ->get();
-       
+
         return view('admin.horario_agenda.index', compact('horarios'));
     }
 
@@ -35,15 +36,15 @@ class horario_agendaController extends Controller
             'Hora_fin'=>'required',
             'id_Rol'=>'nullable',
             'id_servi' => 'nullable',
-            
-           
+
+
         ]);
 
         $horarios = horario_agenda::create($request->all());
 
         return redirect()->route('admin.horario_agenda.index', $horarios)->with('info', 'el horario se creo con exito');
     }
-    
-  
+
+
 }
 
