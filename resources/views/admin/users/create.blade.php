@@ -81,7 +81,26 @@
             
             </div>
 
-                    {!! Form::submit('Crear Usuario', ['class' => 'btn btn-primary']) !!}
+            <div class="form-group">
+                <h2 class="h5">Asignar rol</h2>
+                @foreach ($roles as $role)
+                    <div>
+                        <label>
+                            {!! Form::checkbox('roles[]', $role->id, null, ['class' => 'mr-1']) !!}
+                            {{$role->name}}
+                        </label>
+                    </div>
+                @endforeach
+
+                @error('roles')
+                    <br>
+                    <small class="text-danger">{{$message}}</small>
+                @enderror
+            </div>
+
+            
+
+                {!! Form::submit('Crear Usuario', ['class' => 'btn btn-primary mt-2']) !!}
 
             {!! Form::close() !!}
         </div>
