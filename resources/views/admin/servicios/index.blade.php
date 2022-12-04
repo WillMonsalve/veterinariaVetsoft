@@ -45,11 +45,11 @@
                 <tbody>
                     @foreach ($servicios as $servicio)
                         <tr>
-                            <th>{{$servicio->id}}</th>
-                            <th>{{$servicio->nombre}}</th>
-                            <th>{{$servicio->descripcion}}</th>
-                            <th>{{$servicio->duracion}}</th>
-                            <td>
+                            <td>{{$servicio->id}}</td>
+                            <td>{{$servicio->nombre}}</td>
+                            <td>{{$servicio->descripcion}}</td>
+                            <td>{{$servicio->duracion}}</td>
+                            <td width="10px">
                                 @if($servicio->estado == '2')
                                 <span class="btn btn-danger"><i class="bi bi-toggle-off"></i></span>
                                 @else
@@ -58,11 +58,11 @@
 
                             </td>
 
-                            <th width= "20px">
+                            <td width= "10px">
                                 @can('admin.servicios.edit')
                                     <a class="btn btn-info " href="{{route('admin.servicios.edit', $servicio)}}"><i class="bi bi-pencil-square"></i></a>
                                 @endcan
-                            </th>
+                            </td>
 
                         </tr>
 
