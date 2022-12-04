@@ -22,15 +22,17 @@ class CitaController extends Controller
 
     public function index()
     {
-        $citas = Cita::all();
-
+        $citas = Cita::select("citas.*", "clientes.nombre_cliente","servicios.nombre_servicio")
+        ->join("clientes", "citas.cliente_id","=", "clientes.id")
+        ->join("servicios", "citas.servicio_id","=", "servicios.id")
+        ->get();
         return view('admin.citas.index', compact('citas'));
     }
 
 
     public function create()
     {
-        $servicios = Servicio::all('nombre');
+        $servicios = Servicio::all();
         $cliente = Cliente::all();
         return view('admin.citas.create', compact('servicios','cliente'));
     }
@@ -38,13 +40,13 @@ class CitaController extends Controller
 
     public function store(Request $request)
     {
-        /* $request->validate([
+        $request->validate([
             'estado' => 'required',
             'fecha' => 'required',
             'hora' => 'nullable',
-            'servicio_id' => 'required',
             'cliente_id' => 'required',
-        ]); */
+            'servicio_id' => 'required',
+        ]);
 
         $cita = Cita::create($request->all());
 
@@ -52,10 +54,12 @@ class CitaController extends Controller
     }
 
 
-   /*  public function show(Cita $cita)
+    public function show(Cita $cita)
     {
-        return view('admin.citas.show', compact('cita'));
-    } */
+        $clientes = Cliente::all();
+        $servicios = Servicio::all();
+        return view('admin.citas.show', compact('cita','clientes','servicios'));
+    }
 
 
     public function edit(Cita $cita)

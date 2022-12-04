@@ -17,11 +17,11 @@
 
                 <div class="form-group">
                 <label for="text">Cliente</label>
-                <select name="" id="" class="form-control">
-                    @foreach ($cliente as $clientes)
-                        <option value="{{ $clientes->cliente_id }}">{{ $clientes->nombre }}</option>
+                <select class="form-control" name="cliente_id" id="">
+                    @foreach($cliente as $key =>$value)
+                         <option value="{{$value->id}}">{{$value->nombre_cliente}} </option>
                     @endforeach
-                </select>
+                    </select>
 
                 @error('cliente')
                     <span class="text-danger">{{ $message }}</span>
@@ -29,20 +29,14 @@
 
                 </div>
 
-
-                {{--  {{ Form::label('servicio_id', 'Servicio:')}}
-                {!! Form::select('servicio_id', $servicios, null, ['class' => 'form-control'])!!}  --}}
-
-
-
                 <div class="form-group">
                 <label>Servicios</label>
-                <select class="form-control">
-                    @foreach ($servicios as $servicio)
-                        <option value="{{ $servicio->id }}">{{ $servicio->nombre }}</option>
-                    @endforeach
-                </select>
 
+                <select class="form-control" name="servicio_id" id="">
+                    @foreach($servicios as $key =>$value)
+                         <option value="{{$value->id}}">{{$value->nombre_servicio}} </option>
+                    @endforeach
+                    </select>
                 @error('servicio')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -77,7 +71,7 @@
                     </select>
                 </div>
 
-                {!! Form::submit('Registrar Cita', ['class' => 'btn btn-susccess']) !!}
+                {!! Form::submit('Registrar', ['class' => 'btn btn-success']) !!}
 
                 <td>
 

@@ -13,14 +13,14 @@ class Cliente extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nombre',
+        'nombre_cliente',
         'apellido',
         'direccion',
         'cedula',
         'edad',
         'telefono',
         'email',
-        
+
     ];
 
     //Relacion uno a muchos inversa
