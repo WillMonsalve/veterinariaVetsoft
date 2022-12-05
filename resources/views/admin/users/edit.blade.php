@@ -3,10 +3,16 @@
 @section('title', 'usuarios')
 
 @section('content_header')
-    <h1>Edita Usuario</h1>
+    <h1>Editar Usuario</h1>
 @stop
 
 @section('content')
+
+    @if (session('info'))
+        <div class="alert alert-success">
+            <strong>{{session('info')}}</strong>
+        </div>
+    @endif
 
     <div class="card">
         <div class="card-body">
@@ -83,15 +89,26 @@
                 
                 </div>
 
-                <h2 class="h5">Asignar rol</h2>
-                @foreach ($roles as $role)
-                    <div>
-                        <label>
-                            {!! Form::checkbox('roles[]', $role->id, null, ['class' => 'mr-1']) !!}
-                            {{$role->name}}
-                        </label>
-                    </div>
-                @endforeach
+                <div class="form-group">
+                    <label for="status">Estado</label>
+                    <select class="form-control" name="status" id="status">
+                        <option value="1">Activo</option>
+                        <option value="2">Inactivo</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <h2 class="h5">Asignar rol</h2>
+                    @foreach ($roles as $role)
+                        <div>
+                            <label>
+                                {!! Form::checkbox('roles[]', $role->id, null, ['class' => 'mr-1']) !!}
+                                {{$role->name}}
+                            </label>
+                        </div>
+                    @endforeach
+                </div>
+               
 
                 {!! Form::submit('Asignar rol', ['class' => 'btn btn-primary mt-2']) !!}
             {!! Form::close() !!}

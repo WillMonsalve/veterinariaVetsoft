@@ -32,7 +32,9 @@
                     <tr>
                         <th>ID</th>
                         <th>Role</th>
+                        <th>Permisos</th>
                         <th>Editar</th>
+                        <th>Ver</th>
                         <th>Eliminar</th>
                     </tr>
                 </thead>
@@ -42,9 +44,20 @@
                         <tr>
                             <td>{{$role->id}}</td>
                             <td>{{$role->name}}</td>
+                            <td>
+                                @forelse ($role->permissions as $permission)
+                                    <span class="badge badge-info">{{ $permission->description }}</span>
+                                @empty
+                                    <span class="badge badge-danger">No tiene permisos agregados</span>
+                                @endforelse
+                            </td>
 
                             <td width="10px">
                                 <a href="{{route('admin.roles.edit', $role)}}" class="btn btn-sm btn-primary"><i class="fas fa-pen-fancy"></i></a>
+                            </td>
+
+                            <td width="10px">
+                                <a href="{{route('admin.roles.show', $role)}}" class="btn btn-sm btn-warning"><i class="bi bi-eye"></i></a>
                             </td>
 
                             <td width="10px">

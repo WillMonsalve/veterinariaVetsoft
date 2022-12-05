@@ -12,14 +12,14 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name' => 'Fabiana',
-            'apellido' => 'Loaiza',
+            'name' => 'Wilton',
+            'apellido' => 'Monsalve',
             'direccion' => 'calle 50 carrera 80',
             'cedula' => '71527119',
             'edad' => '36',
             'telefono' => '5599596',
-            'email' => 'fabiana.loaiza@misena.edu.co',
-            'estado' => '1',
+            'email' => 'wmonsalve85@gmail.com',
+            'status' => '1',
             'password' => bcrypt('12345678'),
         ])->assignRole('Admin');
 

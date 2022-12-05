@@ -81,7 +81,54 @@
             
             </div>
 
-                    {!! Form::submit('Crear Usuario', ['class' => 'btn btn-primary']) !!}
+            {{-- <div class="form-group">
+                {!! Form::label('password', 'Contraseña') !!}
+                {!! Form::password('password', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del post']) !!}
+            
+                @error('password')
+                    <small class="text-danger">{{$message}}</small>
+                @enderror
+            
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('password_confirmation', 'Confirmar contraseña') !!}
+                {!! Form::password('password_confirmation', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del post']) !!}
+            
+                @error('password_confirmation')
+                    <small class="text-danger">{{$message}}</small>
+                @enderror
+            
+            </div> --}}
+
+            <div class="form-group">
+                <h2 class="h5">Asignar rol</h2>
+                @foreach ($roles as $role)
+                    <div>
+                        <label>
+                            {!! Form::checkbox('roles[]', $role->id, null, ['class' => 'mr-1']) !!}
+                            {{$role->name}}
+                        </label>
+                    </div>
+                @endforeach
+
+                @error('roles')
+                    <br>
+                    <small class="text-danger">{{$message}}</small>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="status">Estado</label>
+                <select class="form-control" name="status" id="status">
+                    <option value="1">Activo</option>
+                    <option value="0">Inactivo</option>
+                </select>
+            </div>
+
+            
+
+                {!! Form::submit('Crear Usuario', ['class' => 'btn btn-primary mt-2']) !!}
 
             {!! Form::close() !!}
         </div>

@@ -41,6 +41,8 @@ class RoleController extends Controller
 
     public function show(Role $role)
     {
+        $role->load('permissions');
+
         return view('admin.roles.show', compact('role'));
     }
 
@@ -48,6 +50,8 @@ class RoleController extends Controller
     public function edit(Role $role)
     {
         $permissions = Permission::all();
+
+        $role->load('permissions');
 
         return view('admin.roles.edit', compact('role', 'permissions'));
     }
