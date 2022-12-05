@@ -68,8 +68,8 @@
 
                             </th>
                                  
-                            <th>{{$horario->id_servi}}</th>
-                                                  
+                            <th>{{$horario->nombre_servicio}}</th>
+                            <th>{{$horario->name}}</th>                  
                            
                            
     
