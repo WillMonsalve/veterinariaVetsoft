@@ -27,13 +27,31 @@ class UserController extends Controller
 
     public function create()
     {
-        return view('admin.users.create');
+        $roles = Role::all();
+
+        return view('admin.users.create', compact('roles'));
     }
 
    
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'apellido' => 'required',
+            'direccion' => 'required',
+            'cedula' => 'required',
+            'edad' => 'required',
+            'telefono' => 'required',
+            'email' => 'required',
+        ]);
+
+        $user = User::create($request->all());
+
+        if ($request->roles) {
+            $user->roles()->attach($request->roles);
+        }
+
+        return redirect()->route('admin.users.edit', $user)->with('info', 'El usuario se creó con éxito');
     }
 
    
