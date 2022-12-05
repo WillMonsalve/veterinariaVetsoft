@@ -56,9 +56,9 @@ class CitaController extends Controller
 
     public function show(Cita $cita)
     {
-        $clientes = Cliente::all();
+        $cliente = Cliente::all();
         $servicios = Servicio::all();
-        return view('admin.citas.show', compact('cita','clientes','servicios'));
+        return view('admin.citas.show', compact('cita','servicios','cliente'));
     }
 
 
