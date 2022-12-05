@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
             'edad' => '36',
             'telefono' => '5599596',
             'email' => 'wmonsalve85@gmail.com',
-            'estado' => '1',
+            'status' => '1',
             'password' => bcrypt('12345678'),
         ])->assignRole('Admin');
 
