@@ -12,10 +12,11 @@ class horario_agendaController extends Controller
 {
     public function index()
     {
-        $horarios = horario_agenda::all();
-        $servicios = Servicio::all();
+        $horarios = horario_agenda::select("horario_agendas.*","servicios.nombre_servicio")
+        ->join("servicios", "horarios.id_servi","=", "servicios.id")
+        ->get();
        
-        return view('admin.horario_agenda.index', compact('horarios'),compact('servicios'));
+        return view('admin.horario_agenda.index', compact('horarios'));
     }
 
     public function create()

@@ -12,10 +12,11 @@ class AgendaController extends Controller
 {
     public function index()
     {
-        $agendas = Agenda::all();
-        $users = user::all();
+        $agendas = Agenda::select("agendas.*", "users.name")
+        ->join("users", "agendas.user_id","=", "users.id")
+        ->get();
        
-        return view('admin.agendas.index', compact('agendas'), compact('users'));
+        return view('admin.agendas.index', compact('agendas'));
     }
     public function create()
     {
