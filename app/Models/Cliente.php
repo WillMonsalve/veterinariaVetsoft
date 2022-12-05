@@ -20,6 +20,8 @@ class Cliente extends Model
         'edad',
         'telefono',
         'email',
+        'estado',
+
 
     ];
 
@@ -34,6 +36,6 @@ class Cliente extends Model
     }
 
     public function Mascotas(){
-        return $this->hasMany(Mascota::class);
+        return $this->hasMany(Mascota::class, 'id');
     }
 }

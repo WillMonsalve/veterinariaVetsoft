@@ -75,6 +75,14 @@
                     <small class="text-danger">{{$message}}</small>
                     @enderror
                 </div>
+                
+                <div class="form-group">
+                    <label for="estado">Estado</label>
+                    <select class="form-control" name="estado" id="estado">
+                        <option value="1">Activo</option>
+                        <option value="2">Inactivo</option>
+                    </select>
+                </div>
 
 
 

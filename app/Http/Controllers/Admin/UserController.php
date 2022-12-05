@@ -43,6 +43,7 @@ class UserController extends Controller
             'edad' => 'required',
             'telefono' => 'required',
             'email' => 'required',
+            'estado' => 'nullable',
         ]);
 
         $user = User::create($request->all());
@@ -79,6 +80,7 @@ class UserController extends Controller
             'edad' => 'required',
             'telefono' => 'required',
             'email' => 'required',
+            'estado' => 'nullable',
         ]);
 
         $user->update($request->all());

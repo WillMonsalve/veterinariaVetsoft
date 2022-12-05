@@ -20,76 +20,84 @@
             {!! Form::model($mascota, ['route' => ['admin.mascotas.update', $mascota], 'method' => 'put']) !!}
         
                 <div class="form-group">
-                    {!! Form::label('nombre', 'Nombre') !!}
-                    {!! Form::text('nombre', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre de la mascota']) !!}
+                    {!! Form::label('Nombre', 'Nombre') !!}
+                    {!! Form::text('Nombre', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre de la mascota']) !!}
 
-                    @error('nombre')
+                    @error('Nombre')
                         <span class="text-danger">{{$message}}</span>
                     @enderror
 
                 </div>
                 <div class="form-group">
-                    {!! Form::label('raza', 'Raza') !!}
-                    {!! Form::text('raza', null, ['class' => 'form-control', 'placeholder' => 'Ingrese la raza de la mascota']) !!}
+                    {!! Form::label('Raza', 'Raza') !!}
+                    {!! Form::text('Raza', null, ['class' => 'form-control', 'placeholder' => 'Ingrese la raza de la mascota']) !!}
 
-                    @error('raza')
+                    @error('Raza')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
 
                 </div>
                 <div class="form-group">
-                    {!! Form::label('color', 'Color') !!}
-                    {!! Form::text('color', null, ['class' => 'form-control', 'placeholder' => 'Ingrese color de la mascota']) !!}
+                    {!! Form::label('Color', 'Color') !!}
+                    {!! Form::text('Color', null, ['class' => 'form-control', 'placeholder' => 'Ingrese color de la mascota']) !!}
 
-                    @error('color')
+                    @error('Color')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
 
                 </div>
                 <div class="form-group">
-                    {!! Form::label('peso', 'Peso') !!}
-                    {!! Form::number('peso', null, ['class' => 'form-control', 'placeholder' => 'Ingrese peso de la mascota']) !!}
+                    {!! Form::label('Peso', 'Peso') !!}
+                    {!! Form::number('Peso', null, ['class' => 'form-control', 'placeholder' => 'Ingrese peso de la mascota']) !!}
 
-                    @error('peso')
+                    @error('Peso')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
 
                 </div>
                 <div class="form-group">
-                    {!! Form::label('especie', 'Especie') !!}
-                    {!! Form::text('especie', null, ['class' => 'form-control', 'placeholder' => 'Ingrese especie']) !!}
+                    {!! Form::label('Especie', 'Especie') !!}
+                    {!! Form::text('Especie', null, ['class' => 'form-control', 'placeholder' => 'Ingrese especie']) !!}
 
-                    @error('especie')
+                    @error('Especie')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
 
                 </div>
                 <div class="form-group">
-                    {!! Form::label('edad', 'Edad') !!}
-                    {!! Form::number('edad', null, ['class' => 'form-control', 'placeholder' => 'Ingrese la edad']) !!}
+                    {!! Form::label('Edad', 'Edad') !!}
+                    {!! Form::number('Edad', null, ['class' => 'form-control', 'placeholder' => 'Ingrese la edad']) !!}
 
-                    @error('edad')
+                    @error('Edad')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
 
                 </div>
                 <div class="form-group">
-                    {!! Form::label('sexo', 'Sexo') !!}
-                    {!! Form::text('sexo', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el sexo']) !!}
+                    {!! Form::label('Sexo', 'Sexo') !!}
+                    {!! Form::text('Sexo', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el sexo']) !!}
 
-                    @error('sexo')
+                    @error('Sexo')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
 
                 </div>
                 <div class="form-group">
                     {!! Form::label('cliente_id', 'Propietario') !!}
-                    {!! Form::text('cliente_id', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el propietario']) !!}
+                    {!! Form::select('cliente_id',$clientes, $mascota->cliente_id, ['class' => 'form-control', 'placeholder' => 'Ingrese el propietario']) !!}
 
                     @error('cliente_id')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
 
+                </div>
+
+                <div class="form-group">
+                    <label for="estado">Estado</label>
+                    <select class="form-control" name="estado" id="estado">
+                        <option value="1">Activo</option>
+                        <option value="2">Inactivo</option>
+                    </select>
                 </div>
 
                 {!! Form::submit('Actualizar', ['class' => 'btn btn-primary']) !!} 

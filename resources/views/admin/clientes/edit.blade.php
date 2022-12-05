@@ -83,6 +83,15 @@
 
                 </div>
 
+                <div class="form-group">
+                    <label for="estado">Estado</label>
+                    <select class="form-control" name="estado" id="estado">
+                        <option value="1">Activo</option>
+                        <option value="2">Inactivo</option>
+                    </select>
+
+                </div>
+
                 {!! Form::submit('Actualizar', ['class' => 'btn btn-primary']) !!}
 
                 <a href="{{ route('admin.clientes.show', $cliente)}}" class="btn btn-sm btn-success mr-3"> Volver </a>
