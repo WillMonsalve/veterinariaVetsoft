@@ -20,10 +20,10 @@
             {!! Form::model($servicio, ['route' => ['admin.servicios.update', $servicio], 'method' => 'put']) !!}
 
                 <div class="form-group">
-                    {!! Form::label('nombre', 'Nombre') !!}
-                    {!! Form::text('nombre', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del servicio']) !!}
+                    {!! Form::label('nombre_servicio', 'Nombre') !!}
+                    {!! Form::text('nombre_servicio', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del servicio']) !!}
 
-                    @error('nombre')
+                    @error('nombre_servicio')
                         <span class="text-danger">{{$message}}</span>
                     @enderror
 
