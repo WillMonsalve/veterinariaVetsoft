@@ -15,13 +15,12 @@ class AgendaController extends Controller
         $agendas = Agenda::select("agendas.*", "users.name")
         ->join("users", "agendas.user_id","=", "users.id")
         ->get();
-
        
         return view('admin.agendas.index', compact('agendas'));
     }
     public function create()
     {
-        $users = User::all();
+        $users = user::all();
         return view('admin.agendas.create', compact('users'));
     }
     public function store(Request $request)
@@ -34,7 +33,7 @@ class AgendaController extends Controller
             'hora_intermedia_tarde'=>'required',
             'hora_final' => 'required',
             'user_id'=> 'nullable'
-           
+
         ]);
 
         $agendas = agenda::create($request->all());
@@ -42,13 +41,6 @@ class AgendaController extends Controller
         return redirect()->route('admin.agendas.index', $agendas)->with('info', 'el horario se creo con exito');
     }
     
-    
-    public function show(Agenda $agenda)
-    {
-        $users = User::all();
-      
-        return view('admin.agendas.show', compact('users'),compact('agenda'));
-    }
     public function destroy(Agenda $agenda)
     {
         $agenda->delete();

@@ -17,7 +17,7 @@ class horario_agendaController extends Controller
         ->join("servicios", "horario_agendas.id_servi","=", "servicios.id")
         ->join("users", "horario_agendas.id_user","=", "users.id")
         ->get();
-       
+
         return view('admin.horario_agenda.index', compact('horarios'));
     }
 
@@ -37,15 +37,15 @@ class horario_agendaController extends Controller
             'Hora_fin'=>'required',
             'id_user'=>'nullable',
             'id_servi' => 'nullable',
-            
-           
+
+
         ]);
 
         $horarios = horario_agenda::create($request->all());
 
         return redirect()->route('admin.horario_agenda.index', $horarios)->with('info', 'el horario se creo con exito');
     }
-    
-  
+
+
 }
 

@@ -37,15 +37,14 @@
             <table id="usuarios" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                 <thead>
                     <tr>
-              
-                    
-                        <th>Fecha</th>
+
+
+                    <th>Fecha</th>
                         <th>Hora inicio</th>
                         <th>Hora final</th>
                         <th>Estado</th>
                         <th>Servicio</th>
                         <th>Encargado</th>
-                        
                         
                         
 
@@ -54,15 +53,14 @@
                 </thead>
 
                 <tbody>
-            
+
                         @foreach ($horarios as $horario)
-                        <tr>
-                         
+                        <tr> 
                             <th>{{$horario->Fecha}}</th>
                             <th>{{$horario->Hora_ini}}</th>
                             <th>{{$horario->Hora_fin}}</th>
                             <th>
-                                @if($horario->Estado == '2')
+                                @if($horario->estado == '2')
                                 <span class="btn btn-danger"><i class="bi bi-toggle-off"></i></span>
                                 @else
                                 <span class="btn btn-success"><i class="bi bi-toggle-on"></i></span>
@@ -70,10 +68,11 @@
 
                             </th>
                                  
-                            <th>{{$horario->nombre_servicio}}</th>
+                            <th>{{$horario->id_servi}}</th>
                                                   
-                            <th>{{$horario->name}}</th>
-                         
+                           
+                           
+    
                 
                         </tr>
 

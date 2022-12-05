@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class agenda extends Model
 {
-    
+
     use HasFactory;
     protected $fillable = ['fecha_inicio',
     'fecha_final',
@@ -21,5 +21,5 @@ class agenda extends Model
     public function Users(){
         return $this->belongsTo(User::class);
     }
- 
+
 }

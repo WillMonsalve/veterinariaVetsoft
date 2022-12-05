@@ -10,14 +10,9 @@ use App\Models\User;
 class horario_agenda extends Model
 {
     use HasFactory;
-    protected $fillable=[
-        'Fecha',
-        'Hora_ini',
-        'Hora_fin',
-        'id_user',
-        'id_servi',
-        'Estado',];
-
+    protected $fillable=['Fecha', 'Hora_ini','Hora_fin','id_user',
+     'id_servi','Estado'];
+   
     public function Servicios(){
         return $this->belongsTo(Servicio::class);
     }
@@ -29,5 +24,3 @@ class horario_agenda extends Model
 
 
 }
-    
-

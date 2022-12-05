@@ -32,9 +32,7 @@
                          <option value="{{$value->id}}">{{$value->nombre_servicio}} </option>
                     @endforeach
                     </select>
-                @error('servicio')
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
+               
 
                 </div>
 
@@ -76,7 +74,8 @@
                         
 </div>          
 
-{!! Form::close() !!}                  
-                           
+
+{!! Form::close() !!}
+
 
 @stop
