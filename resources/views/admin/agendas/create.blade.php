@@ -14,17 +14,11 @@
 
             <div class="form-group">
                 <label for="name">Usuarios</label>
-                <select name="" id="" class="form-control">
-                @foreach ($users as $user)
-                    <option value="{{$user->user_id}}">{{$user->name}}</option>
+                <select class="form-control" name="user_id" id="" >
+                @foreach ($users as $key =>$value)
+                    <option value="{{$value->id}}">{{$value->name}}</option>
                 @endforeach
                 </select>
-
-                @error('user')
-                <span class="text-danger">{{$message}}</span>
-                @enderror
-
-               </div>
 
             <div class="row">
                             <div class="form-group col-md-6">

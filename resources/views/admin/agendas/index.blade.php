@@ -38,7 +38,7 @@
             <table id="usuarios" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                 <thead>
                     <tr>
-                    <th>ID</th>
+                   
                     <th>Usuario</th>
                         <th>Fecha inicio</th>
                         <th>Fecha final</th>
@@ -55,8 +55,8 @@
             
                         @foreach ($agendas as $agenda)
                         <tr> 
-                            <th>{{$agenda->id}}</th>
-                            <th>{{$agenda->user_id}}</th>
+                            
+                            <th>{{$agenda->name}}</th>
                             <th>{{$agenda->fecha_inicio}}</th>
                             <th>{{$agenda->fecha_final}}</th>
                             <th>{{$agenda->hora_inicio}}</th>
@@ -65,8 +65,9 @@
                             <th>{{$agenda->hora_final}}</th>
                             
                            
-
-                            <td width="10px">
+                            <td >
+                                <a class="btn btn-warning btn-sm" href="{{route('admin.agendas.show', $agenda)}}"><i class="bi bi-eye"></i></a>
+                        
                                <form action="{{route('admin.agendas.destroy', $agenda)}}" method="POST">
                                 @csrf
                                 @method('DELETE')
@@ -99,7 +100,19 @@
 <script>
     $('#usuarios').DataTable({
         responsive: true,
-        autoWidth: false
+        autoWidth: false,
+        "language": {
+            "lengthMenu": "Mostrar _MENU_ registros por página",
+            "zeroRecords": "Nada encontrado - disculpa",
+            "info": "Mostrando la página _PAGE_ de _PAGES_",
+            "infoEmpty": "No records available",
+            "infoFiltered": "(filtrado de _MAX_ registros totales)",
+            'search': 'Buscar:',
+            'paginate':{
+                'next':'Siguiente',
+                'previous':'Anterior'
+            }
+        }
     });
 </script>
 

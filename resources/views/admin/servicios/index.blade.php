@@ -62,7 +62,7 @@
                                 {{--  @can('admin.servicios.edit')  --}}
                                     <a class="btn btn-info " href="{{route('admin.servicios.edit', $servicio)}}"><i class="bi bi-pencil-square"></i></a>
                                 {{--  @endcan  --}}
-                            </th>
+                             
 
                         </tr>
 
@@ -82,7 +82,20 @@
 <script>
     $('#usuarios').DataTable({
         responsive: true,
-        autoWidth: false
+        autoWidth: false,
+            "language": {
+            "lengthMenu": "Mostrar _MENU_ registros por página",
+            "zeroRecords": "Nada encontrado - disculpa",
+            "info": "Mostrando la página _PAGE_ de _PAGES_",
+            "infoEmpty": "No records available",
+            "infoFiltered": "(filtrado de _MAX_ registros totales)",
+            'search': 'Buscar:',
+            'paginate':{
+                'next':'Siguiente',
+                'previous':'Anterior'
+            }
+        }
+        
     });
 </script>
 @endsection
