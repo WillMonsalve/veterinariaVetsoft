@@ -55,7 +55,7 @@
 
                         @foreach ($agendas as $agenda)
                         <tr> 
-                            <th>{{$agenda->id}}</th>
+                     
                             <th>{{$agenda->name}}}</th>
                             <th>{{$agenda->fecha_inicio}}</th>
                             <th>{{$agenda->fecha_final}}</th>
@@ -73,6 +73,10 @@
 
                                     <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-fw fa-trash"></i></button>
                                </form>
+                               
+                            
+                                <a class="btn btn-warning btn-sm" href="{{route('admin.agendas.show', $agenda)}}"><i class="bi bi-eye"></i></a>
+                            
                             </td>
 
                         </tr>
