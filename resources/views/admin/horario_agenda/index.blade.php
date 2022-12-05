@@ -37,15 +37,14 @@
             <table id="usuarios" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                 <thead>
                     <tr>
-              
-                    
-                        <th>Fecha</th>
+
+
+                    <th>Fecha</th>
                         <th>Hora inicio</th>
                         <th>Hora final</th>
                         <th>Estado</th>
-                        <th>Rol</th>
                         <th>Servicio</th>
-                        <th>Opciones</th>
+                        <th>Encargado</th>
                         
                         
 
@@ -54,7 +53,7 @@
                 </thead>
 
                 <tbody>
-            
+
                         @foreach ($horarios as $horario)
                         <tr> 
                             <th>{{$horario->Fecha}}</th>
@@ -69,8 +68,8 @@
 
                             </th>
                                  
-                            <th>{{$horario->id_servi}}</th>
-                                                  
+                            <th>{{$horario->nombre_servicio}}</th>
+                            <th>{{$horario->name}}</th>                  
                            
                            
     
@@ -94,7 +93,19 @@
 <script>
     $('#usuarios').DataTable({
         responsive: true,
-        autoWidth: false
+        autoWidth: false,
+        "language": {
+            "lengthMenu": "Mostrar _MENU_ registros por página",
+            "zeroRecords": "Nada encontrado - disculpa",
+            "info": "Mostrando la página _PAGE_ de _PAGES_",
+            "infoEmpty": "No records available",
+            "infoFiltered": "(filtrado de _MAX_ registros totales)",
+            'search': 'Buscar:',
+            'paginate':{
+                'next':'Siguiente',
+                'previous':'Anterior'
+            }
+        }
     });
 </script>
 

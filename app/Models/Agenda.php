@@ -7,17 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class agenda extends Model
 {
-    
+
     use HasFactory;
-    protected $fillable=['fecha_inicio',  
+    protected $fillable = ['fecha_inicio',
     'fecha_final',
     'hora_inicio',
     'hora_intermedia_mañana',
     'hora_intermedia_tarde',
-    'hora_final','user_id'];
-   
+    'hora_final',
+    'user_id',
+    ];
+
     public function Users(){
-        return $this->belongsTo(User::class,'user_id');
+        return $this->belongsTo(User::class);
     }
- 
+
 }

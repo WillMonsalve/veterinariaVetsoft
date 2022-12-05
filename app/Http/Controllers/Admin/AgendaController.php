@@ -33,14 +33,20 @@ class AgendaController extends Controller
             'hora_intermedia_tarde'=>'required',
             'hora_final' => 'required',
             'user_id'=> 'nullable'
-           
+
         ]);
 
         $agendas = agenda::create($request->all());
 
         return redirect()->route('admin.agendas.index', $agendas)->with('info', 'el horario se creo con exito');
     }
-    
+    public function show(Agenda $agenda)
+    {
+        $users = User::all();
+
+        return view('admin.agendas.show', compact('users'), compact('agenda'));
+    }
+
     public function destroy(Agenda $agenda)
     {
         $agenda->delete();

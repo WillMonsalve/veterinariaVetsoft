@@ -57,7 +57,7 @@ class CategoryController extends Controller
 
         $category->update($request->all());
 
-        return redirect()->route('admin.categories.index', $category)->with('info', 'La categoria se actualizó con éxito');
+        return redirect()->route('admin.categories.index', $category)->with('info', 'La categoría se actualizó con éxito');
     }
 
     
@@ -65,6 +65,6 @@ class CategoryController extends Controller
     {
         $category->delete();
 
-        return redirect()->route('admin.categories.index', $category)->with('info', 'La categoria se eliminó con éxito');
+        return redirect()->route('admin.categories.index', $category)->with('info', 'La categoría se eliminó con éxito');
     }
 }

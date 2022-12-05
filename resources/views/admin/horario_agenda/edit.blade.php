@@ -1,21 +1,24 @@
 @extends('adminlte::page')
 
-@section('title', 'CREAR')
+@section('title', 'Editar cita')
 
 @section('content_header')
-    <h1>Crear</h1>
+    <h1>Editar Cita</h1>
 @stop
+
 @section('content')
 
-<div class="card">
+    @if (session('info'))
+        <div class="alert alert-success">
+            <strong>{{session('info')}}</strong>
+        </div>
+    @endif
+
+    <div class="card">
         <div class="card-body">
-            {!! Form::open(['route' => 'admin.horario_agenda.store']) !!}
-            {!! Form::submit('Crear horario', ['class' => 'btn btn-dark']) !!}
-            <br>
-            <br>
-            
+            {!! Form::model($horarios, ['route' => ['admin.horario_agenda.update', $horarios], 'method' => 'put']) !!}
             <div class="form-group col-md-4">  
-                    <label for="estado">Estado</label>
+                    <label for="Estado">Estado</label>
                     <select class="form-control" name="Estado" id="Estado">
                         <option value="1">Activo</option>
                         <option value="2">Inactivo</option>
@@ -32,7 +35,9 @@
                          <option value="{{$value->id}}">{{$value->nombre_servicio}} </option>
                     @endforeach
                     </select>
-               
+                @error('servicio')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
 
                 </div>
 
@@ -65,7 +70,7 @@
                         
             <div class="form-group col-md-4">  
                 <label for="name">Usuarios</label>
-                <select class="form-control" name="id_user" id="" >
+                <select class="form-control" name="id_user" id="id_user" >
                 @foreach ($users as $key =>$value)
                     <option value="{{$value->id}}">{{$value->name}}</option>
                 @endforeach
@@ -74,8 +79,5 @@
                         
 </div>          
 
-
-{!! Form::close() !!}
-
-
-@stop
+            {!! Form::submit('Actualizar', ['class' => 'btn btn-primary']) !!}
+            {!! Form::close() !!}

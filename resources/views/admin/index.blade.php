@@ -1,4 +1,3 @@
-
 @extends('adminlte::page')
 
 @section('title', 'Dashboard')
@@ -103,8 +102,5 @@
       }
     });
   </script>
+
 @stop
-
-
-
-
