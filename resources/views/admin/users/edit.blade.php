@@ -3,7 +3,7 @@
 @section('title', 'usuarios')
 
 @section('content_header')
-    <h1>Edita Usuario</h1>
+    <h1>Editar Usuario</h1>
 @stop
 
 @section('content')
@@ -90,6 +90,14 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="status">Estado</label>
+                    <select class="form-control" name="status" id="status">
+                        <option value="1">Activo</option>
+                        <option value="2">Inactivo</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
                     <h2 class="h5">Asignar rol</h2>
                     @foreach ($roles as $role)
                         <div>
@@ -100,8 +108,7 @@
                         </div>
                     @endforeach
                 </div>
-
-                
+               
 
                 {!! Form::submit('Asignar rol', ['class' => 'btn btn-primary mt-2']) !!}
             {!! Form::close() !!}

@@ -20,8 +20,8 @@ class UserController extends Controller
 
     public function index()
     {
-        //$users = User::all();
-        return view('admin.users.index');
+        $users = User::all();
+        return view('admin.users.index', compact('users'));
     }
 
 
@@ -39,11 +39,12 @@ class UserController extends Controller
             'name' => 'required',
             'apellido' => 'required',
             'direccion' => 'required',
-            'cedula' => 'required',
+            'cedula' => 'required|unique:users',
             'edad' => 'required',
             'telefono' => 'required',
-            'email' => 'required',
-            'estado' => 'nullable',
+            'email' => 'required|unique:users',
+            'status' => 'nullable',
+
         ]);
 
         $user = User::create($request->all());
@@ -56,9 +57,12 @@ class UserController extends Controller
     }
 
    
-    public function show(User $user)
+    public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $roles = Role::all();
+        
+        return view('admin.users.show', compact('user', 'roles'));
     }
 
    
@@ -80,7 +84,8 @@ class UserController extends Controller
             'edad' => 'required',
             'telefono' => 'required',
             'email' => 'required',
-            'estado' => 'nullable',
+            'status' => 'nullable',
+
         ]);
 
         $user->update($request->all());
@@ -93,8 +98,8 @@ class UserController extends Controller
    
     public function destroy(User $user)
     {
-        $user->delete();
+        /* $user->delete();
 
-        return redirect()->route('admin.users.index')->with('info', 'El usuario se elimino con exito');;
+        return redirect()->route('admin.users.index')->with('info', 'El usuario se elimino con exito'); */
     }
 }
