@@ -12,20 +12,21 @@ class Mascota extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nombre',
-        'raza',
-        'color',
-        'peso',
-        'especie',
-        'edad',
-        'sexo',
+        'Nombre',
+        'Raza',
+        'Color',
+        'Peso',
+        'Especie',
+        'Edad',
+        'Sexo',
         'cliente_id',
+        'estado',
         
     ];
 
     //Relacion uno a muchos inversa
     public function Clientes(){
-        return $this->belongsTo(Cliente::class, 'cliente_id', 'id');
+        return $this->belongsTo(Cliente::class, 'cliente_id');
     }
 
     //Relacion de uno a uno

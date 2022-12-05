@@ -65,12 +65,22 @@
                             </td>
 
                             <td>
+
+                                @if($cliente->estado == '2')
+                                <span class="btn btn-danger"><i class="bi bi-toggle-off"></i></span>
+                                @else
+                                <span class="btn btn-success"><i class="bi bi-toggle-on"></i></span>
+                                @endif
+
+                            </td>
+
+                            {{-- <td>
                                <form action="{{route('admin.clientes.destroy', $cliente)}}" method="POST">
                                     @csrf
                                     @method('delete')
                                     <button class="btn btn-success btn-sm" type="submit">Activo</button>
                                </form>
-                            </td>
+                            </td> --}}
                         </tr>
                       @endforeach
                     {{-- </tfoot> --}}

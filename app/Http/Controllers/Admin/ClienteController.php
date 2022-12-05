@@ -32,6 +32,8 @@ class ClienteController extends Controller
             'edad' => 'required',
             'telefono' => 'required',
             'email' => 'required|unique:clientes',
+            'estado' => 'nullable',
+
         ]);
 
         $cliente = Cliente::create($request->all());
@@ -67,6 +69,8 @@ class ClienteController extends Controller
             'edad' => 'required',
             'telefono' => 'required',
             'email' => 'required',
+            'estado' => 'nullable',
+
         ]);
 
         $cliente->update($request->all());
