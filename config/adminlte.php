@@ -331,10 +331,18 @@ return [
         ],
 
         [
-            'text' => 'Lista de roles',
+            'text' => 'Roles',
             'route' => 'admin.roles.index',
             'icon' => 'fas fa-users-cog fa-fw',
             'active' => ['admin/roles*'],
+            // 'can'  => 'admin.roles.index',
+        ],
+
+        [
+            'text' => 'Permisos',
+            'route' => 'admin.permissions.index',
+            'icon' => 'fas fa-users-cog fa-fw',
+            'active' => ['admin/permissions*'],
             // 'can'  => 'admin.roles.index',
         ],
 
@@ -401,35 +409,33 @@ return [
         //     'url'  => 'admin/settings',
         //     'icon' => 'fas fa-fw fa-lock',
         // ],
+        
+        ['header' => 'ADMINISTRADOR'],
         [
-            'text' => 'Administrador',
-            'icon' => 'fas fa-fw fa-share fa-fw',
-            'submenu' => [
-                [
-                    'text' => 'Categorias',
-                    'route'  => 'admin.categories.index',
-                    'icon' => 'fab fa-fw fa-buffer fa-fw',
-                    'active' => ['admin/categories*'],
-                ],
-                [
-                    'text' => 'Etiquetas',
-                    'route'  => 'admin.tags.index',
-                    'icon' => 'far fa-fw fa-bookmark fa-fw',
-                    'active' => ['admin/tags*'],
-                ],
-            ],
+            'text' => 'Categorías',
+            'route'  => 'admin.categories.index',
+            'icon' => 'fab fa-fw fa-buffer fa-fw',
+            'active' => ['admin/categories*'],
         ],
+        [
+            'text' => 'Etiquetas',
+            'route'  => 'admin.tags.index',
+            'icon' => 'far fa-fw fa-bookmark fa-fw',
+            'active' => ['admin/tags*'],
+        ],
+            
+        
 
         ['header' => 'OPCIONES DE BLOG'],
         [
             'text'       => 'Lista de post',
             'route'        => 'admin.posts.index',
-            'icon'      => 'fas fa-fw fa-clipboard',
+            'icon'      => 'fas fa-fw fa-clipboard',            
         ],
         [
             'text'       => 'Crear nuevo post',
             'route'        => 'admin.posts.create',
-            'icon'      => 'fas fa-fw fa-file',
+            'icon'      => 'fas fa-fw fa-file',            
         ],
 
     ],

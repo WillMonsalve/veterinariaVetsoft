@@ -3,7 +3,7 @@
 @section('title', 'Vetsoft')
 
 @section('content_header')
-    <h1>Editar Categoria</h1>
+    <h1>Editar Categoría</h1>
 @stop
 
 @section('content')
@@ -20,7 +20,7 @@
 
                 <div class="form-group">
                     {!! Form::label('name', 'Nombre') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre de la categoria']) !!}
+                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre de la categoría']) !!}
 
                     @error('name')
                         <span class="text-danger">{{$message}}</span>
@@ -29,7 +29,7 @@
                 </div>
                 <div class="form-group">
                     {!! Form::label('slug', 'Slug') !!}
-                    {!! Form::text('slug', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el slug de la categoria', 'readonly']) !!}
+                    {!! Form::text('slug', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el slug de la categoría', 'readonly']) !!}
 
                     @error('slug')
                     <span class="text-danger">{{$message}}</span>
@@ -37,7 +37,7 @@
 
                 </div>
 
-                {!! Form::submit('Actualizar Categoria', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Actualizar Categoría', ['class' => 'btn btn-primary']) !!}
 
             {!! Form::close() !!}
         </div>

@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('telefono', 20);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->enum('estado', [1, 2])->default(1);
+            $table->enum('status', [0, 1])->default(1);
             $table->string('password');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();

@@ -1,18 +1,13 @@
 <div class="card">
     
-    <div class="card-header">
-        <input wire:model="search" class="form-control" placeholder="Ingrese el nombre de un post">
-    </div>
-
-    @if ($posts->count())
-
         <div class="card-body">
-            <table class="table table-striped">
+            <table id="posts" class="table table-striped">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Nombre</th>
-                        <th colspan="2"></th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
                     </tr>
                 </thead>
 
@@ -37,13 +32,5 @@
                 </tbody>
             </table>
         </div>
-
-        <div class="card-footer">
-            {{ $posts->links() }}
-        </div>
-
-    @else
-        <strong>No hay ningún registro</strong>
-    @endif
 
 </div>

@@ -3,7 +3,7 @@
 @section('title', 'Vetsoft')
  
  @section('content_header')
-     <h1>Lista de categoria</h1>
+     <h1>Lista de categorías</h1>
  @stop
  
  @section('content')
@@ -17,7 +17,7 @@
      <div class="card">
 
         <div class="card-header">
-            <a class="btn btn-success float-right" href="{{route('admin.categories.create')}}">Agregar categoria</a>
+            <a class="btn btn-success float-right" href="{{route('admin.categories.create')}}">Agregar categoría</a>
         </div>
 
         <div class="card-body">
@@ -25,7 +25,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
+                        <th>Nombre</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
@@ -53,7 +53,7 @@
                 <tfoot>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
+                        <th>Nombre</th>
                         <th colspan="2"></th>
                     </tr>
                 </tfoot>
