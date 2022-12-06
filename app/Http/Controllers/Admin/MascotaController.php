@@ -8,14 +8,14 @@ use Illuminate\Http\Request;
 
 class MascotaController extends Controller
 {
-   
+
     public function index()
     {
         $mascotas = Mascota::paginate();
         return view('admin.mascotas.index', compact('mascotas'));
     }
 
-    
+
     public function create()
     {
         $mascota = new Mascota();
@@ -23,7 +23,7 @@ class MascotaController extends Controller
          return view('admin.mascotas.create', compact('mascota', 'clientes'));
     }
 
-   
+
     public function store(Request $request)
     {
         $request->validate([
@@ -45,7 +45,7 @@ class MascotaController extends Controller
         return redirect()->route('admin.mascotas.index', $mascota)->with('info', 'La mascota se creo con exito');
     }
 
-    
+
     public function show(Mascota $mascota)
     {
         return view('admin.mascotas.show', compact('mascota'));
@@ -64,7 +64,7 @@ class MascotaController extends Controller
         return view('admin.mascotas.edit', compact('mascota', 'clientes'));
     }
 
-    
+
     public function update(Request $request, Mascota $mascota)
     {
         $request->validate([
@@ -85,7 +85,7 @@ class MascotaController extends Controller
         return redirect()->route('admin.mascotas.index', $mascota)->with('info', 'La mascota se actualizo con exito');
     }
 
-   
+
     public function destroy(Mascota $mascota)
     {
         $mascota->delete();

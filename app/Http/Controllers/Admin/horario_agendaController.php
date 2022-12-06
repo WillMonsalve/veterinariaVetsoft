@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Role;
 use App\Models\Servicio;
 use App\Models\User;
 use App\Models\horario_agenda;
@@ -26,7 +25,7 @@ class horario_agendaController extends Controller
         $servicios = Servicio::where('estado',1)->get();
         $users = User::all();
 
-        return view('admin.horario_agenda.create',compact('users'),compact('servicios'));
+        return view('admin.horario_agenda.create',compact('users','servicios'));
     }
     public function store(Request $request)
     {
@@ -44,6 +43,32 @@ class horario_agendaController extends Controller
         $horarios = horario_agenda::create($request->all());
 
         return redirect()->route('admin.horario_agenda.index', $horarios)->with('info', 'el horario se creo con exito');
+    }
+
+
+    public function edit(horario_agenda $horarios)
+    {
+
+        $servicios = Servicio::pluck('nombre_servicio', 'id');
+
+        return view('admin.horario_agenda.edit', compact('horarios','servicios'));
+    }
+
+
+    public function update(Request $request, horario_agenda $horarios)
+    {
+        $request->validate([
+            'Estado' => 'nullable',
+            'Fecha'=>'required',
+            'Hora_ini' => 'required',
+            'Hora_fin'=>'required',
+            'id_user'=>'nullable',
+            'id_servi' => 'nullable',
+        ]);
+
+        $horarios->update($request->all());
+
+        return redirect()->route('admin.horario_agenda.index', $horarios)->with('info', 'El horario Se actualizo con exito');
     }
 
 

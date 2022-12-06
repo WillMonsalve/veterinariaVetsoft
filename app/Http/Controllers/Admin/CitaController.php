@@ -32,8 +32,8 @@ class CitaController extends Controller
 
     public function create()
     {
-        $servicios = Servicio::all();
-        $cliente = Cliente::all();
+        $servicios = Servicio::where('estado',1)->get();
+        $cliente = Cliente::where('estado',1)->get();
         return view('admin.citas.create', compact('servicios','cliente'));
     }
 
@@ -64,8 +64,9 @@ class CitaController extends Controller
 
     public function edit(Cita $cita)
     {
-        $servicios = Servicio::all();
-        $cliente = Cliente::all();
+        $servicios = Servicio::pluck('nombre_servicio', 'id');
+        $cliente = Cliente::pluck('nombre_cliente', 'id');
+
         return view('admin.citas.edit', compact('cita','servicios','cliente'));
     }
 

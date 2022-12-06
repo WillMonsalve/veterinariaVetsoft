@@ -45,17 +45,17 @@
                         <th>Estado</th>
                         <th>Servicio</th>
                         <th>Encargado</th>
-                        
-                        
 
-                       
+
+
+
                     </tr>
                 </thead>
 
                 <tbody>
 
                         @foreach ($horarios as $horario)
-                        <tr> 
+                        <tr>
                             <th>{{$horario->Fecha}}</th>
                             <th>{{$horario->Hora_ini}}</th>
                             <th>{{$horario->Hora_fin}}</th>
@@ -67,17 +67,22 @@
                                 @endif
 
                             </th>
-                                 
+
                             <th>{{$horario->nombre_servicio}}</th>
-                            <th>{{$horario->name}}</th>                  
-                           
-                           
-    
-                
+                            <th>{{$horario->name}}</th>
+
+
+
+                            <td >
+                                {{--  @can('admin.citas.edit')  --}}
+                                    <a class="btn btn-primary bi bi-pen" href="{{route('admin.horario_agenda.edit', $horario)}}"></a>
+                                {{--  @endcan  --}}
+                            </td>
                         </tr>
 
 
                     @endforeach
+
                 </tbody>
             </table>
 
