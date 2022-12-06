@@ -50,8 +50,9 @@ class horario_agendaController extends Controller
     {
 
         $servicios = Servicio::pluck('nombre_servicio', 'id');
+        $users = User::all();
 
-        return view('admin.horario_agenda.edit', compact('horarios','servicios'));
+        return view('admin.horario_agenda.edit', compact('horarios','servicios','users'));
     }
 
 
@@ -68,8 +69,9 @@ class horario_agendaController extends Controller
 
         $horarios->update($request->all());
 
-        return redirect()->route('admin.horario_agenda.index', $horarios)->with('info', 'El horario Se actualizo con exito');
+        return redirect()->route('admin.horario_agenda.index', $horarios)->with('info', 'El horarios se actualizo con exito');
     }
+
 
 
 }
