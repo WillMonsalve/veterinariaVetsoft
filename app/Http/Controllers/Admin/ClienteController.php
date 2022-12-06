@@ -8,24 +8,24 @@ use Illuminate\Http\Request;
 
 class ClienteController extends Controller
 {
-   
+
     public function index()
     {
         $clientes = Cliente::all();
          return view('admin.clientes.index', compact('clientes'));
     }
 
-    
+
     public function create()
     {
         return view('admin.clientes.create');
     }
 
-   
+
     public function store(Request $request)
     {
         $request->validate([
-            'nombre' => 'required',
+            'nombre_cliente' => 'required',
             'apellido' => 'required',
             'direccion' => 'required',
             'cedula' => 'required|unique:clientes',
@@ -56,11 +56,11 @@ class ClienteController extends Controller
         return view('admin.clientes.edit', compact('cliente'));
     }
 
-    
+
     public function update(Request $request, Cliente $cliente)
     {
         $request->validate([
-            'nombre' => 'required',
+            'nombre_cliente' => 'required',
             'apellido' => 'required',
             'direccion' => 'required',
             'cedula' => 'required',
@@ -74,7 +74,7 @@ class ClienteController extends Controller
         return redirect()->route('admin.clientes.index', $cliente)->with('info', 'El cliente se actualizo con exito');
     }
 
-    
+
     public function destroy(Cliente $cliente)
     {
         $cliente->delete();

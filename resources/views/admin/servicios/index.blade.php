@@ -11,9 +11,9 @@
 
 @section('content_header')
 
-    @can('admin.servicios.create')
+    {{--  @can('admin.servicios.create')  --}}
         <a class="btn btn-success btn-sm float-right" href="{{route('admin.servicios.create')}}">Agregar Servicio</a>
-    @endcan
+    {{--  @endcan  --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <h1>Lista de Servicios</h1>
 @stop
@@ -38,18 +38,20 @@
                         <th>Duracion</th>
                         <th>Estado</th>
                         <th>Opciones</th>
-                        <th colspan="2"></th>
+
                     </tr>
                 </thead>
 
                 <tbody>
                     @foreach ($servicios as $servicio)
                         <tr>
-                            <td>{{$servicio->id}}</td>
-                            <td>{{$servicio->nombre}}</td>
-                            <td>{{$servicio->descripcion}}</td>
-                            <td>{{$servicio->duracion}}</td>
-                            <td width="10px">
+
+                            <th>{{$servicio->id}}</th>
+                            <th>{{$servicio->nombre_servicio}}</th>
+                            <th>{{$servicio->descripcion}}</th>
+                            <th>{{$servicio->duracion}}</th>
+                            <td>
+
                                 @if($servicio->estado == '2')
                                 <span class="btn btn-danger"><i class="bi bi-toggle-off"></i></span>
                                 @else
@@ -58,11 +60,15 @@
 
                             </td>
 
+
+                          
+
                             <td width= "10px">
                                 @can('admin.servicios.edit')
                                     <a class="btn btn-info " href="{{route('admin.servicios.edit', $servicio)}}"><i class="bi bi-pencil-square"></i></a>
                                 @endcan
                             </td>
+
 
                         </tr>
 

@@ -6,3 +6,7 @@
 
 <h1 style="text-align:center">Ayudas</h1>
 @stop
+
+@section('content')
+
+@stop
