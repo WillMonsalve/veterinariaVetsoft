@@ -56,11 +56,11 @@
 
                             <th>{{$cita->nombre_cliente}}</th>
                             <th>{{$cita->nombre_servicio}}</th>
-                            <th>{{$cita->Fecha}}</th>
-                            <th>{{$cita->Hora}}</th>
+                            <th>{{$cita->fecha}}</th>
+                            <th>{{$cita->hora}}</th>
                             <th>
 
-                                @if($cita->Estado == '2')
+                                @if($cita->estado == '2')
                                 <span class="bi bi-toggle-off btn btn-danger">Cancelada</span>
                                 @else
                                 <span class="bi bi-toggle-on btn btn-success">Activo</span>

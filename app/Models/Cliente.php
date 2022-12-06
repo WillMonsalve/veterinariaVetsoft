@@ -1,4 +1,4 @@
-  <?php
+<?php
 
 namespace App\Models;
 
@@ -38,4 +38,5 @@ class Cliente extends Model
     public function Mascotas(){
         return $this->hasMany(Mascota::class, 'id');
     }
+
 }

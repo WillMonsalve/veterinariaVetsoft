@@ -33,7 +33,7 @@
                     <p class="descripcion">
 
 
-                    <h6>Cliente</h6>{{ $cita->nombre_cliente}} <br>
+                    <h6>Cliente</h6>{{ $cita->cliente_id}} <br>
                     <h6>Servicio</h6>{{ $cita->servicio_id}} <br>
                     <h6>Fecha</h6>{{ $cita->Fecha}} <br>
                     <h6>Hora</h6>{{ $cita->Hora}} <br><br>
