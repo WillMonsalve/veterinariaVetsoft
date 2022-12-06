@@ -15,7 +15,7 @@ class ServicioFactory extends Factory
     public function definition()
     {
         return [
-            'nombre' => $this->faker->name(),
+            'nombre_servicio' => $this->faker->name(),
             'descripcion' => $this->faker->randomElement(['baño', 'peluqueria', 'veterinario']),
             'duracion' => $this->faker->time()
         ];

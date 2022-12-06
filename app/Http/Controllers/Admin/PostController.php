@@ -11,8 +11,18 @@ use App\Models\Tag;
 use Illuminate\Support\Facades\Storage;
 
 use App\Http\Requests\PostRequest;
+use Illuminate\Support\Facades\Cache;
+
 class PostController extends Controller
 {
+    public function __construct()
+    {
+         
+         $this->middleware('can:admin.posts.index')->only('index');
+         $this->middleware('can:admin.posts.create')->only('create', 'store');
+         $this->middleware('can:admin.posts.edit')->only('edit', 'update');
+         $this->middleware('can:admin.posts.destroy')->only('destroy');
+    }
     
     public function index()
     {
@@ -43,6 +53,8 @@ class PostController extends Controller
                 'url' => $url
             ]);
         }
+
+        Cache::flush();
 
         if ($request->tags) {
             $post->tags()->attach($request->tags);
@@ -96,6 +108,8 @@ class PostController extends Controller
             $post->tags()->sync($request->tags);
         }
 
+        Cache::flush();
+
         return redirect()->route('admin.posts.index', $post)->with('info', 'El post se actualizó con éxito');
     }
 
@@ -105,6 +119,8 @@ class PostController extends Controller
         $this->authorize('author', $post);
 
         $post->delete();
+
+        Cache::flush();
 
         return redirect()->route('admin.posts.index')->with('info', 'El post se eliminó con éxito');
     }
