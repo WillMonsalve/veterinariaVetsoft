@@ -19,7 +19,7 @@
 <div class="card">
     <div class="card-body">
 
-        {!! Form::model($horarios, ['route' => ['admin.horario_agenda.update', $horarios], 'method' => 'put']) !!}
+        {!! Form::model($horarios, ['route' => ['admin.horarios.update', $horarios], 'method' => 'put']) !!}
 
         <div class="form-group">
             {!! Form::label('id_user', 'Cliente') !!}
@@ -83,7 +83,7 @@
             {!! Form::submit('Actualizar Horario', ['class' => 'btn btn-primary']) !!}
 
             <td>
-                <a class="btn btn-danger" href="{{route('admin.horario_agenda.index')}}">Regresar</a>
+                <a class="btn btn-danger" href="{{route('admin.horarios.index')}}">Regresar</a>
             </td>
         {!! Form::close() !!}
     </div>

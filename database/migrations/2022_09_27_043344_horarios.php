@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('horario_agendas', function (Blueprint $table) {
+        Schema::create('horarios', function (Blueprint $table) {
                 $table->id();
                 $table->enum('Estado',[1, 2]);
                 $table->date('Fecha');
@@ -25,7 +25,7 @@ return new class extends Migration
                 $table->foreign('id_servi')->references('id')->on('servicios');
                 $table->timestamps();
             });
-        
+
     }
 
     /**
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('horario_agendas');
+        Schema::dropIfExists('horarios');
     }
 };

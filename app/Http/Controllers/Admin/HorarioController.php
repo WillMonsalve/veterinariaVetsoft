@@ -6,18 +6,18 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Servicio;
 use App\Models\User;
-use App\Models\horario_agenda;
+use App\Models\Horario;
 
-class horario_agendaController extends Controller
+class HorarioController extends Controller
 {
     public function index()
     {
-        $horarios = horario_agenda::select("horario_agendas.*","servicios.nombre_servicio","users.name")
-        ->join("servicios", "horario_agendas.id_servi","=", "servicios.id")
-        ->join("users", "horario_agendas.id_user","=", "users.id")
+        $horarios = Horario::select("horarios.*","servicios.nombre_servicio","users.name")
+        ->join("servicios", "horarios.id_servi","=", "servicios.id")
+        ->join("users", "horarios.id_user","=", "users.id")
         ->get();
 
-        return view('admin.horario_agenda.index', compact('horarios'));
+        return view('admin.horarios.index', compact('horarios'));
     }
 
     public function create()
@@ -25,7 +25,7 @@ class horario_agendaController extends Controller
         $servicios = Servicio::where('estado',1)->get();
         $users = User::all();
 
-        return view('admin.horario_agenda.create',compact('users','servicios'));
+        return view('admin.horarios.create',compact('users','servicios'));
     }
     public function store(Request $request)
     {
@@ -40,23 +40,23 @@ class horario_agendaController extends Controller
 
         ]);
 
-        $horarios = horario_agenda::create($request->all());
+        $horarios = Horario::create($request->all());
 
-        return redirect()->route('admin.horario_agenda.index', $horarios)->with('info', 'el horario se creo con exito');
+        return redirect()->route('admin.horarios.index', $horarios)->with('info', 'el horario se creo con exito');
     }
 
 
-    public function edit(horario_agenda $horarios)
+    public function edit(Horario $id)
     {
 
         $servicios = Servicio::pluck('nombre_servicio', 'id');
         $users = User::all();
 
-        return view('admin.horario_agenda.edit', compact('horarios','servicios','users'));
+        return view('admin.horarios.edit', compact('servicios','users'));
     }
 
 
-    public function update(Request $request, horario_agenda $horarios)
+    public function update(Request $request, Horario $id)
     {
         $request->validate([
             'Estado' => 'nullable',
@@ -67,9 +67,9 @@ class horario_agendaController extends Controller
             'id_servi' => 'nullable',
         ]);
 
-        $horarios->update($request->all());
+        $id->update($request->all());
 
-        return redirect()->route('admin.horario_agenda.index', $horarios)->with('info', 'El horarios se actualizo con exito');
+        return redirect()->route('admin.horario_agenda.index', $id)->with('info', 'El horarios se actualizo con exito');
     }
 
 

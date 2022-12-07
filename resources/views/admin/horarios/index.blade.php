@@ -17,7 +17,7 @@
  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap4.min.css">
  @endsection
 
-    <a class="btn btn-success btn-sm float-right" href="{{route('admin.horario_agenda.create')}}">AGREGAR <i class="bi bi-plus-circle-fill"></i></a>
+    <a class="btn btn-success btn-sm float-right" href="{{route('admin.horarios.create')}}">AGREGAR <i class="bi bi-plus-circle-fill"></i></a>
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -75,7 +75,7 @@
 
                             <td >
                                 {{--  @can('admin.citas.edit')  --}}
-                                    <a class="btn btn-primary bi bi-pen" href="{{route('admin.horario_agenda.edit', $horario)}}"></a>
+                                    <a class="btn btn-primary bi bi-pen" href="{{route('admin.horarios.edit', $horario)}}"></a>
                                 {{--  @endcan  --}}
                             </td>
                         </tr>
