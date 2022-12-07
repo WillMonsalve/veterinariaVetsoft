@@ -72,7 +72,7 @@ class PostController extends Controller
     
     public function edit(Post $post)
     {
-        $this->authorize('author', $post);
+        /* $this->authorize('author', $post); */
 
         $categories = Category::pluck('name', 'id');
         $tags = Tag::all();
@@ -116,7 +116,7 @@ class PostController extends Controller
     
     public function destroy(Post $post)
     {
-        $this->authorize('author', $post);
+        /* $this->authorize('author', $post); */
 
         $post->delete();
 

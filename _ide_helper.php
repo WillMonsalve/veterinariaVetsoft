@@ -10003,7 +10003,7 @@
          * @return \Illuminate\Http\RedirectResponse 
          * @static 
          */ 
-        public static function ($path, $status = 302, $headers = [], $secure = null)
+        public static function guest($path, $status = 302, $headers = [], $secure = null)
         {
                         /** @var \Illuminate\Routing\Redirector $instance */
                         return $instance->guest($path, $status, $headers, $secure);

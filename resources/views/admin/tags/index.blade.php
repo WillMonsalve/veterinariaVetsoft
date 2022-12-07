@@ -55,13 +55,6 @@
                     @endforeach
 
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th colspan="2"></th>
-                    </tr>
-                </tfoot>
             </table>
         </div>
     </div>

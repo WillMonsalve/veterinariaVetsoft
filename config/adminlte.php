@@ -327,7 +327,7 @@ return [
             'route' => 'admin.roles.index',
             'icon' => 'fas fa-users-cog fa-fw',
             'active' => ['admin/roles*'],
-            /* 'can'  => 'admin.roles.index', */
+            'can'  => 'admin.roles.index',
         ],
 
         [
@@ -335,7 +335,7 @@ return [
             'route' => 'admin.permissions.index',
             'icon' => 'fas fa-handshake fa-fw',
             'active' => ['admin/permissions*'],
-            /* 'can'  => 'admin.permissions.index', */
+            'can'  => 'admin.permissions.index',
         ],
 
         // ['header' => 'ADMINISTRADOR'],
