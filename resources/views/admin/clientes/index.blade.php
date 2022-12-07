@@ -11,7 +11,7 @@
 
 @section('content_header')
 
-    <a class="btn btn-success btn-sm float-right" href="{{route('admin.clientes.create')}}">Nuevo Cliente</a>
+<a class="btn btn-success btn-sm float-right" href="{{route('admin.clientes.create')}}">Nuevo Cliente</a>
 
     <h1>clientes</h1>
 @stop

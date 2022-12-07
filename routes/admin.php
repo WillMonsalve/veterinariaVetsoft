@@ -35,7 +35,7 @@ Route::resource('citas', CitaController::class)->names('admin.citas');
 Route::resource('agendas', AgendaController::class)->names('admin.agendas');
 Route::resource('horario_agenda', horario_agendaController::class)->names('admin.horario_agenda');
 Route::resource('clientes', ClienteController::class)->names('admin.clientes');
-Route::resource('detalles', DetalleHistoriaController::class)->names('admin.detalles');
+Route::resource('detalles', DetalleController::class)->names('admin.detalles');
 Route::resource('historias', HistoriaController::class)->names('admin.historias');
 Route::resource('mascotas', MascotaController::class)->names('admin.mascotas');
 Route::resource('ayudas', AyudaController::class)->names('admin.ayudas');

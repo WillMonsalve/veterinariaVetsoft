@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\detalle_historia;
+use App\Http\Controllers\Controller;
+use App\Models\DetalleHistoria;
 use Illuminate\Http\Request;
 
-class DetalleHistoriaController extends Controller
+class DetalleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,8 @@ class DetalleHistoriaController extends Controller
      */
     public function index()
     {
-        $detalle_historias = Detalle_Historia::all();
-        return view('admin.detalle_historias.index', compact('detalle_historias'));
+        $detalles = DetalleHistoria::all();
+        return view('admin.detalles.index', compact('detalles'));
     }
 
     /**
@@ -42,21 +43,21 @@ class DetalleHistoriaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\detalle_historia  $detalle_historia
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(detalle_historia $detalle_historia)
+    public function show(DetalleHistoria $detalle)
     {
-        //
+        return view('admin.detalles.show', compact('detalle'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\detalle_historia  $detalle_historia
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(detalle_historia $detalle_historia)
+    public function edit(DetalleHistoria $detalle)
     {
         //
     }
@@ -65,10 +66,10 @@ class DetalleHistoriaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\detalle_historia  $detalle_historia
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, detalle_historia $detalle_historia)
+    public function update(Request $request, DetalleHistoria $detalle)
     {
         //
     }
@@ -76,10 +77,10 @@ class DetalleHistoriaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\detalle_historia  $detalle_historia
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(detalle_historia $detalle_historia)
+    public function destroy(DetalleHistoria $detalle)
     {
         //
     }
