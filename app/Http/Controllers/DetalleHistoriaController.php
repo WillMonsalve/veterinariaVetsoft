@@ -7,11 +7,7 @@ use Illuminate\Http\Request;
 
 class DetalleHistoriaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         $detalle_historias = Detalle_Historia::all();

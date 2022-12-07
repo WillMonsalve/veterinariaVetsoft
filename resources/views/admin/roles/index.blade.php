@@ -10,8 +10,10 @@
 @endsection
 
 @section('content_header')
-
-    <a class="btn btn-success btn-sm float-right" href="{{route('admin.roles.create')}}">Nuevo rol</a>
+    
+    @can('admin.roles.create')
+        <a class="btn btn-success btn-sm float-right" href="{{route('admin.roles.create')}}">Nuevo rol</a>
+    @endcan    
 
     <h1>Lista de roles</h1>
 @stop
@@ -53,20 +55,29 @@
                             </td>
 
                             <td width="10px">
-                                <a href="{{route('admin.roles.edit', $role)}}" class="btn btn-sm btn-primary"><i class="fas fa-pen-fancy"></i></a>
+                                @can('admin.roles.edit')
+                                    <a href="{{route('admin.roles.edit', $role)}}" class="btn btn-sm btn-primary"><i class="fas fa-pen-fancy"></i></a>
+                                @endcan
+                                
                             </td>
 
                             <td width="10px">
-                                <a href="{{route('admin.roles.show', $role)}}" class="btn btn-sm btn-warning"><i class="bi bi-eye"></i></a>
+                                @can('admin.roles.show')
+                                    <a href="{{route('admin.roles.show', $role)}}" class="btn btn-sm btn-warning"><i class="bi bi-eye"></i></a>
+                                @endcan
+                                
                             </td>
 
                             <td width="10px">
-                               <form action="{{route('admin.roles.destroy', $role)}}" method="POST">
-                                @csrf
-                                @method('DELETE')
-
-                                    <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-fw fa-trash"></i></button>
-                               </form>
+                                @can('admin.roles.destroy')
+                                    <form action="{{route('admin.roles.destroy', $role)}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+    
+                                        <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-fw fa-trash"></i></button>
+                                   </form>
+                                @endcan
+                               
                             </td>
                         </tr>
                     @endforeach
