@@ -10,7 +10,10 @@
 @endsection
 
 @section('content_header')
-    <a class="btn btn-success float-right" href="{{route('admin.permissions.create')}}">Añadir Permiso</a>
+    @can('admin.permissions.create')
+        <a class="btn btn-success float-right" href="{{route('admin.permissions.create')}}">Añadir Permiso</a>
+    @endcan   
+
     <h1>Permisos</h1>
 @stop
 
@@ -50,20 +53,29 @@
                                                 <td>{{$permission->name}}</td>
                                                 <td>{{$permission->description}}</td>
                                                 <td width="10px">
-                                                    <a href="{{route('admin.permissions.edit', $permission)}}" class="btn btn-sm btn-primary"><i class="fas fa-pen-fancy"></i></a>
+                                                    @can('admin.permissions.edit')
+                                                        <a href="{{route('admin.permissions.edit', $permission)}}" class="btn btn-sm btn-primary"><i class="fas fa-pen-fancy"></i></a>
+                                                    @endcan
+                                                    
                                                 </td>
 
                                                 <td width="10px">
-                                                    <a href="{{route('admin.permissions.show', $permission)}}" class="btn btn-sm btn-warning"><i class="bi bi-eye"></i></a>
+                                                    @can('admin.permissions.show')
+                                                        <a href="{{route('admin.permissions.show', $permission)}}" class="btn btn-sm btn-warning"><i class="bi bi-eye"></i></a>
+                                                    @endcan
+                                                    
                                                 </td>
                     
                                                 <td width="10px">
-                                                   <form action="{{route('admin.permissions.destroy', $permission)}}" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                    
-                                                        <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-fw fa-trash"></i></button>
-                                                   </form>
+                                                    @can('admin.permissions.destroy')
+                                                        <form action="{{route('admin.permissions.destroy', $permission)}}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                        
+                                                            <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-fw fa-trash"></i></button>
+                                                       </form>
+                                                    @endcan
+                                                   
                                             </tr>
                                         @endforeach
                                     </tbody>

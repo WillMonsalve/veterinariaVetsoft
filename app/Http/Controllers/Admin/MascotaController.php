@@ -8,6 +8,14 @@ use Illuminate\Http\Request;
 
 class MascotaController extends Controller
 {
+    public function __construct()
+    {
+         $this->middleware('can:admin.mascotas.index')->only('index');
+         $this->middleware('can:admin.mascotas.create')->only('create', 'store');
+         $this->middleware('can:admin.mascotas.edit')->only('edit', 'update');
+         $this->middleware('can:admin.mascotas.show')->only('show');
+         $this->middleware('can:admin.mascotas.destroy')->only('destroy');
+    }
 
     public function index()
     {

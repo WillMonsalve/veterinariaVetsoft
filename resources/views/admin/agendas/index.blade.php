@@ -16,10 +16,14 @@
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap4.min.css">
  @endsection
+@can('admin.horarios.index')
+    <a class="btn btn-info btn-sm float-right " href="{{route('admin.horarios.index')}}">Dias <i class="bi bi-plus-circle-fill"></i></a>
+@endcan
+ @can('admin.agendas.create')
+    <a class="btn btn-success btn-sm float-right" href="{{route('admin.agendas.create')}}">Horario <i class="bi bi-calendar-plus"></i></a>
+ @endcan
 
- <a class="btn btn-info btn-sm float-right " href="{{route('admin.horario_agenda.index')}}">Dias <i class="bi bi-plus-circle-fill"></i></a>
-
- <a class="btn btn-success btn-sm float-right" href="{{route('admin.agendas.create')}}">Horario <i class="bi bi-calendar-plus"></i></a>
+ 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 <h1>Lista de agenda</h1>
@@ -38,7 +42,7 @@
             <table id="usuarios" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                 <thead>
                     <tr>
-                   
+
                     <th>Usuario</th>
                         <th>Fecha inicio</th>
                         <th>Fecha final</th>
@@ -54,34 +58,34 @@
                 <tbody>
 
                         @foreach ($agendas as $agenda)
-                        <tr> 
-                     
-                            <th>{{$agenda->name}}}</th>
+                        <tr>
+
+                            <th>{{$agenda->name}}</th>
                             <th>{{$agenda->fecha_inicio}}</th>
                             <th>{{$agenda->fecha_final}}</th>
                             <th>{{$agenda->hora_inicio}}</th>
                             <th>{{$agenda->hora_intermedia_mañana}}</th>
                             <th>{{$agenda->hora_intermedia_tarde}}</th>
                             <th>{{$agenda->hora_final}}</th>
-                            
-                           
+
+
 
                             <td width="10px">
-                               <form action="{{route('admin.agendas.destroy', $agenda)}}" method="POST">
-                                @csrf
-                                @method('DELETE')
+                                @can('admin.agendas.destroy')
+                                    <form action="{{route('admin.agendas.destroy', $agenda)}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+    
+                                        <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-fw fa-trash"></i></button>
+                                   </form>
+                                @endcan
 
-                                    <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-fw fa-trash"></i></button>
-                               </form>
+                                @can('admin.agendas.show')
+                                    <a class="btn btn-warning btn-sm" href="{{route('admin.agendas.show', $agenda)}}"><i class="bi bi-eye"></i></a>
+                                @endcan                            
                                
-                            
-                                <a class="btn btn-warning btn-sm" href="{{route('admin.agendas.show', $agenda)}}"><i class="bi bi-eye"></i></a>
-                            
                             </td>
-
                         </tr>
-
-
                     @endforeach
                 </tbody>
             </table>

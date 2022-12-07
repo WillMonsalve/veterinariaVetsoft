@@ -9,13 +9,13 @@ use App\Models\Servicio;
 class ServicioController extends Controller
 {
 
-    // public function __construct()
-    // {
-    //      $this->middleware('can:admin.servicios.index')->only('index');
-    //      $this->middleware('can:admin.servicios.create')->only('create', 'store');
-    //      $this->middleware('can:admin.servicios.edit')->only('edit', 'update');
-    //      $this->middleware('can:admin.servicios.destroy')->only('destroy');
-    // }
+     public function __construct()
+     {
+          $this->middleware('can:admin.servicios.index')->only('index');
+          $this->middleware('can:admin.servicios.create')->only('create', 'store');
+          $this->middleware('can:admin.servicios.edit')->only('edit', 'update');
+          $this->middleware('can:admin.servicios.destroy')->only('destroy');
+     }
 
 
     public function index()

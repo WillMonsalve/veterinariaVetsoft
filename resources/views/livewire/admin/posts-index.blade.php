@@ -1,4 +1,4 @@
-<div class="card">
+{{-- <div class="card">
     
         <div class="card-body">
             <table id="posts" class="table table-striped">
@@ -33,4 +33,4 @@
             </table>
         </div>
 
-</div>
+</div> --}}

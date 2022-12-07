@@ -16,7 +16,7 @@ class ClienteFactory extends Factory
     public function definition()
     {
         return [
-            'nombre' => $this->faker->name(20),
+            'nombre_cliente' => $this->faker->name(20),
             'apellido' => $this->faker->lastName(),
             'direccion' => $this->faker->address(),
             'cedula' => $this->faker->randomNumber(9, true),

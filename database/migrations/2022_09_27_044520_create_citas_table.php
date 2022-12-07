@@ -23,7 +23,7 @@ return new class extends Migration
             $table->unsignedBigInteger('cliente_id');
             $table->foreign('cliente_id')->references('id')->on('clientes');
             $table->unsignedBigInteger('agenda_id');
-            $table->foreign('agenda_id')->references('id')->on('horario_agendas');
+            $table->foreign('agenda_id')->references('id')->on('horarios');
             $table->timestamps();
         });
     }
