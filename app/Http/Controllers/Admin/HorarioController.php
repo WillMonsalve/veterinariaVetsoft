@@ -10,6 +10,13 @@ use App\Models\Horario;
 
 class HorarioController extends Controller
 {
+    public function __construct()
+    {
+         $this->middleware('can:admin.horarios.index')->only('index');
+         $this->middleware('can:admin.horarios.create')->only('create', 'store');
+         $this->middleware('can:admin.horarios.edit')->only('edit', 'update');
+    }
+
     public function index()
     {
         $horarios = Horario::select("horarios.*","servicios.nombre_servicio","users.name")

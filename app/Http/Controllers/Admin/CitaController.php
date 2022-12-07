@@ -12,13 +12,14 @@ use App\Models\Servicio;
 class CitaController extends Controller
 {
 
-    /* public function __construct()
+    public function __construct()
     {
          $this->middleware('can:admin.citas.index')->only('index');
          $this->middleware('can:admin.citas.create')->only('create', 'store');
          $this->middleware('can:admin.citas.edit')->only('edit', 'update');
+         $this->middleware('can:admin.citas.show')->only('show');
          $this->middleware('can:admin.citas.destroy')->only('destroy');
-    } */
+    }
 
 
     public function index()

@@ -11,7 +11,9 @@
 
 @section('content_header')
 
-    <a class="btn btn-success btn-sm float-right" href="{{route('admin.mascotas.create')}}">Nueva mascota</a>
+    @can('admin.mascotas.create')
+        <a class="btn btn-success btn-sm float-right" href="{{route('admin.mascotas.create')}}">Nueva mascota</a>
+    @endcan    
 
     <h1>mascota</h1>
 @stop
@@ -31,8 +33,6 @@
                         <th>Ver</th>
                         <th>Acción</th>
                         <th>Eliminar</th>
-
-
                     </tr>
                 </thead>
 
@@ -48,11 +48,15 @@
                             <td>{{$mascota->Clientes->nombre_cliente}}</td>
                             
                             <td>
-                               <a class="btn btn-primary btn-sm" href="{{route('admin.mascotas.edit', $mascota)}}"><i class="bi bi-pen"></i></a>
+                                @can('admin.mascotas.edit')
+                                    <a class="btn btn-primary btn-sm" href="{{route('admin.mascotas.edit', $mascota)}}"><i class="bi bi-pen"></i></a>
+                                @endcan                               
                             </td>
                                                                                     
                             <td>
-                                <a class="btn btn-warning btn-sm" href="{{route('admin.mascotas.show', $mascota)}}"><i class="bi bi-eye"></i></a>
+                                @can('admin.mascotas.show')
+                                <   a class="btn btn-warning btn-sm" href="{{route('admin.mascotas.show', $mascota)}}"><i class="bi bi-eye"></i></>
+                                @endcan                                
                             </td>
                             
                             <td>
@@ -66,11 +70,14 @@
                             </td>
 
                              <td>
-                               <form action="{{route('admin.mascotas.destroy', $mascota)}}" method="POST">
-                                    @csrf
-                                    @method('delete')
-                                    <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
-                               </form>
+                                @can('admin.mascotas.destroy')
+                                    <form action="{{route('admin.mascotas.destroy', $mascota)}}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+                                </form>
+                                @endcan
+                               
                             </td>
 
                         </tr>                                     

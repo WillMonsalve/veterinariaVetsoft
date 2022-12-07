@@ -313,21 +313,13 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        [
-
-            'text'  => 'Dashboard',
-            'route' => 'admin.home',
-            'icon'  => 'fas fa-tachometer-alt fa-fw',
-            'active' => ['admin/dashboard*'],
-            //'can'  => 'admin.home',
-        ],
-
+        
         [
             'text' => 'Usuarios',
             'route' => 'admin.users.index',
             'icon' => 'fas fa-users fa-fw',
             'active' => ['admin/users*'],
-            //'can'  => 'admin.users.index',
+            'can'  => 'admin.users.index',
         ],
 
         [
@@ -335,15 +327,15 @@ return [
             'route' => 'admin.roles.index',
             'icon' => 'fas fa-users-cog fa-fw',
             'active' => ['admin/roles*'],
-            // 'can'  => 'admin.roles.index',
+            'can'  => 'admin.roles.index',
         ],
 
         [
             'text' => 'Permisos',
             'route' => 'admin.permissions.index',
-            'icon' => 'fas fa-users-cog fa-fw',
+            'icon' => 'fas fa-handshake fa-fw',
             'active' => ['admin/permissions*'],
-            // 'can'  => 'admin.roles.index',
+            'can'  => 'admin.permissions.index',
         ],
 
         // ['header' => 'ADMINISTRADOR'],
@@ -352,56 +344,65 @@ return [
             'route'  => 'admin.servicios.index',
             'icon' => 'fas fa-user-nurse fa-fw',
             'active' => ['admin/servicios*'],
-            //'can'  => 'admin.servicios.index',
+            'can'  => 'admin.servicios.index',
         ],
         [
             'text' => 'Clientes',
             'route'  => 'admin.clientes.index',
             'icon' => 'fas fa-user-tie fa-fw',
             'active' => ['admin/clientes*'],
-            //'can'  => 'admin.clientes.index',
+            'can'  => 'admin.clientes.index',
         ],
         [
             'text' => 'Agendas',
             'route'  => 'admin.agendas.index',
             'icon' => 'fas fa-calendar-alt fa-fw',
             'active' => ['admin/agendas*'],
-            //'can'  => 'admin.agendas.index',
+            'can'  => 'admin.agendas.index',
         ],
         [
             'text' => 'Citas',
             'route'  => 'admin.citas.index',
             'icon' => 'fas fa-user-md fa-fw',
             'active' => ['admin/citas*'],
-            //'can'  => 'admin.citas.index',
+            'can'  => 'admin.citas.index',
         ],
         [
             'text' => 'Historias clinicas',
             'route'  => 'admin.historias.index',
             'icon' => 'fas fa-file-medical fa-fw',
             'active' => ['admin/historias*'],
-            //'can'  => 'admin.historias.index',
+            'can'  => 'admin.historias.index',
         ],
         [
             'text' => 'Notas de progreso',
             'route'  => 'admin.detalles.index',
             'icon' => 'fas fa-file-medical-alt fa-fw',
             'active' => ['admin/detalles*'],
-            //'can'  => 'admin.detalles.index',
+            'can'  => 'admin.detalles.index',
         ],
         [
             'text' => 'Mascotas',
             'route'  => 'admin.mascotas.index',
             'icon' => 'fas fa-paw fa-fw',
             'active' => ['admin/mascotas*'],
-            //'can'  => 'admin.mascotas.index',
+            'can'  => 'admin.mascotas.index',
         ],
 
         [
             'text' => 'Ayudas',
             'route'  => 'admin.ayudas.index',
             'icon' => 'bi bi-question-diamond',
-            //'can'  => 'admin.ayudas.index',
+            'active' => ['admin/ayudas*'],
+            'can'  => 'admin.ayudas.index',
+        ],
+
+        [
+            'text'  => 'Dashboard',
+            'route' => 'admin.home',
+            'icon'  => 'fas fa-tachometer-alt fa-fw',
+            'active' => ['admin/dashboard*'],
+            'can'  => 'admin.home',
         ],
 
         // [
@@ -416,12 +417,14 @@ return [
             'route'  => 'admin.categories.index',
             'icon' => 'fab fa-fw fa-buffer fa-fw',
             'active' => ['admin/categories*'],
+            'can'  => 'admin.categories.index',
         ],
         [
             'text' => 'Etiquetas',
             'route'  => 'admin.tags.index',
             'icon' => 'far fa-fw fa-bookmark fa-fw',
             'active' => ['admin/tags*'],
+            'can'  => 'admin.tags.index',
         ],
 
 
@@ -431,11 +434,12 @@ return [
             'text'       => 'Lista de post',
             'route'        => 'admin.posts.index',
             'icon'      => 'fas fa-fw fa-clipboard',
+            'can'  => 'admin.posts.index',            
         ],
         [
             'text'       => 'Crear nuevo post',
             'route'        => 'admin.posts.create',
-            'icon'      => 'fas fa-fw fa-file',
+            'icon'      => 'fas fa-fw fa-file',            
         ],
 
     ],

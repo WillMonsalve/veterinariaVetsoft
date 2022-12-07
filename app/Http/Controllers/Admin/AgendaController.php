@@ -10,6 +10,14 @@ use App\Models\Agenda;
 
 class AgendaController extends Controller
 {
+    public function __construct()
+   {        
+        $this->middleware('can:admin.agendas.index')->only('index');
+        $this->middleware('can:admin.agendas.create')->only('create', 'strore');
+        $this->middleware('can:admin.agendas.destroy')->only('destroy');
+        $this->middleware('can:admin.agendas.show')->only('show');
+   }
+
     public function index()
     {
         $agendas = Agenda::select("agendas.*", "users.name")

@@ -1,110 +1,86 @@
-<!-- <?php 
+<?php
 
-// namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-// use App\Http\Controllers\Controller;
-// use App\Models\Historia;
-// use Illuminate\Http\Request;
+use App\Models\historia;
+use Illuminate\Http\Request;
 
-// /**
-//  * Class HistoriaController
-//  * @package App\Http\Controllers
-//  */
-// class HistoriaController extends Controller
-// {
-//     /**
-//      * Display a listing of the resource.
-//      *
-//      * @return \Illuminate\Http\Response
-//      */
-//     public function index()
-//     {
-//         $historias = Historia::paginate();
+class HistoriaController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $historias = Historia::all();
+        return view('admin.historias.index', compact('historias'));
+    }
 
-//         return view('admin.historia.index', compact('historias'))
-//             ->with('i', (request()->input('page', 1) - 1) * $historias->perPage());
-//     }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
 
-//     /**
-//      * Show the form for creating a new resource.
-//      *
-//      * @return \Illuminate\Http\Response
-//      */
-//     public function create()
-//     {
-//         $historia = new Historia();
-//         return view('admin.historia.create', compact('historia'));
-//     }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
 
-//     /**
-//      * Store a newly created resource in storage.
-//      *
-//      * @param  \Illuminate\Http\Request $request
-//      * @return \Illuminate\Http\Response
-//      */
-//     public function store(Request $request)
-//     {
-//         request()->validate(Historia::$rules);
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\historia  $historia
+     * @return \Illuminate\Http\Response
+     */
+    public function show(historia $historia)
+    {
+        //
+    }
 
-//         $historia = Historia::create($request->all());
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\historia  $historia
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(historia $historia)
+    {
+        //
+    }
 
-//         return redirect()->route('admin.historia.index')
-//             ->with('success', 'Historia created successfully.');
-//     }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\historia  $historia
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, historia $historia)
+    {
+        //
+    }
 
-//     /**
-//      * Display the specified resource.
-//      *
-//      * @param  int $id
-//      * @return \Illuminate\Http\Response
-//      */
-//     public function show($id)
-//     {
-//         $historia = Historia::find($id);
-
-//         return view('admin.historia.show', compact('historia'));
-//     }
-
-//     /**
-//      * Show the form for editing the specified resource.
-//      *
-//      * @param  int $id
-//      * @return \Illuminate\Http\Response
-//      */
-//     public function edit($id)
-//     {
-//         $historia = Historia::find($id);
-
-//         return view('admin.historia.edit', compact('historia'));
-//     }
-
-//     /**
-//      * Update the specified resource in storage.
-//      *
-//      * @param  \Illuminate\Http\Request $request
-//      * @param  Historia $historia
-//      * @return \Illuminate\Http\Response
-//      */
-//     public function update(Request $request, Historia $historia)
-//     {
-//         request()->validate(Historia::$rules);
-
-//         $historia->update($request->all());
-
-//         return redirect()->route('admin.historia.index')
-//             ->with('success', 'Historia updated successfully');
-//     }
-
-//     /**
-//      * @param int $id
-//      * @return \Illuminate\Http\RedirectResponse
-//      * @throws \Exception
-//      */
-//     public function destroy($id)
-//     {
-//         $historia = Historia::find($id)->delete();
-
-//         return redirect()->route('admin.historia.index')
-//             ->with('success', 'Historia deleted successfully');
-//     }
-// }
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\historia  $historia
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(historia $historia)
+    {
+        //
+    }
+}

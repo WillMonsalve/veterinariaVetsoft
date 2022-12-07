@@ -21,7 +21,7 @@
                 <p class="card-text">
                  <div class="author">
                   <a href="#">
-                   <img src="{{ asset('/img/avatarDefault.jpg')}}" alt="image" class="avatar">
+                   <img src="{{ asset('/img/person.jpg')}}" alt="image" class="avatar">
                     <h5 class="title mt-3">Datos</h5>
                   </a>
                   <p class="descripcion">

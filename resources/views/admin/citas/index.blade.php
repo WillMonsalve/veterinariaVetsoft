@@ -11,9 +11,9 @@
 
 @section('content_header')
 
-    {{--  @can('admin.citas.create')
+     @can('admin.citas.create')
         <a class="btn btn-success btn-sm float-right" href="{{route('admin.citas.create')}}">Crear Cita</a>
-    @endcan  --}}
+    @endcan 
 
     <a class="btn btn-success btn-sm float-right" href="{{route('admin.citas.create')}}">Registrar Nueva Cita</a>
     <h1>Lista de Citas</h1>
@@ -69,13 +69,15 @@
                             </th>
 
                             <td>
-                                <a class="btn btn-warning btn-sm" href="{{route('admin.citas.show', $cita)}}"><i class="bi bi-eye"></i></a>
+                                @can('admin.citas.show')
+                                    <a class="btn btn-warning btn-sm" href="{{route('admin.citas.show', $cita)}}"><i class="bi bi-eye"></i></a>
+                                @endcan                                
                             </td>
 
                             <td >
-                                {{--  @can('admin.citas.edit')  --}}
+                                 @can('admin.citas.edit') 
                                     <a class="btn btn-primary bi bi-pen" href="{{route('admin.citas.edit', $cita)}}"></a>
-                                {{--  @endcan  --}}
+                                 @endcan 
                             </td>
 
 
