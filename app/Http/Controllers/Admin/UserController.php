@@ -45,6 +45,7 @@ class UserController extends Controller
             'telefono' => 'required',
             'email' => 'required|unique:users',
             'status' => 'nullable',
+
         ]);
 
         $user = User::create($request->all());
@@ -85,6 +86,7 @@ class UserController extends Controller
             'telefono' => 'required',
             'email' => 'required',
             'status' => 'nullable',
+
         ]);
 
         $user->update($request->all());

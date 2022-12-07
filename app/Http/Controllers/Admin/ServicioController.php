@@ -21,6 +21,7 @@ class ServicioController extends Controller
     public function index()
     {
         $servicios = Servicio::all();
+        
 
         return view('admin.servicios.index', compact('servicios'));
     }
@@ -40,17 +41,11 @@ class ServicioController extends Controller
             'duracion' => 'required'
         ]);
 
+        
         $servicio = Servicio::create($request->all());
 
         return redirect()->route('admin.servicios.index', $servicio)->with('info', 'El servicio se creo con exito');
     }
-
-
-   /*  public function show(Servicio $servicio)
-    {
-        return view('admin.servicios.show', compact('servicio'));
-    } */
-
 
     public function edit(Servicio $servicio)
     {
@@ -61,7 +56,7 @@ class ServicioController extends Controller
     public function update(Request $request, Servicio $servicio)
     {
         $request->validate([
-            'nombre' => 'required',
+            'nombre_servicio' => 'required',
             'descripcion' => 'nullable',
             'duracion' => 'required'
         ]);

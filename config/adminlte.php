@@ -410,7 +410,7 @@ return [
         //     'url'  => 'admin/settings',
         //     'icon' => 'fas fa-fw fa-lock',
         // ],
-        
+
         ['header' => 'ADMINISTRADOR'],
         [
             'text' => 'Categorías',
@@ -426,8 +426,8 @@ return [
             'active' => ['admin/tags*'],
             'can'  => 'admin.tags.index',
         ],
-            
-        
+
+
 
         ['header' => 'OPCIONES DE BLOG'],
         [
@@ -439,8 +439,7 @@ return [
         [
             'text'       => 'Crear nuevo post',
             'route'        => 'admin.posts.create',
-            'icon'      => 'fas fa-fw fa-file',
-            'can'  => 'admin.posts.create',            
+            'icon'      => 'fas fa-fw fa-file',            
         ],
 
     ],

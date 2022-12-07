@@ -17,7 +17,7 @@
  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap4.min.css">
  @endsection
 
-    <a class="btn btn-success btn-sm float-right" href="{{route('admin.horario_agenda.create')}}">AGREGAR <i class="bi bi-plus-circle-fill"></i></a>
+    <a class="btn btn-success btn-sm float-right" href="{{route('admin.horarios.create')}}">AGREGAR <i class="bi bi-plus-circle-fill"></i></a>
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -37,26 +37,25 @@
             <table id="usuarios" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                 <thead>
                     <tr>
-              
-                    
-                        <th>Fecha</th>
+
+
+                    <th>Fecha</th>
                         <th>Hora inicio</th>
                         <th>Hora final</th>
                         <th>Estado</th>
-                        <th>Rol</th>
                         <th>Servicio</th>
-                        <th>Opciones</th>
-                        
-                        
+                        <th>Encargado</th>
 
-                       
+
+
+
                     </tr>
                 </thead>
 
                 <tbody>
-            
+
                         @foreach ($horarios as $horario)
-                        <tr> 
+                        <tr>
                             <th>{{$horario->Fecha}}</th>
                             <th>{{$horario->Hora_ini}}</th>
                             <th>{{$horario->Hora_fin}}</th>
@@ -68,17 +67,22 @@
                                 @endif
 
                             </th>
-                                 
-                            <th>{{$horario->id_servi}}</th>
-                                                  
-                           
-                           
-    
-                
+
+                            <th>{{$horario->nombre_servicio}}</th>
+                            <th>{{$horario->name}}</th>
+
+
+
+                            <td >
+                                {{--  @can('admin.citas.edit')  --}}
+                                    <a class="btn btn-primary bi bi-pen" href="{{route('admin.horarios.edit', $horario)}}"></a>
+                                {{--  @endcan  --}}
+                            </td>
                         </tr>
 
 
                     @endforeach
+
                 </tbody>
             </table>
 
@@ -94,7 +98,19 @@
 <script>
     $('#usuarios').DataTable({
         responsive: true,
-        autoWidth: false
+        autoWidth: false,
+        "language": {
+            "lengthMenu": "Mostrar _MENU_ registros por página",
+            "zeroRecords": "Nada encontrado - disculpa",
+            "info": "Mostrando la página _PAGE_ de _PAGES_",
+            "infoEmpty": "No records available",
+            "infoFiltered": "(filtrado de _MAX_ registros totales)",
+            'search': 'Buscar:',
+            'paginate':{
+                'next':'Siguiente',
+                'previous':'Anterior'
+            }
+        }
     });
 </script>
 

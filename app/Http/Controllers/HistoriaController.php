@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Historia;
+use App\Models\historia;
 use Illuminate\Http\Request;
 
 class HistoriaController extends Controller
@@ -26,7 +25,7 @@ class HistoriaController extends Controller
      */
     public function create()
     {
-        return view('admin.historias.create');
+        //
     }
 
     /**
@@ -43,33 +42,33 @@ class HistoriaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\historia  $historia
      * @return \Illuminate\Http\Response
      */
-    public function show(Historia $historia)
+    public function show(historia $historia)
     {
-        return view('admin.historias.show', compact('historias'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\historia  $historia
      * @return \Illuminate\Http\Response
      */
-    public function edit(Historia $historia)
+    public function edit(historia $historia)
     {
-        return view('admin.historias.edit', compact('historia'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\historia  $historia
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Historia $historia)
+    public function update(Request $request, historia $historia)
     {
         //
     }
@@ -77,10 +76,10 @@ class HistoriaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\historia  $historia
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Historia $historia)
+    public function destroy(historia $historia)
     {
         //
     }

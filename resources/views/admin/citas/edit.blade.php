@@ -20,32 +20,24 @@
             {!! Form::model($cita, ['route' => ['admin.citas.update', $cita], 'method' => 'put']) !!}
 
             <div class="form-group">
-                <label for="cliente">Cliente</label>
-                <select name="" id="" class="form-control">
-                    @foreach ($cliente as $clientes)
-                        <option value="{{ $clientes->cliente_id }}">{{ $clientes->nombre }}</option>
-                    @endforeach
-                </select>
+                {!! Form::label('cliente_id', 'Cliente') !!}
+                {!! Form::select('cliente_id',$cliente, $cita->cliente_id, ['class' => 'form-control ','disabled']) !!}
 
-                @error('cliente')
-                    <span class="text-danger">{{ $message }}</span>
+                @error('cliente_id')
+                <span class="text-danger">{{$message}}</span>
                 @enderror
 
-                </div>
+            </div>
 
-                <div class="form-group">
-                <label for="name">Servicios</label>
-                <select name="" id="" class="form-control">
-                    @foreach ($servicios as $servicio)
-                        <option value="{{ $servicio->id }}">{{ $servicio->nombre }}</option>
-                    @endforeach
-                </select>
+            <div class="form-group">
+                {!! Form::label('servicio_id', 'Servicio') !!}
+                {!! Form::select('servicio_id',$servicios, $cita->servicio_id, ['class' => 'form-control']) !!}
 
-                @error('servicio')
-                    <span class="text-danger">{{ $message }}</span>
+                @error('cliente_id')
+                <span class="text-danger">{{$message}}</span>
                 @enderror
 
-                </div>
+            </div>
 
                 <div class="form-group">
                     {!! Form::label('fecha', 'Fecha') !!}
@@ -55,10 +47,6 @@
                     <span class="text-danger">{{$message}}</span>
                     @enderror
 
-
-                @error('fecha')
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
                 </div>
 
                 <div class="form-group">

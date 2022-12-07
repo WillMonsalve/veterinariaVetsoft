@@ -2,7 +2,10 @@
 
 @section('title', 'Citas')
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+@section('js')
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+@endsection
 
 @section('content_header')
     <h1>Registrar Nueva Cita</h1>
@@ -17,11 +20,11 @@
 
                 <div class="form-group">
                 <label for="text">Cliente</label>
-                <select class="form-control" name="cliente_id" id="">
+                <select class="form-control " name="cliente_id" id="">
                     @foreach($cliente as $key =>$value)
                          <option value="{{$value->id}}">{{$value->nombre_cliente}} </option>
                     @endforeach
-                    </select>
+                </select>
 
                 @error('cliente')
                     <span class="text-danger">{{ $message }}</span>
@@ -83,6 +86,25 @@
 
 @stop
 
+@section('js')
+
+    <script src="{{asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}"></script>
+
+
+
+    <script>
+        $(document).ready( function() {
+            $("#title").stringToSlug({
+                setEvents: 'keyup keydown blur',
+                getPut: '#permalink',
+                space: '-'
+            });
+        });
+    </script>
+
+
+
+@endsection
 
 
 
