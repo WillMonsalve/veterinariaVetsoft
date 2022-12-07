@@ -23,9 +23,8 @@ class PostsIndex extends Component
     public function render()
     {
         $posts = Post::where('user_id', auth()->user()->id)
-                        ->where('name', 'LIKE', '%' . $this->search . '%')
-                        ->latest('id')
-                        ->paginate(8);
+                    ->where('name', 'LIKE', '%' . $this->search . '%')
+                    ->paginate();
 
         return view('livewire.admin.posts-index', compact('posts'));
     }

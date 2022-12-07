@@ -20,26 +20,48 @@ class UserController extends Controller
 
     public function index()
     {
-        //$users = User::all();
-        return view('admin.users.index');
+        $users = User::all();
+        return view('admin.users.index', compact('users'));
     }
 
 
     public function create()
     {
-        return view('admin.users.create');
+        $roles = Role::all();
+
+        return view('admin.users.create', compact('roles'));
     }
 
    
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'apellido' => 'required',
+            'direccion' => 'required',
+            'cedula' => 'required|unique:users',
+            'edad' => 'required',
+            'telefono' => 'required',
+            'email' => 'required|unique:users',
+            'status' => 'nullable',
+        ]);
+
+        $user = User::create($request->all());
+
+        if ($request->roles) {
+            $user->roles()->attach($request->roles);
+        }
+
+        return redirect()->route('admin.users.edit', $user)->with('info', 'El usuario se creó con éxito');
     }
 
    
-    public function show(User $user)
+    public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $roles = Role::all();
+        
+        return view('admin.users.show', compact('user', 'roles'));
     }
 
    
@@ -61,6 +83,7 @@ class UserController extends Controller
             'edad' => 'required',
             'telefono' => 'required',
             'email' => 'required',
+            'status' => 'nullable',
         ]);
 
         $user->update($request->all());
@@ -73,8 +96,8 @@ class UserController extends Controller
    
     public function destroy(User $user)
     {
-        $user->delete();
+        /* $user->delete();
 
-        return redirect()->route('admin.users.index')->with('info', 'El usuario se elimino con exito');;
+        return redirect()->route('admin.users.index')->with('info', 'El usuario se elimino con exito'); */
     }
 }
