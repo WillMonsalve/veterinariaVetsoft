@@ -1,10 +1,12 @@
 @extends('adminlte::page')
 
-@section('title', 'Editar cita')
+@section('title', 'Vetsoft')
 
 @section('content_header')
-    <h1>Editar Cita</h1>
+    
+<h1>Editar agenda</h1>
 @stop
+
 
 @section('content')
 
@@ -16,6 +18,7 @@
 
     <div class="card">
         <div class="card-body">
+            
             {!! Form::model($horarios, ['route' => ['admin.horario_agenda.update', $horarios], 'method' => 'put']) !!}
             <div class="form-group col-md-4">  
                     <label for="Estado">Estado</label>

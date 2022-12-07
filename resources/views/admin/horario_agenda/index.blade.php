@@ -45,6 +45,7 @@
                         <th>Estado</th>
                         <th>Servicio</th>
                         <th>Encargado</th>
+                        <th>Opciones</th>
                         
                         
 
@@ -71,7 +72,7 @@
                             <th>{{$horario->nombre_servicio}}</th>
                             <th>{{$horario->name}}</th>                  
                            
-                           
+                           <th><a class="btn btn-info " href="{{route('admin.horario_agendas.edit',['id' => $horario->id)}}"><i class="bi bi-pencil-square"></i></a> </th>
     
                 
                         </tr>

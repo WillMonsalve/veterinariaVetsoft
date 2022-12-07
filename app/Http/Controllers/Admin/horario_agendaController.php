@@ -45,6 +45,30 @@ class horario_agendaController extends Controller
 
         return redirect()->route('admin.horario_agenda.index', $horarios)->with('info', 'el horario se creo con exito');
     }
+    public function edit($id)
+    {
+        $horarios=horario_agenda::find($id);
+        $servicios = Servicio::where('estado',1)->get();
+        $users = User::all();
+        return view('admin.horario_agenda.edit', compact('horarios','servicios','users'));
+    }
+    public function update(Request $request, horario_agenda $horarios)
+    {
+        $request->validate([
+            'Estado' => 'nullable',
+            'Fecha'=>'required',
+            'Hora_ini' => 'required',
+            'Hora_fin'=>'required',
+            'id_user'=>'nullable',
+            'id_servi' => 'nullable',
+        ]);
+
+        $horarios->update($request->all());
+
+        return redirect()->route('admin.horario_agenda.index', $horarios)->with('info', 'El servicio se actualizo con exito');
+    }
+
+   
 
 
 }
