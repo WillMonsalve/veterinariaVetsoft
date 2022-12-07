@@ -15,7 +15,7 @@
         <a class="btn btn-success btn-sm float-right" href="{{route('admin.citas.create')}}">Crear Cita</a>
     @endcan 
 
-    <a class="btn btn-success btn-sm float-right" href="{{route('admin.citas.create')}}">Registrar Nueva Cita</a>
+   
     <h1>Lista de Citas</h1>
 @stop
 
