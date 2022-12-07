@@ -313,15 +313,7 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        [
-
-            'text'  => 'Dashboard',
-            'route' => 'admin.home',
-            'icon'  => 'fas fa-tachometer-alt fa-fw',
-            'active' => ['admin/dashboard*'],
-            'can'  => 'admin.home',
-        ],
-
+        
         [
             'text' => 'Usuarios',
             'route' => 'admin.users.index',
@@ -403,6 +395,14 @@ return [
             'icon' => 'bi bi-question-diamond',
             'active' => ['admin/ayudas*'],
             'can'  => 'admin.ayudas.index',
+        ],
+
+        [
+            'text'  => 'Dashboard',
+            'route' => 'admin.home',
+            'icon'  => 'fas fa-tachometer-alt fa-fw',
+            'active' => ['admin/dashboard*'],
+            'can'  => 'admin.home',
         ],
 
         // [
