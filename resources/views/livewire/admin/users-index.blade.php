@@ -1,12 +1,12 @@
-<div>
+{{-- <div>
     <div class="card">
 
         <div class="card-body">
             <table id="users" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                 <thead>
-                    <tr>
+                    <tr> --}}
                         {{--  <th>ID</th> --}}
-                        <th>Nombre</th>
+                        {{-- <th>Nombre</th>
                         <th>Apellido</th>
                         <th>Dirección</th>
                         <th>Cédula</th>
@@ -22,9 +22,9 @@
 
                 <tbody>
                     @foreach ($users as $user)
-                        <tr>
+                        <tr> --}}
                             {{-- <td>{{$user->id}}</td> --}}
-                            <td>{{ $user->name }}</td>
+                            {{-- <td>{{ $user->name }}</td>
                             <td>{{ $user->apellido }}</td>
                             <td>{{ $user->direccion }}</td>
                             <td>{{ $user->cedula }}</td>
@@ -59,5 +59,5 @@
 
             </table>
         </div>
-    </div>
-</div>
+    </div> --}}
+{{-- </div> --}}
