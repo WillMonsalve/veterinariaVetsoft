@@ -20,7 +20,7 @@ use App\Http\Controllers\Admin\ServicioController;
 use App\Http\Controllers\Admin\HorarioController;
 use App\Http\Controllers\Admin\PermissionController;
 
-Route::get('', [HomeController::class, 'index'])->Middleware('can:admin.home')->name('admin.home');
+Route::get('', [HomeController::class, 'index'])/* ->Middleware('can:admin.home') */->name('admin.home');
 Route::resource('categories', CategoryController::class)->names('admin.categories');
 Route::resource('tags', TagController::class)->names('admin.tags');
 Route::resource('posts', PostController::class)->names('admin.posts');
