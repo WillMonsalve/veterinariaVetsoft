@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Servicio;
 use App\Models\User;
 
-class horario_agenda extends Model
+class Horario extends Model
 {
     use HasFactory;
 

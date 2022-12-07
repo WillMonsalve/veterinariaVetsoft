@@ -17,8 +17,9 @@ use App\Http\Controllers\Admin\MascotaController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\HistoriaController;
 use App\Http\Controllers\Admin\ServicioController;
-use App\Http\Controllers\Admin\horario_agendaController;
+use App\Http\Controllers\Admin\HorarioController;
 use App\Http\Controllers\Admin\PermissionController;
+
 
 Route::get('', [HomeController::class, 'index'])/* ->Middleware('can:admin.home') */->name('admin.home');
 Route::resource('categories', CategoryController::class)->names('admin.categories');
@@ -33,7 +34,7 @@ Route::resource('permissions', PermissionController::class)->names('admin.permis
 Route::resource('servicios', ServicioController::class)->except('show')->names('admin.servicios');
 Route::resource('citas', CitaController::class)->names('admin.citas');
 Route::resource('agendas', AgendaController::class)->names('admin.agendas');
-Route::resource('horario_agenda', horario_agendaController::class)->names('admin.horario_agenda');
+Route::resource('horarios', HorarioController::class)->names('admin.horarios');
 Route::resource('clientes', ClienteController::class)->names('admin.clientes');
 Route::resource('detalles', DetalleHistoriaController::class)->names('admin.detalles');
 Route::resource('historias', HistoriaController::class)->names('admin.historias');
