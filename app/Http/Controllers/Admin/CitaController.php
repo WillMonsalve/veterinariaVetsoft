@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Cita;
 use App\Models\Cliente;
+use App\Models\Horario;
 use App\Models\Servicio;
 
 class CitaController extends Controller
@@ -22,19 +23,23 @@ class CitaController extends Controller
 
     public function index()
     {
-        $citas = Cita::select("citas.*", "clientes.nombre_cliente","servicios.nombre_servicio")
+        $citas = Cita::select("citas.*", "clientes.nombre_cliente","servicios.nombre_servicio","horarios.Fecha","horarios.Hora_ini")
         ->join("clientes", "citas.cliente_id","=", "clientes.id")
         ->join("servicios", "citas.servicio_id","=", "servicios.id")
+        ->join("horarios", "citas.agenda_id","=", "horarios.id")
         ->get();
+
         return view('admin.citas.index', compact('citas'));
+
     }
 
 
     public function create()
     {
+        $horarios = Horario::where('Estado',1)->get();
         $servicios = Servicio::where('estado',1)->get();
         $cliente = Cliente::where('estado',1)->get();
-        return view('admin.citas.create', compact('servicios','cliente'));
+        return view('admin.citas.create', compact('servicios','cliente','horarios'));
     }
 
 
@@ -42,8 +47,8 @@ class CitaController extends Controller
     {
         $request->validate([
             'estado' => 'required',
-            'fecha' => 'required',
-            'hora' => 'nullable',
+            'agenda_id' => 'required',
+            'hora_id' => 'nullable',
             'cliente_id' => 'required',
             'servicio_id' => 'required',
         ]);
@@ -56,18 +61,21 @@ class CitaController extends Controller
 
     public function show(Cita $cita)
     {
+        $horarios = Horario::pluck('id','Fecha');
         $cliente = Cliente::all();
         $servicios = Servicio::all();
-        return view('admin.citas.show', compact('cita','servicios','cliente'));
+        return view('admin.citas.show', compact('cita','servicios','cliente','horarios'));
     }
 
 
     public function edit(Cita $cita)
     {
+        $horarios = Horario::pluck('Fecha','id');
+        $hora = Horario::pluck('Hora_ini','id');
         $servicios = Servicio::pluck('nombre_servicio', 'id');
         $cliente = Cliente::pluck('nombre_cliente', 'id');
 
-        return view('admin.citas.edit', compact('cita','servicios','cliente'));
+        return view('admin.citas.edit', compact('cita','servicios','cliente','horarios','hora'));
     }
 
 
@@ -75,8 +83,8 @@ class CitaController extends Controller
     {
         $request->validate([
             'estado' => 'required',
-            'fecha' => 'required',
-            'hora' => 'required',
+            'agenda_id' => 'required',
+            'hora_id' => 'required',
             'servicio_id' => 'nullable',
             'cliente_id' => 'nullable',
         ]);

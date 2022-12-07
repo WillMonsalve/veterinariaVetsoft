@@ -15,7 +15,7 @@ class AgendaController extends Controller
         $agendas = Agenda::select("agendas.*", "users.name")
         ->join("users", "agendas.user_id","=", "users.id")
         ->get();
-       
+
         return view('admin.agendas.index', compact('agendas'));
     }
     public function create()
@@ -44,7 +44,7 @@ class AgendaController extends Controller
     {
         $users = User::all();
 
-        return view('admin.agendas.show', compact('users'), compact('agenda'));
+        return view('admin.agendas.show', compact('users','agenda'));
     }
 
     public function destroy(Agenda $agenda)

@@ -47,22 +47,24 @@
                 </div>
 
                 <div class="form-group">
-                    {!! Form::label('fecha', 'Fecha') !!}
-                    {!! Form::date('fecha', null, ['class' => 'form-control']) !!}
+                    <label>Fecha</label>
 
-                    @error('fecha')
-                    <span class="text-danger">{{$message}}</span>
-                    @enderror
+                    <select class="form-control" name="agenda_id" id="">
+                        @foreach($horarios as $key =>$value)
+                             <option value="{{$value->id}}">{{$value->Fecha}} </option>
+                        @endforeach
+                    </select>
 
                 </div>
 
                 <div class="form-group">
-                    {!! Form::label('hora', 'Hora') !!}
-                    {!! Form::time('hora', null, ['class' => 'form-control']) !!}
+                    <label>Hora</label>
 
-                    @error('hora')
-                    <span class="text-danger">{{$message}}</span>
-                    @enderror
+                    <select class="form-control" name="hora_id" id="">
+                        @foreach($horarios as $key =>$value)
+                             <option value="{{$value->id}}">{{$value->Hora_ini}} </option>
+                        @endforeach
+                    </select>
 
                 </div>
 

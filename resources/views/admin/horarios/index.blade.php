@@ -60,7 +60,7 @@
                             <th>{{$horario->Hora_ini}}</th>
                             <th>{{$horario->Hora_fin}}</th>
                             <th>
-                                @if($horario->estado == '2')
+                                @if($horario->Estado == '2')
                                 <span class="btn btn-danger"><i class="bi bi-toggle-off"></i></span>
                                 @else
                                 <span class="btn btn-success"><i class="bi bi-toggle-on"></i></span>

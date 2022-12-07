@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('horarios', function (Blueprint $table) {
                 $table->id();
-                $table->enum('Estado',[1, 2]);
+                $table->enum('Estado',[1, 2, 3]);
                 $table->date('Fecha');
                 $table->time('Hora_ini');
                 $table->time('Hora_fin');
