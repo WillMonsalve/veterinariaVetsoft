@@ -1,5 +1,10 @@
 @extends('adminlte::page')
 
+@section('js')
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+@endsection
+
 @section('title', 'clientes')
 
 @section('content_header')
@@ -22,10 +27,12 @@
                  <div class="author">
 
                     <a href="#">
-                        <img width="250px" src="{{ asset('/img/avatarDefault.jpg')}}" alt="image" class="avatar">
+                        <img width="220px" src="{{ asset('/img/avatarDefault.jpg')}}" alt="image" class="avatar">
                          <h5 class="title mt-3">Datos</h5>
                        </a>
                     <p class="descripcion">
+
+
                     <h6>Cliente</h6>{{ $cita->cliente_id}} <br>
                     <h6>Servicio</h6>{{ $cita->servicio_id}} <br>
                     <h6>Fecha</h6>{{ $cita->Fecha}} <br>

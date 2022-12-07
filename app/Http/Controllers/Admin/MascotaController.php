@@ -1,37 +1,43 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use App\Models\Cliente;
 use App\Http\Controllers\Controller;
 use App\Models\Mascota;
 use Illuminate\Http\Request;
 
 class MascotaController extends Controller
 {
-   
+
     public function index()
     {
-        $mascotas = Mascota::all();
+        $mascotas = Mascota::paginate();
         return view('admin.mascotas.index', compact('mascotas'));
     }
 
-    
+
     public function create()
     {
-        return view('admin.mascotas.create');
+        $mascota = new Mascota();
+        $clientes = Cliente::pluck('nombre_cliente', 'id');
+         return view('admin.mascotas.create', compact('mascota', 'clientes'));
     }
 
-   
+
     public function store(Request $request)
     {
         $request->validate([
-            'nombre' => 'required',
-            'raza' => 'required',
-            'color' => 'required',
-            'peso' => 'required',
-            'especie' => 'required',
-            'edad' => 'required',
-            'sexo' => 'required',
+            'Nombre' => 'required',
+            'Raza' => 'required',
+            'Color' => 'required',
+            'Peso' => 'required',
+            'Especie' => 'required',
+            'Edad' => 'required',
+            'Sexo' => 'required',
+            'cliente_id' => 'required',
+            'estado' => 'nullable',
+
+
         ]);
 
         $mascota = Mascota::create($request->all());
@@ -39,7 +45,7 @@ class MascotaController extends Controller
         return redirect()->route('admin.mascotas.index', $mascota)->with('info', 'La mascota se creo con exito');
     }
 
-    
+
     public function show(Mascota $mascota)
     {
         return view('admin.mascotas.show', compact('mascota'));
@@ -53,20 +59,25 @@ class MascotaController extends Controller
      */
     public function edit(Mascota $mascota)
     {
-        return view('admin.mascotas.edit', compact('mascota'));
+        // $mascota = new Mascota();
+        $clientes = Cliente::pluck('nombre_cliente', 'id');
+        return view('admin.mascotas.edit', compact('mascota', 'clientes'));
     }
 
-    
+
     public function update(Request $request, Mascota $mascota)
     {
         $request->validate([
-            'nombre' => 'required',
-            'raza' => 'required',
-            'color' => 'required',
-            'peso' => 'required',
-            'especie' => 'required',
-            'edad' => 'required',
-            'sexo' => 'required',
+            'Nombre' => 'required',
+            'Raza' => 'required',
+            'Color' => 'required',
+            'Peso' => 'required',
+            'Especie' => 'required',
+            'Edad' => 'required',
+            'Sexo' => 'required',
+            'cliente_id' => 'required',
+            'estado' => 'nullable',
+
         ]);
 
         $mascota->update($request->all());
@@ -74,7 +85,7 @@ class MascotaController extends Controller
         return redirect()->route('admin.mascotas.index', $mascota)->with('info', 'La mascota se actualizo con exito');
     }
 
-   
+
     public function destroy(Mascota $mascota)
     {
         $mascota->delete();

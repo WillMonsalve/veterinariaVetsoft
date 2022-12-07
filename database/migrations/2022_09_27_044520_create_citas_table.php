@@ -15,15 +15,15 @@ return new class extends Migration
     {
         Schema::create('citas', function (Blueprint $table) {
             $table->id();
-            $table->integer('Estado');
-            $table->date('Fecha');
-            $table->time('Hora');
+            $table->integer('estado');
+            $table->date('fecha');
+            $table->time('hora');
             $table->unsignedBigInteger('servicio_id');
             $table->foreign('servicio_id')->references('id')->on('servicios');
             $table->unsignedBigInteger('cliente_id');
             $table->foreign('cliente_id')->references('id')->on('clientes');
             $table->unsignedBigInteger('agenda_id');
-            $table->foreign('agenda_id')->references('id')->on('agendas');
+            $table->foreign('agenda_id')->references('id')->on('horarios');
             $table->timestamps();
         });
     }

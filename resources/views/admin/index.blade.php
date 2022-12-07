@@ -3,22 +3,24 @@
 @section('title', 'Dashboard')
 
 @section('content')
-    <div>
+    <div class="w-50 p-3" style="background-color: #eee;" Width:"70%">
         <canvas id="myChart"></canvas>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
+        const citas = '{{ $citas }}';
         const ctx = document.getElementById('myChart');
 
         new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'],
+                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo',
+                'Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
                 datasets: [{
                     label: 'Cantidad Servicios',
-                    data: [12, 19, 3, 5, 2, 3],
+                    data: [citas, 19, 3, 5, 2, 3],
                     backgroundColor: [
                         'rgba(255,99,132,0.2)',
                         'rgba(54,162,235,0.2)',
@@ -49,3 +51,4 @@
         });
     </script>
 @stop
+

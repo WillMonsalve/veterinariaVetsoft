@@ -17,7 +17,7 @@
  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap4.min.css">
  @endsection
 
-    <a class="btn btn-success btn-sm float-right" href="{{route('admin.horario_agenda.create')}}">AGREGAR <i class="bi bi-plus-circle-fill"></i></a>
+    <a class="btn btn-success btn-sm float-right" href="{{route('admin.horarios.create')}}">AGREGAR <i class="bi bi-plus-circle-fill"></i></a>
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -45,18 +45,17 @@
                         <th>Estado</th>
                         <th>Servicio</th>
                         <th>Encargado</th>
-                        <th>Opciones</th>
                         
                         
 
-                       
+
                     </tr>
                 </thead>
 
                 <tbody>
 
                         @foreach ($horarios as $horario)
-                        <tr> 
+                        <tr>
                             <th>{{$horario->Fecha}}</th>
                             <th>{{$horario->Hora_ini}}</th>
                             <th>{{$horario->Hora_fin}}</th>
@@ -68,17 +67,18 @@
                                 @endif
 
                             </th>
-                                 
+
                             <th>{{$horario->nombre_servicio}}</th>
                             <th>{{$horario->name}}</th>                  
                            
-                           <th><a class="btn btn-info " href="{{route('admin.horario_agendas.edit',['id' => $horario->id)}}"><i class="bi bi-pencil-square"></i></a> </th>
+                           
     
                 
                         </tr>
 
 
                     @endforeach
+
                 </tbody>
             </table>
 

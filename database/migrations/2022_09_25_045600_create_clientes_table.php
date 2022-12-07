@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('edad');
             $table->string('telefono', 20);
             $table->string('email')->unique();
+            $table->enum('estado', [1, 2]);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

@@ -10,7 +10,7 @@
         <div class="card">
          <div class="card-header card-header-primary">
           <div class="card-title"></div>
-           <p class="card-category">Vista detallada de la mascota {{ $mascota->name}} </p>  
+           <p class="card-category">Vista detallada de la mascota {{ $mascota->Nombre}} </p>  
            </div>
            {{-- body --}}
            <div class="card-body">
@@ -25,13 +25,13 @@
                     <h5 class="title mt-3">Datos</h5> 
                   </a>   
                   <p class="descripcion">
-                   {{ $mascota->nombre}} <br>
-                   {{ $mascota->raza}} <br>
-                   {{ $mascota->color}} <br>
-                   {{ $mascota->peso}} <br>
-                   {{ $mascota->especie}} <br>
-                   {{ $mascota->edad}} <br>
-                   {{ $mascota->sexo}} <br>
+                   {{ $mascota->Nombre}} <br>
+                   {{ $mascota->Raza}} <br>
+                   {{ $mascota->Color}} <br>
+                   {{ $mascota->Peso}} <br>
+                   {{ $mascota->Especie}} <br>
+                   {{ $mascota->Edad}} <br>
+                   {{ $mascota->Sexo}} <br>
                    
                 
                   </p>           

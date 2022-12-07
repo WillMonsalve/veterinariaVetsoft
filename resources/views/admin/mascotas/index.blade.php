@@ -30,6 +30,8 @@
                         <th>Editar</th>
                         <th>Ver</th>
                         <th>Acción</th>
+                        <th>Eliminar</th>
+
 
                     </tr>
                 </thead>
@@ -40,10 +42,10 @@
                    
                     <tr>
                             {{-- <td>{{$cliente->id}}</td> --}}
-                            <td>{{$mascota->nombre}}</td>
-                            <td>{{$mascota->raza}}</td>
-                            <td>{{$mascota->especie}}</td>
-                            <td>{{$mascota->Clientes->nombre}}</td>
+                            <td>{{$mascota->Nombre}}</td>
+                            <td>{{$mascota->Raza}}</td>
+                            <td>{{$mascota->Especie}}</td>
+                            <td>{{$mascota->Clientes->nombre_cliente}}</td>
                             
                             <td>
                                <a class="btn btn-primary btn-sm" href="{{route('admin.mascotas.edit', $mascota)}}"><i class="bi bi-pen"></i></a>
@@ -54,12 +56,23 @@
                             </td>
                             
                             <td>
-                               <form action="{{route('admin.clientes.destroy', $mascota)}}" method="POST">
+
+                                @if($mascota->estado == '2')
+                                <span class="btn btn-danger"><i class="bi bi-toggle-off"></i></span>
+                                @else
+                                <span class="btn btn-success"><i class="bi bi-toggle-on"></i></span>
+                                @endif
+
+                            </td>
+
+                             <td>
+                               <form action="{{route('admin.mascotas.destroy', $mascota)}}" method="POST">
                                     @csrf
                                     @method('delete')
-                                    <button class="btn btn-success btn-sm" type="submit">Activo</button>
+                                    <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
                                </form>
                             </td>
+
                         </tr>                                     
                       @endforeach
                     </tbody>
