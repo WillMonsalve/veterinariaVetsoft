@@ -1,9 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\historia;
+use App\Http\Controllers\Controller;
+use App\Models\Historia;
 use Illuminate\Http\Request;
+use App\Models\Mascota;
+// use App\Models\User;
+use App\Models\Cliente;
 
 class HistoriaController extends Controller
 {
@@ -14,8 +18,11 @@ class HistoriaController extends Controller
      */
     public function index()
     {
+        // $mascota = new Mascota();
+        $clientes = Cliente::pluck('nombre_cliente', 'id');
+        $mascotas = Mascota::all();
         $historias = Historia::all();
-        return view('admin.historias.index', compact('historias'));
+        return view('admin.historias.index', compact('historias','mascotas','clientes'));
     }
 
     /**
@@ -25,7 +32,7 @@ class HistoriaController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.historias.create');
     }
 
     /**
@@ -42,33 +49,33 @@ class HistoriaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\historia  $historia
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(historia $historia)
+    public function show(Historia $historia)
     {
-        //
+        return view('admin.historias.show', compact('historias'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\historia  $historia
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(historia $historia)
+    public function edit(Historia $historia)
     {
-        //
+        return view('admin.historias.edit', compact('historia'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\historia  $historia
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, historia $historia)
+    public function update(Request $request, Historia $historia)
     {
         //
     }
@@ -76,10 +83,10 @@ class HistoriaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\historia  $historia
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(historia $historia)
+    public function destroy(Historia $historia)
     {
         //
     }
