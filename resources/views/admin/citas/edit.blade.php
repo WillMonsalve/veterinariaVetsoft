@@ -33,31 +33,31 @@
                 {!! Form::label('servicio_id', 'Servicio') !!}
                 {!! Form::select('servicio_id',$servicios, $cita->servicio_id, ['class' => 'form-control']) !!}
 
-                @error('cliente_id')
+                @error('servicio_id')
                 <span class="text-danger">{{$message}}</span>
                 @enderror
 
             </div>
 
-                <div class="form-group">
-                    {!! Form::label('fecha', 'Fecha') !!}
-                    {!! Form::date('fecha', null, ['class' => 'form-control']) !!}
+            <div class="form-group">
+                {!! Form::label('agenda_id', 'Fecha') !!}
+                {!! Form::select('agenda_id',$horarios, $cita->agenda_id, ['class' => 'form-control']) !!}
 
-                    @error('fecha')
-                    <span class="text-danger">{{$message}}</span>
-                    @enderror
+                @error('agenda_id')
+                <span class="text-danger">{{$message}}</span>
+                @enderror
 
-                </div>
+            </div>
 
-                <div class="form-group">
-                    {!! Form::label('hora', 'Hora') !!}
-                    {!! Form::time('hora', null, ['class' => 'form-control']) !!}
+            <div class="form-group">
+                {!! Form::label('hora_id', 'Hora') !!}
+                {!! Form::select('hora_id',$hora, $cita->hora_id, ['class' => 'form-control']) !!}
 
-                    @error('hora')
-                    <span class="text-danger">{{$message}}</span>
-                    @enderror
+                @error('hora_id')
+                <span class="text-danger">{{$message}}</span>
+                @enderror
 
-                </div>
+            </div>
 
                 <div class="form-group">
                     <label for="estado">Estado</label>

@@ -56,8 +56,8 @@
 
                             <th>{{$cita->nombre_cliente}}</th>
                             <th>{{$cita->nombre_servicio}}</th>
-                            <th>{{$cita->fecha}}</th>
-                            <th>{{$cita->hora}}</th>
+                            <th>{{$cita->Fecha}}</th>
+                            <th>{{$cita->Hora_ini}}</th>
                             <th>
 
                                 @if($cita->estado == '2')
