@@ -55,7 +55,7 @@
                                                                                     
                             <td>
                                 @can('admin.mascotas.show')
-                                <a class="btn btn-warning btn-sm" href="{{route('admin.mascotas.show', $mascota)}}"><i class="bi bi-eye"></i></>
+                                <a class="btn btn-warning btn-sm" href="{{route('admin.mascotas.show', $mascota)}}"><i class="bi bi-eye"></i></a>
                                 @endcan                                
                             </td>
                             
