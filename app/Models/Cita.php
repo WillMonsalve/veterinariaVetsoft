@@ -14,8 +14,8 @@ class Cita extends Model
 
     protected $fillable = [
         'estado',
-        'fecha',
-        'hora',
+        'agenda_id',
+        'hora_id',
         'servicio_id',
         'cliente_id',
 
@@ -33,7 +33,7 @@ class Cita extends Model
 
     //Relacion muchos a muchos
 
-    public function Agendas(){
-        return $this->belongsToMany(Agenda::class);
+    public function Horarios(){
+        return $this->belongsToMany(Horario::class);
     }
 }

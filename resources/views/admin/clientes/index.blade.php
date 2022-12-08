@@ -10,8 +10,9 @@
 @endsection
 
 @section('content_header')
-
-    <a class="btn btn-success btn-sm float-right" href="{{route('admin.clientes.create')}}">Nuevo Cliente</a>
+    @can('admin.clientes.create')
+        <a class="btn btn-success btn-sm float-right" href="{{route('admin.clientes.create')}}">Nuevo Cliente</a>
+    @endcan    
 
     <h1>clientes</h1>
 @stop
@@ -53,15 +54,21 @@
                             <td>{{$cliente->telefono}}</td>
                             <td>{{$cliente->email}}</td> --}}
                             <td>
-                               <a class="btn btn-primary btn-sm" href="{{route('admin.clientes.edit', $cliente)}}"><i class="bi bi-pen"></i></a>
+                                @can('admin.clientes.edit')
+                                    <a class="btn btn-primary btn-sm" href="{{route('admin.clientes.edit', $cliente)}}"><i class="bi bi-pen"></i></a>
+                                @endcan                               
                             </td>
 
                             <td>
-                                <input type ='button' class="btn btn-info btn-sm"  value = '+ Mascota' onclick="location.href = '{{ route('admin.mascotas.create')}}'"/>
+                                @can('admin.mascotas.create')
+                                    <input type ='button' class="btn btn-info btn-sm"  value = '+ Mascota' onclick="location.href = '{{ route('admin.mascotas.create')}}'"/>
+                                @endcan                                
                             </td>
 
                             <td>
-                                <a class="btn btn-warning btn-sm" href="{{route('admin.clientes.show', $cliente)}}"><i class="bi bi-eye"></i></a>
+                                @can('admin.clientes.show')
+                                    <a class="btn btn-warning btn-sm" href="{{route('admin.clientes.show', $cliente)}}"><i class="bi bi-eye"></i></a>
+                                @endcan                                
                             </td>
 
                             <td>

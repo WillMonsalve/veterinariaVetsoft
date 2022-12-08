@@ -11,9 +11,9 @@
 
 @section('content_header')
 
-    {{--  @can('admin.servicios.create')  --}}
+     @can('admin.servicios.create') 
         <a class="btn btn-success btn-sm float-right" href="{{route('admin.servicios.create')}}">Agregar Servicio</a>
-    {{--  @endcan  --}}
+     @endcan 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <h1>Lista de Servicios</h1>
 @stop

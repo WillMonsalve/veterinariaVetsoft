@@ -8,6 +8,14 @@ use Spatie\Permission\Models\Permission;
 
 class PermissionController extends Controller
 {
+    public function __construct()
+   {        
+        $this->middleware('can:admin.permissions.index')->only('index');
+        $this->middleware('can:admin.permissions.create')->only('create', 'store');
+        $this->middleware('can:admin.permissions.show')->only('show');
+        $this->middleware('can:admin.permissions.edit')->only('edit', 'update');
+        $this->middleware('can:admin.permissions.destroy')->only('destroy');
+   }
     
     public function index()
     {

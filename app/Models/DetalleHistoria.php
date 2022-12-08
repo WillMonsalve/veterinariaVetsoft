@@ -1,52 +1,17 @@
-<!-- <?php 
+<?php
 
-// namespace App\Models;
+namespace App\Models;
+use App\Models\Historia;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-// use Illuminate\Database\Eloquent\Model;
-// use App\Models\Historia;
+class DetalleHistoria extends Model
+{
+    use HasFactory;
 
-// /**
-//  * Class DetalleHistoria
-//  *
-//  * @property $id
-//  * @property $Responsable
-//  * @property $Fecha
-//  * @property $Observaciones
-//  * @property $historia_id
-//  * @property $created_at
-//  * @property $updated_at
-//  *
-//  * @property Historia $historia
-//  * @package App
-//  * @mixin \Illuminate\Database\Eloquent\Builder
-//  */
-// class DetalleHistoria extends Model
-// {
-    
-//     static $rules = [
-// 		'Responsable' => 'required',
-// 		'Fecha' => 'required',
-// 		'Observaciones' => 'required',
-// 		'historia_id' => 'required',
-//     ];
+    public function Historias(){
+       return $this->belongsTo(Historia::class);
+        
+    }
 
-//     protected $perPage = 20;
-
-//     /**
-//      * Attributes that should be mass-assignable.
-//      *
-//      * @var array
-//      */
-//     protected $fillable = ['Responsable','Fecha','Observaciones','historia_id'];
-
-
-//     /**
-//      * @return \Illuminate\Database\Eloquent\Relations\HasOne
-//      */
-//     public function historia()
-//     {
-//         return $this->hasOne('App\Models\Historia', 'id', 'historia_id');
-//     }
-    
-
-// }
+}

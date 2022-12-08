@@ -10,12 +10,20 @@ use App\Models\Agenda;
 
 class AgendaController extends Controller
 {
+    public function __construct()
+   {        
+        $this->middleware('can:admin.agendas.index')->only('index');
+        $this->middleware('can:admin.agendas.create')->only('create', 'strore');
+        $this->middleware('can:admin.agendas.destroy')->only('destroy');
+        $this->middleware('can:admin.agendas.show')->only('show');
+   }
+
     public function index()
     {
         $agendas = Agenda::select("agendas.*", "users.name")
         ->join("users", "agendas.user_id","=", "users.id")
         ->get();
-       
+
         return view('admin.agendas.index', compact('agendas'));
     }
     public function create()
@@ -44,7 +52,7 @@ class AgendaController extends Controller
     {
         $users = User::all();
 
-        return view('admin.agendas.show', compact('users'), compact('agenda'));
+        return view('admin.agendas.show', compact('users','agenda'));
     }
 
     public function destroy(Agenda $agenda)

@@ -61,7 +61,7 @@
 
 
             <div class="form-group col-md-4">
-                <label for="name">Usuarios</label>
+                <label for="name">Responsable</label>
                 <select class="form-control" name="id_user" id="" >
                 @foreach ($users as $key =>$value)
                     <option value="{{$value->id}}">{{$value->name}}</option>

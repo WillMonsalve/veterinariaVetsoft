@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Historia;
 use Illuminate\Http\Request;
+use App\Models\Mascota;
+// use App\Models\User;
+use App\Models\Cliente;
 
 class HistoriaController extends Controller
 {
@@ -15,8 +18,11 @@ class HistoriaController extends Controller
      */
     public function index()
     {
+        // $mascota = new Mascota();
+        $clientes = Cliente::pluck('nombre_cliente', 'id');
+        $mascotas = Mascota::all();
         $historias = Historia::all();
-        return view('admin.historias.index', compact('historias'));
+        return view('admin.historias.index', compact('historias','mascotas','clientes'));
     }
 
     /**
