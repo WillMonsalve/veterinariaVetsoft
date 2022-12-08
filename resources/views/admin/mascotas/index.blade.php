@@ -13,7 +13,7 @@
 
     @can('admin.mascotas.create')
         <a class="btn btn-success btn-sm float-right" href="{{route('admin.mascotas.create')}}">Nueva mascota</a>
-    @endcan    
+    @endcan
 
     <h1>mascota</h1>
 @stop
@@ -37,28 +37,28 @@
                 </thead>
 
                 <tbody>
-                                           
+
                     @foreach ($mascotas as $mascota)
-                   
+
                     <tr>
                             {{-- <td>{{$cliente->id}}</td> --}}
                             <td>{{$mascota->Nombre}}</td>
                             <td>{{$mascota->Raza}}</td>
                             <td>{{$mascota->Especie}}</td>
                             <td>{{$mascota->Clientes->nombre_cliente}}</td>
-                            
+
                             <td>
                                 @can('admin.mascotas.edit')
                                     <a class="btn btn-primary btn-sm" href="{{route('admin.mascotas.edit', $mascota)}}"><i class="bi bi-pen"></i></a>
-                                @endcan                               
+                                @endcan
                             </td>
-                                                                                    
+
                             <td>
                                 @can('admin.mascotas.show')
-                                <   a class="btn btn-warning btn-sm" href="{{route('admin.mascotas.show', $mascota)}}"><i class="bi bi-eye"></i></>
-                                @endcan                                
+                                <a class="btn btn-warning btn-sm" href="{{route('admin.mascotas.show', $mascota)}}"><i class="bi bi-eye"></i></a>
+                                @endcan
                             </td>
-                            
+
                             <td>
 
                                 @if($mascota->estado == '2')
@@ -77,10 +77,10 @@
                                         <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
                                 </form>
                                 @endcan
-                               
+
                             </td>
 
-                        </tr>                                     
+                        </tr>
                       @endforeach
                     </tbody>
             </table>
@@ -98,7 +98,7 @@
     $('#mascotas').DataTable({
         responsive:true,
         autoWidth: false,
-       
+
         "language": {
             "lengthMenu": "Mostrar _MENU_ registros por página",
             "zeroRecords": "Nada encontrado - disculpa",
