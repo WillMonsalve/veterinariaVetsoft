@@ -19,8 +19,8 @@ return new class extends Migration
                 $table->date('Fecha');
                 $table->time('Hora_ini');
                 $table->time('Hora_fin');
-                $table->unsignedBigInteger('id_user');
-                $table->foreign('id_user')->references('id')->on('users');
+                $table->unsignedBigInteger('rol');
+                $table->foreign('rol')->references('id')->on('roles');
                 $table->unsignedBigInteger('id_servi');
                 $table->foreign('id_servi')->references('id')->on('servicios');
                 $table->timestamps();

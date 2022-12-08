@@ -75,7 +75,7 @@
 
                         <td>
                              @can('admin.horarios.edit')
-                            <a class="btn btn-primary bi bi-pen" href="{{ route('admin.horarios.edit', $horario) }}"></a>
+                            <a class="btn btn-primary bi bi-pen"></a>
                              @endcan
                         </td>
                     </tr>

@@ -4,7 +4,7 @@ use App\Models\User;
 use App\Models\Servicio;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Spatie\Permission\Traits\HasRoles;
 class agenda extends Model
 {
 
@@ -18,8 +18,9 @@ class agenda extends Model
     'user_id',
     ];
 
-    public function Users(){
-        return $this->belongsTo(User::class);
+    public function Roles(){
+        return $this->belongsTo(Role::class);
     }
+
 
 }

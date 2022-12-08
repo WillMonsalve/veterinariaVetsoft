@@ -1,16 +1,16 @@
 @extends('adminlte::page')
 
-@section('title', 'Editar cita')
+@section('title', 'crear')
 
 @section('content_header')
-    <h1>Editar Cita</h1>
+    <h1>CREAR</h1>
 @stop
 
 @section('content')
 
 <div class="card">
         <div class="card-body">
-            {!! Form::model($horarios, ['route' => ['admin.horario_agenda.update', $horarios], 'method' => 'put']) !!}
+        {!! Form::open(['route' => 'admin.horarios.store', 'method' => 'post']) !!}
             <div class="form-group col-md-4">  
                     <label for="Estado">Estado</label>
                     <select class="form-control" name="Estado" id="Estado">
@@ -48,27 +48,27 @@
 
 
                 <div class="form-group col-md-4">
-                            <small id="Hora_ini" class="form-text text-muted">Hora inicio</small>
-                            <input type="time" class="form-control" name="Hora_ini" id="Hora_ini" aria-describedby="Hora_ini" placeholder="">
+                {!! Form::label('Hora_ini', 'Duracion') !!}
+                    {!! Form::time('Hora_ini', null, ['class' => 'form-control', 'placeholder' => 'Ingrese la hora del servicio']) !!}
                             </div>
 
 
 
-                            <div class="form-group col-md-4">
+                         <div class="form-group col-md-4">
                             <small id="Hora_fin" class="form-text text-muted">Hora Final</small>
-                            <input type="time" class="form-control" name="Hora_fin" id="Hora_fin" aria-describedby="Hora_fin" placeholder="">
-                            </div>
+                            <input type="time" class="form-control" name="Hora_fin" id="Hora_fin" placeholder="">
+                         </div>
 
 
-            <div class="form-group col-md-4">
-                <label for="name">Responsable</label>
-                <select class="form-control" name="id_user" id="" >
-                @foreach ($users as $key =>$value)
+               <div class="form-group col-md-4">
+                  <label for="name">Responsable</label>
+                   <select class="form-control" name="rol" id="" >
+                    @foreach ($roles as $key =>$value)
                     <option value="{{$value->id}}">{{$value->name}}</option>
-                @endforeach
-                </select>
-         </div>
-
+                 @endforeach
+                    </select>
+             </div>
+         {!! Form::submit('Registrar', ['class' => 'btn btn-success']) !!}
 </div>
 
 

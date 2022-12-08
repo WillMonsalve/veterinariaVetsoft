@@ -22,7 +22,7 @@
 
                 </div>
                 <div class="form-group">
-                    {!! Form::label('descripcion', 'Descripcion') !!}
+                    {!! Form::label('descripcion', 'Descripción') !!}
                     {!! Form::text('descripcion', null, ['class' => 'form-control', 'placeholder' => 'Descripción de servicio']) !!}
 
                     @error('descripcion')
@@ -49,6 +49,7 @@
                 </div>
 
                 {!! Form::submit('Crear Servicio', ['class' => 'btn btn-primary']) !!}
+                <a  class="bi bi-arrow-bar-left btn btn-outline-success"  href="{{route('admin.servicios.index')}}">Volver</a>
 
             {!! Form::close() !!}
         </div>

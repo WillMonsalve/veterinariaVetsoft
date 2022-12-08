@@ -51,8 +51,8 @@
                                     </div>
                                     <div class="card-footer">
                                         <div class="button-container">
-                                            <a href="{{ route('admin.citas.index') }}" class="btn btn-sm btn-danger mr-3">
-                                                Regresar </a>
+                                        <a  class="bi bi-arrow-bar-left btn btn-outline-success"  href="{{route('admin.citas.index')}}" >Volver</a>
+
                                             <a href="{{ route('admin.citas.edit', $cita) }}"
                                                 class="btn btn-sm btn-primary mr-3"> Editar </a>
                                         </div>

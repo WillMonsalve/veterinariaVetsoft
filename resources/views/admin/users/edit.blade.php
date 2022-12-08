@@ -111,6 +111,8 @@
 
 
                 {!! Form::submit('Actualizar', ['class' => 'btn btn-primary mt-2']) !!}
+                <a  class="bi bi-arrow-bar-left btn btn-outline-success"  href="{{route('admin.users.index')}}" >Volver</a>
+
             {!! Form::close() !!}
 
         </div>
