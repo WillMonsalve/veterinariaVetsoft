@@ -49,7 +49,8 @@
                   </div>
                   <div class="card-footer">
                     <div class="button-container">
-                        <a href="{{ route('admin.roles.index') }}" class="btn btn-sm btn-success mr-3"> Volver </a>
+                    <a  class="bi bi-arrow-bar-left btn btn-outline-success"  href="{{route('admin.roles.index')}}" >Volver</a>
+
                         <a href="{{ route('admin.roles.edit', $role) }}" class="btn btn-sm btn-primary mr-3">
                             Editar </a>
                     </div>

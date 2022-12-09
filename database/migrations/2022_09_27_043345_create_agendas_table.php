@@ -22,7 +22,7 @@ return new class extends Migration
             $table->time('hora_intermedia_tarde');
             $table->time('hora_final');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('roles');
             $table->timestamps();
         });
     }
