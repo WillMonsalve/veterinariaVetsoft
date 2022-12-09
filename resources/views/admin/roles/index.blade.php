@@ -38,6 +38,7 @@
                         <th>Editar</th>
                         <th>Ver</th>
                         <th>Eliminar</th>
+                        <th>Estado</th>
                     </tr>
                 </thead>
 
@@ -76,8 +77,17 @@
     
                                         <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-fw fa-trash"></i></button>
                                    </form>
-                                @endcan
-                               
+                                @endcan                               
+                            </td>
+
+                            <td>
+
+                                @if ($role->status == '1')
+                                    <span class="btn btn-success"><i class="bi bi-toggle-on"></i></span>
+                                @else
+                                    <span class="btn btn-danger"><i class="bi bi-toggle-off"></i></span>
+                                @endif
+
                             </td>
                         </tr>
                     @endforeach

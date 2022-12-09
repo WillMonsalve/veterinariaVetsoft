@@ -44,11 +44,15 @@ class UserController extends Controller
             'edad' => 'required',
             'telefono' => 'required',
             'email' => 'required|unique:users',
+            'password' => 'required|unique:users',
             'status' => 'nullable',
 
         ]);
 
-        $user = User::create($request->all());
+        $user = User::create($request->only('name', 'apellido', 'direccion', 'cedula', 'edad', 'telefono', 'email', 'status')
+                + [
+                    'password' => bcrypt($request->input('password')),
+                ]);
 
         if ($request->roles) {
             $user->roles()->attach($request->roles);

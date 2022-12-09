@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Jetstream;
+use Illuminate\Support\Facades\Auth;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -32,7 +33,7 @@ class CreateNewUser implements CreatesNewUsers
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
         ])->validate();
 
-        return User::create([
+        $user = User::create([
             'name' => $input['name'],
             'apellido' => $input['apellido'],
             'direccion' => $input['direccion'],
@@ -42,5 +43,17 @@ class CreateNewUser implements CreatesNewUsers
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
         ]);
+        $user->assignRole('cliente');
+        return $user;
+    }
+
+    protected function redirectTo(){
+        if (Auth::user()->hasRole('Admin')) {
+            return "/admin";
+        }
+
+        if (Auth::user()->hasRole('cliente')) {
+            return "/";
+        }
     }
 }

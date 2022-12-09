@@ -84,7 +84,7 @@
             @enderror
         </div>
 
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum voluptates voluptatibus doloribus officia molestias dolores animi obcaecati earum quam cupiditate doloremque, blanditiis, adipisci ullam maxime, deserunt maiores veniam repudiandae recusandae?</p>
+        <p>Aqui puedes incluir la imagen de tus plublicaciones</p>
     </div>
 </div>
 
