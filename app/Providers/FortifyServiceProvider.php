@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Fortify\Fortify;
+use Illuminate\Support\Facades\Auth;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -45,5 +46,15 @@ class FortifyServiceProvider extends ServiceProvider
         RateLimiter::for('two-factor', function (Request $request) {
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
         });
+    }
+
+    public function redirectPath(){
+        if (Auth::user()->hasRole('Admin')) {
+            return "/admin";
+        }
+
+        if (Auth::user()->hasRole('cliente')) {
+            return "/";
+        }
     }
 }

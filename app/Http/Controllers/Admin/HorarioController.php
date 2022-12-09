@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Servicio;
-use App\Models\User;
+use Spatie\Permission\Models\Role;
 use App\Models\Horario;
 
 class HorarioController extends Controller
@@ -19,9 +19,9 @@ class HorarioController extends Controller
 
     public function index()
     {
-        $horarios = Horario::select("horarios.*","servicios.nombre_servicio","users.name")
+        $horarios = Horario::select("horarios.*","servicios.nombre_servicio","roles.name")
         ->join("servicios", "horarios.id_servi","=", "servicios.id")
-        ->join("users", "horarios.id_user","=", "users.id")
+        ->join("roles", "horarios.rol","=", "roles.id")
         ->get();
 
         return view('admin.horarios.index', compact('horarios'));
@@ -30,9 +30,9 @@ class HorarioController extends Controller
     public function create()
     {
         $servicios = Servicio::where('estado',1)->get();
-        $users = User::all();
+        $roles = Role::all();
 
-        return view('admin.horarios.create',compact('users','servicios'));
+        return view('admin.horarios.create',compact('roles','servicios'));
     }
     public function store(Request $request)
     {
@@ -53,33 +53,34 @@ class HorarioController extends Controller
     }
 
 
-    public function edit(Horario $id)
-    {
+    // public function edit(Horario $id)
+    // {
 
-        $servicios = Servicio::pluck('nombre_servicio', 'id');
-        $users = User::all();
+    //     $servicios = Servicio::pluck('nombre_servicio', 'id');
+    //     $roles = Role::all();
 
-        return view('admin.horarios.edit', compact('servicios','users'));
-    }
-
-
-    public function update(Request $request, Horario $id)
-    {
-        $request->validate([
-            'Estado' => 'nullable',
-            'Fecha'=>'required',
-            'Hora_ini' => 'required',
-            'Hora_fin'=>'required',
-            'id_user'=>'nullable',
-            'id_servi' => 'nullable',
-        ]);
-
-        $id->update($request->all());
-
-        return redirect()->route('admin.horario_agenda.index', $id)->with('info', 'El horarios se actualizo con exito');
-    }
+    //     return view('admin.horarios.edit', compact('servicios','roles'));
+    // }
 
 
 
-}
+//     public function update(Request $request, Horario $id)
+//     {
+//         $request->validate([
+//             'Estado' => 'nullable',
+//             'Fecha'=>'required',
+//             'Hora_ini' => 'required',
+//             'Hora_fin'=>'required',
+//             'id_user'=>'nullable',
+//             'id_servi' => 'nullable',
+//         ]);
+
+//         $id->update($request->all());
+
+//         return redirect()->route('admin.horario_agenda.index', $id)->with('info', 'El horarios se actualizo con exito');
+//     }
+
+
+
+ }
 

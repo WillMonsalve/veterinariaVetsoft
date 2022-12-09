@@ -348,7 +348,7 @@
                
 
               <div class="col-12">
-                <input type ='button' class="btn btn-info btn-sm"  value = 'Agregar Nota' onclick="location.href = '{{ route('admin.detalles.index')}}'"/>
+                <input type ='button' class="btn btn-info btn-sm"  value = 'Agregar Nota' onclick="location.href = '{{ route('admin.detalles.index')}}'">
               </div>
 
               {{-- <div class="col-12">
@@ -380,6 +380,6 @@
    $("select").select2();
   });
 </script>
-    <script> console.log('Hi!'); 
+    <script> console.log('Hi!');  </script>
     
 @stop

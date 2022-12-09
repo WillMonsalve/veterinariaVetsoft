@@ -10,6 +10,7 @@
     <div class="card">
         <div class="card-body">
             {!! Form::open(['route' => 'admin.users.store', 'autocomplete' => 'off']) !!}
+            @csrf
 
             <div class="form-group">
                 {!! Form::label('name', 'Nombre') !!}
@@ -108,9 +109,6 @@
                 @enderror
             </div>
 
-            <form method="POST" action="{{ route('register') }}">
-                @csrf
-
             <div class="form-group">
                 {!! Form::label('password', 'Contraseña') !!}
                 {!! Form::password('password', ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del post']) !!}
@@ -119,25 +117,10 @@
                     <small class="text-danger">{{$message}}</small>
                 @enderror
             
-            </div>
-
-            <div class="form-group">
-                {!! Form::label('password_confirmation', 'Confirmar contraseña') !!}
-                {!! Form::password('password_confirmation',['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del post']) !!}
-            
-                @error('password_confirmation')
-                    <small class="text-danger">{{$message}}</small>
-                @enderror
-            
-            </div>
-           
-        </form>
-
-            
-
-            
-
+            </div>     
+       
                 {!! Form::submit('Crear Usuario', ['class' => 'btn btn-primary mt-2']) !!}
+                <a  class="bi bi-arrow-bar-left btn btn-outline-success"  href="{{route('admin.users.index')}}" >Volver</a>
 
             {!! Form::close() !!}
         </div>

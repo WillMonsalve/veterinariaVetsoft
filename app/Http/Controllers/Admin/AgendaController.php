@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
 use App\Models\Agenda;
 
@@ -20,16 +20,16 @@ class AgendaController extends Controller
 
     public function index()
     {
-        $agendas = Agenda::select("agendas.*", "users.name")
-        ->join("users", "agendas.user_id","=", "users.id")
+        $agendas = Agenda::select("agendas.*", "roles.name")
+        ->join("roles", "agendas.user_id","=", "roles.id")
         ->get();
 
         return view('admin.agendas.index', compact('agendas'));
     }
     public function create()
     {
-        $users = user::all();
-        return view('admin.agendas.create', compact('users'));
+        $roles = Role::all();
+        return view('admin.agendas.create', compact('roles'));
     }
     public function store(Request $request)
     {
@@ -40,7 +40,7 @@ class AgendaController extends Controller
             'hora_intermedia_mañana'=>'required',
             'hora_intermedia_tarde'=>'required',
             'hora_final' => 'required',
-            'user_id'=> 'nullable'
+            'roles'=> 'nullable'
 
         ]);
 
@@ -50,9 +50,9 @@ class AgendaController extends Controller
     }
     public function show(Agenda $agenda)
     {
-        $users = User::all();
+       $roles = Role::all();
 
-        return view('admin.agendas.show', compact('users','agenda'));
+        return view('admin.agendas.show', compact('roles','agenda'));
     }
 
     public function destroy(Agenda $agenda)

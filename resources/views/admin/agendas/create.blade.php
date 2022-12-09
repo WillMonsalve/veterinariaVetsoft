@@ -15,7 +15,7 @@
             <div class="form-group">
                 <label for="name">Usuarios</label>
                 <select class="form-control" name="user_id" id="" >
-                @foreach ($users as $key =>$value)
+                @foreach ($roles as $key =>$value)
                     <option value="{{$value->id}}">{{$value->name}}</option>
                 @endforeach
                 </select>
@@ -101,6 +101,7 @@
 
 
                 {!! Form::submit('Crear horario', ['class' => 'btn btn-dark']) !!}
+                <a  class="bi bi-arrow-bar-left btn btn-outline-success"  href="{{route('admin.agendas.index')}}" >Volver</a>
 
             {!! Form::close() !!}
         </div>

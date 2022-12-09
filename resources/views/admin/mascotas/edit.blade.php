@@ -102,7 +102,8 @@
 
                 {!! Form::submit('Actualizar', ['class' => 'btn btn-primary']) !!} 
                 
-                <a href="{{ route('admin.mascotas.show', $mascota)}}" class="btn btn-sm btn-success mr-3"> Volver </a>
+                <a  class="bi bi-arrow-bar-left btn btn-outline-success"  href="{{route('admin.mascotas.index')}}" >Volver</a>
+
                 
             {!! Form::close() !!}
         </div>

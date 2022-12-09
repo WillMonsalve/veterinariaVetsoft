@@ -94,6 +94,7 @@
                 </div>
                         
                 {!! Form::submit('Crear mascota', ['class' => 'btn btn-primary mt-2']) !!}
+                <a  class="bi bi-arrow-bar-left btn btn-outline-success"  href="{{route('admin.mascotas.index')}}" >Volver</a>
 
             {!! Form::close() !!}
 
