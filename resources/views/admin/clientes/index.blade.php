@@ -34,7 +34,7 @@
                         <th>Editar</th>
                         <th>Adicionar</th>
                         <th>Ver</th>
-                        <th>Acción</th>
+                        <th>Estado</th>
 
                     </tr>
                 </thead>
