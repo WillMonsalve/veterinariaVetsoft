@@ -15,8 +15,10 @@
  @endsection
 
 @section('content_header')
-   
-<a class="btn btn-success btn-sm float-right" type="submit" href="{{route('admin.historias.create')}}">Crear Historia</a>
+{{-- guardar la informacion de la historia clinica de la mascota
+    --}}
+    <a class ="btn btn-success btn-sm float-right" href="{{route('admin.historias.index')}}">Crear Historia</a>
+{{-- <a class="btn btn-success btn-sm float-right" type="submit" href="{{route('admin.historias.index')}}">Crear Historia</a> --}}
 
 <h1>Historia Clinica</h1>
 @stop
@@ -53,15 +55,15 @@
                             <label for="">Fecha</label>
                             <input type="date" class="form-control" fecha="Fecha">
                            </div>
-                           
-                           <div class="form-group col-6">
-                            <label for="">Diagnostico</label>
-                            <input type="text" class="form-control"diagnostico="Diagnostico">
-                           </div>
 
                            <div class="form-group col-6">
-                            <label for="">Tratamiento</label>
-                            <input type="text" class="form-control" trtamiento="Tratamiento">
+                            <label for="">Motivo de consulta</label>
+                            <input type="text" class="form-control" consulta="Motivo de consulta">
+                           </div>
+                           
+                           <div class="form-group col-6">
+                            <label for="">Dieta</label>
+                            <input type="text" class="form-control" dieta="Dieta">
                            </div>
 
                            <div class="form-group col-6">
@@ -70,29 +72,39 @@
                            </div>
 
                            <div class="form-group col-6">
-                            <label for="">Motivo de consulta</label>
-                            <input type="text" class="form-control" consulta="'Motivo de consulta">
-                           </div>
+                            <label for="">Enfermedades o procedimientos anteriores</label>
+                            <input type="text" class="form-control" Enfermedades o procedimientos anteriores="Enfermedades o procedimientos anteriores">
+                            </div>
 
-                           <div class="form-group col-6">
-                            <label for="">Dieta</label>
-                            <input type="text" class="form-control" dieta="Dieta">
-                           </div>
+                            <div class="form-group col-6">
+                              <label for="">Mucosas</label>
+                              <input type="text" class="form-control" Mucosas="Mucosas">
+                              </div>
 
-                           <div class="form-group col-6">
-                            <label for="">Vacunación</label>
-                            <input type="text" class="form-control" Vacunacion="Vacunacion">
-                           </div>
+                              <div class="form-group col-6">
+                                <label for="">Vacunación</label>
+                                <select class="form-control" name="Vacunacion" id="Vacunacion">
+                                    <option value="Si">Si</option>
+                                    <option value="No">No</option>
+                                  </select>
+                              </div>
 
-                           <div class="form-group col-6">
-                            <label for="">Desparacitación</label>
-                            <input type="text" class="form-control" Desparacitacion="Desparacitacion">
-                           </div>
+                              <div class="form-group col-6">
+                                <label for="">Desparacitación</label>
+                                <select class="form-control" name="Desparacitación" id="Desparacitación">
+                                    <option value="Si">Si</option>
+                                    <option value="No">No</option>
+                                  </select>
+                              </div>
 
-                           <div class="form-group col-6">
-                            <label for="">Estado Reproductivo</label>
-                            <input type="text" class="form-control" Estado Reproductivo="Estado Reproductivo">
-                           </div>
+                              <div class="form-group col-6">
+                                <label for="">Estado Reproductivo</label>
+                                <select class="form-control" name="Estado Reproductivo" id="Estado Reproductivo">
+                                    <option value="Si">Si</option>
+                                    <option value="No">No</option>
+                                  </select>
+                              </div>
+                           
                          </div>
                          </div>
 
@@ -106,18 +118,7 @@
                     </div>
 
                          <div class="row card-body">
-
-                           <div class="form-group col-6">
-                             <label for="">Peso</label>
-                             <input type="text" class="form-control" Peso="Peso">
-                            </div>
-
-
-                            <div class="form-group col-6">
-                            <label for="">Mucosas</label>
-                            <input type="text" class="form-control" Mucosas="Mucosas">
-                            </div>
-
+                                            
                             <div class="form-group col-6">
                             <label for="">Turgencia</label>
                             <input type="text" class="form-control" Turgencia="Turgencia">
@@ -127,43 +128,52 @@
                             <label for="">Pulso</label>
                             <input type="text" class="form-control" Pulso="Pulso">
                             </div>
-
-                            <div class="form-group col-6">
-                            <label for="">Otros</label>
-                            <input type="text" class="form-control" Otros="Otros">
-                            </div>
-
+                           
                             <div class="form-group col-6">
                             <label for="">Anamnesis</label>
                             <input type="text" class="form-control" Anamnesis="Anamnesis">
                             </div>
 
                             <div class="form-group col-6">
-                            <label for="">Enfermedades o procedimientos anteriores</label>
-                            <input type="text" class="form-control" Enfermedades o procedimientos anteriores="Enfermedades o procedimientos anteriores">
-                            </div>
-
+                              <label for="">Lista Problemas</label>
+                              <input type="text" class="form-control" Lista Problemas="Lista Problemas">
+                              </div>
+                            
+                             <div class="form-group col-6">
+                              <label for="">Tratamiento al diagnóstico</label>
+                              <input type="text" class="form-control" Tratamiento al diagnostico="Tratamiento al diagnostico">
+                              </div>
+                           
                             <div class="form-group col-6">
-                            <label for="">Lista Problemas</label>
-                            <input type="text" class="form-control" Lista Problemas="Lista Problemas">
-                            </div>
-
-                            <div class="form-group col-6">
-                            <label for="">Diagnosticos diferenciales</label>
+                            <label for="">Diagnósticos diferenciales</label>
                             <input type="text" class="form-control" Diagnosticos diferenciales="Diagnosticos diferenciales">
                             </div>
 
                             <div class="form-group col-6">
-                            <label for="">Plan diagnostico</label>
+                              <label for="">Diagnóstico presuntivo</label>
+                              <input type="text" class="form-control" Diagnostico presuntivo="Diagnostico presuntivo">
+                            </div>
+
+                            <div class="form-group col-6">
+                            <label for="">Plan diagnóstico</label>
                             <input type="text" class="form-control" Plan diagnostico="Plan diagnostico">
                             </div>
+
+                            <div class="form-group col-6">
+                              <label for="">Tratamiento</label>
+                              <input type="text" class="form-control" trtamiento="Tratamiento">
+                             </div>
+
+                            <div class="form-group col-6">
+                              <label for="">Otros</label>
+                              <input type="text" class="form-control" Otros="Otros">
+                              </div>
 
                           </div>
                     </div>
                  </div>
 
                  
-
                  <div class="col-sm-6">
                     
                   <div class="card">
@@ -173,18 +183,14 @@
 
                        <div class="row card-body">
 
-                         <div class="form-group col-6">
-                           <label for="">Diagnostico presuntivo</label>
-                           <input type="text" class="form-control" Diagnostico presuntivo="Diagnostico presuntivo">
-                         </div>
-
+                        
                           <div class="form-group col-6">
-                          <label for="">Diagnostico definitivo</label>
+                          <label for="">Diagnóstico definitivo</label>
                           <input type="text" class="form-control" Diagnostico definitivo="Diagnostico definitivo">
                           </div>
 
                           <div class="form-group col-6">
-                          <label for="">Pronostico</label>
+                          <label for="">Pronóstico</label>
                           <input type="text" class="form-control" Pronostico="Pronostico">
                           </div>
 
@@ -197,31 +203,47 @@
                           <label for="">Observaciones</label>
                           <input type="text" class="form-control" Observaciones="Observaciones">
                           </div>
+                                                 
+                         
 
                           <div class="form-group col-6">
-                          <label for="">Tratamiento al diagnostico</label>
-                          <input type="text" class="form-control" Tratamiento al diagnostico="Tratamiento al diagnostico">
-                          </div>
+                            <label for="">Actitud</label>
+                            <select class="form-control" name="Actitud" id="Actitud">
+                                <option value="Normal">Normal</option>
+                                <option value="Anormal">Anormal</option>
+                                <option value="No evaluado">No evaluado</option>
+                            </select>
+                        </div>
 
-                          <div class="form-group col-6">
-                          <label for="">Estado</label>
-                          <input type="text" class="form-control" Estado="Estado">
-                          </div>
+                        <div class="form-group col-6">
+                          <label for="">Hidratación</label>
+                          <select class="form-control" name="Hidratacion" id="Hidratacion">
+                              <option value="Normal">Normal</option>
+                              <option value="Anormal">Anormal</option>
+                              <option value="No evaluado">No evaluado</option>
+                          </select>
+                      </div>
 
-                          <div class="form-group col-6">
-                          <label for="">Actitud</label>
-                          <input type="text" class="form-control" Actitud="Actitud">
-                          </div>
+                      <div class="form-group col-6">
+                        <label for="">Estado nutricional</label>
+                        <select class="form-control" name="Estado nutricional" id="Estado nutricional">
+                            <option value="Normal">Normal</option>
+                            <option value="Anormal">Anormal</option>
+                            <option value="No evaluado">No evaluado</option>
+                        </select>
+                    </div>
 
-                          <div class="form-group col-6">
-                          <label for="">Hidratacion</label>
-                          <input type="text" class="form-control" Hidratacion="Hidratacion">
-                          </div>
+                    <div class="form-group col-6">
+                      <label for="">Modulos superficiales</label>
+                      <select class="form-control" name="Modulos superficiales" id="Modulos superficiales">
+                          <option value="Normal">Normal</option>
+                          <option value="Anormal">Anormal</option>
+                          <option value="No evaluado">No evaluado</option>
+                      </select>
+                  </div>    
 
-                          <div class="form-group col-6">
-                          <label for="">Estado nutricional</label>
-                          <input type="text" class="form-control" Estado nutricional="Estado nutricional">
-                          </div>
+                      
+                         
                          
                       </div>
                   </div>
@@ -234,124 +256,115 @@
                       <div class="card-head">
                           {{-- <h4 class="text-center">Detalle propietario</h4> --}}
                   </div>
+{{-- implementar un select --}}
 
-                       <div class="row card-body">
+                    <div class="form-group col-6">
+                      <label for="">Sistema cardiovascular</label>
+                      <select class="form-control" name="Sistema cardiovascular" id="Sistema cardiovascular">
+                          <option value="Normal">Normal</option>
+                          <option value="Anormal">Anormal</option>
+                          <option value="No evaluado">No evaluado</option>
+                      </select>
+                    </div>
 
-                         <div class="form-group col-6">
-                           <label for="">Modulos superficiales</label>
-                           <input type="text" class="form-control" Modulos superficiales="Modulos superficiales">
-                         </div>
+                    <div class="form-group col-6">
+                      <label for="">Sistema respiratorio</label>
+                      <select class="form-control" name="Sistema respiratorio" id="Sistema respiratorio">
+                          <option value="Normal">Normal</option>
+                          <option value="Anormal">Anormal</option>
+                          <option value="No evaluado">No evaluado</option>
+                      </select>
+                    </div>
 
-                          <div class="form-group col-6">
-                          <label for="">Sistema cardiovascular</label>
-                          <input type="text" class="form-control" Sistema cardiovascular="Sistema cardiovascular">
-                          </div>
+                    <div class="form-group col-6">
+                      <label for="">Sistema digestivo</label>
+                      <select class="form-control" name="Sistema digestivo" id="Sistema digestivo">
+                          <option value="Normal">Normal</option>
+                          <option value="Anormal">Anormal</option>
+                          <option value="No evaluado">No evaluado</option>
+                      </select>
+                    </div>
+                          
 
-                          <div class="form-group col-6">
-                          <label for="">Sistema respiratorio</label>
-                          <input type="text" class="form-control" Sistema respiratorio="Sistema respiratorio">
-                          </div>
+                    <div class="form-group col-6">
+                      <label for="">Sistema reproductivo</label>
+                      <select class="form-control" name="Sistema reproductivo" id="Sistema reproductivo">
+                          <option value="Normal">Normal</option>
+                          <option value="Anormal">Anormal</option>
+                          <option value="No evaluado">No evaluado</option>
+                      </select>
+                    </div>
 
-                          <div class="form-group col-6">
-                          <label for="">Sistema digestivo</label>
-                          <input type="text" class="form-control" Sistema digestivo="Sistema digestivo">
-                          </div>
+                    <div class="form-group col-6">
+                      <label for="">Sistema urinario</label>
+                      <select class="form-control" name="Sistema urinario" id="Sistema urinario">
+                          <option value="Normal">Normal</option>
+                          <option value="Anormal">Anormal</option>
+                          <option value="No evaluado">No evaluado</option>
+                      </select>
+                    </div>
 
-                          <div class="form-group col-6">
-                          <label for="">Sistema reproductivo</label>
-                          <input type="text" class="form-control" Sistema reproductivo="Sistema reproductivo">
-                          </div>
+                    <div class="form-group col-6">
+                      <label for="">Sistema nervioso</label>
+                      <select class="form-control" name="Sistema nervioso" id="Sistema nervioso">
+                          <option value="Normal">Normal</option>
+                          <option value="Anormal">Anormal</option>
+                          <option value="No evaluado">No evaluado</option>
+                      </select>
+                    </div>
 
-                          <div class="form-group col-6">
-                          <label for="">Sistema urinario</label>
-                          <input type="text" class="form-control" Sistema urinario="Sistema urinario">
-                          </div>
+                    <div class="form-group col-6">
+                      <label for="">Sistema músculo-esqueletico</label>
+                      <select class="form-control" name="Sistema músculo-esqueletico" id="Sistema músculo-esqueletico">
+                          <option value="Normal">Normal</option>
+                          <option value="Anormal">Anormal</option>
+                          <option value="No evaluado">No evaluado</option>
+                      </select>
+                    </div>
 
-                          <div class="form-group col-6">
-                          <label for="">Sistema nervioso</label>
-                          <input type="text" class="form-control" Sistema nervioso="Sistema nervioso">
-                          </div>
+                    <div class="form-group col-6">
+                      <label for="">Ojos</label>
+                      <select class="form-control" name="Ojos" id="Ojos">
+                          <option value="Normal">Normal</option>
+                          <option value="Anormal">Anormal</option>
+                          <option value="No evaluado">No evaluado</option>
+                      </select>
+                    </div>
 
-                          <div class="form-group col-6">
-                          <label for="">Sistema musculo-esqueletico</label>
-                          <input type="text" class="form-control" Sistema musculo-esqueletico="Sistema musculo-esqueletico">
-                          </div>
-
-                          <div class="form-group col-6">
-                          <label for="">Ojos</label>
-                          <input type="text" class="form-control" Ojos="Ojos">
-                          </div>
-
-                          <div class="form-group col-6">
-                          <label for="">Piel y Anexos</label>
-                          <input type="text" class="form-control" Piel y Anexos="Piel y Anexos">
-                          </div>
+                    <div class="form-group col-6">
+                      <label for="">Piel y Anexos</label>
+                      <select class="form-control" name="Piel y Anexos" id="Piel y Anexos">
+                          <option value="Normal">Normal</option>
+                          <option value="Anormal">Anormal</option>
+                          <option value="No evaluado">No evaluado</option>
+                      </select>
+                    </div>
+                       
                          
                       </div>
                   </div>
                 </div>
 
-                {{-- <table class="table">
-                  <thead>
-                    <tr>
-                      <th>Número Historia</th>
-                      <th>Propietario</th>
-                     
-
-                    </tr>
-                  </thead>
-                  <tbody id="tblhistorias">
-                     @foreach ($historias as $historia)
-
-                    <tr>
-                            <td>{{$historia->id}}</td>
-                            <td>{{$historia->Cliente->nombre_cliente}}</td>
-                        
-                    </tr>
-                     @endforeach
-                  </tbody>
-              </table> --}}
+               
 
               <div class="col-12">
                 <input type ='button' class="btn btn-info btn-sm"  value = 'Agregar Nota' onclick="location.href = '{{ route('admin.detalles.index')}}'">
               </div>
 
+              {{-- <div class="col-12">
+                <button type="submit" class="btn btn-success">Guardar</button>
+              </div> --}}
+
+              {{-- <div class="col-12">
+                <input type ='button' class="btn btn-info btn-sm"  value = 'Volver' onclick="location.href = '{{ route('admin.historias.index')}}'"/>
+                <input type ='button' class="btn btn-info btn-sm"  value = 'Guardar' onclick="location.href = '{{ route('admin.historias.index')}}'"/>
+              </div> --}}
+
+
             </form>
 
            
 @stop
-
-@section("script")
-<script>
-      function agregar_mascota(){
-        let mascota_id = $('#agregar_mascota').val();
-        let mascota_text = $('#agregar_mascota').text();
-        let nombre = $('#nombre').val();
-
-          $("#tblmascotas").append(`
-              <tr>
-                
-                <td>
-                    <input type="hidden" name="mascota_id[]" value="${mascota_id}" />
-                    <input type="hidden" name="nombre[]" value="${nombre}" />
-
-                    ${mascota_text}}
-                    
-                </td>
-                <td> ${nombre} </td>
-                <td>
-                    <button class="btn btn-danger btn-sm">X</button>
-                </td>
-
-                             
-              </tr>
-            `)
-
-
-      }
-</script>
-@endsection
-
 
 
 @section('js')
