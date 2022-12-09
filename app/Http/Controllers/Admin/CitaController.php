@@ -62,10 +62,11 @@ class CitaController extends Controller
 
     public function show(Cita $cita)
     {
-        $horarios = Horario::pluck('id','Fecha');
-        $cliente = Cliente::all();
-        $servicios = Servicio::all();
-        return view('admin.citas.show', compact('cita','servicios','cliente','horarios'));
+        $horarios = Horario::pluck('Fecha','id');
+        $hora = Horario::pluck('Hora_ini','id');
+        $servicios = Servicio::pluck('nombre_servicio', 'id');
+        $cliente = Cliente::pluck('nombre_cliente', 'id');
+        return view('admin.citas.show', compact('cita','servicios','cliente','horarios','hora'));
     }
 
 
