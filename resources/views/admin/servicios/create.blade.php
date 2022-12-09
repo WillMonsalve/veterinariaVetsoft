@@ -49,7 +49,8 @@
                 </div>
 
                 {!! Form::submit('Crear Servicio', ['class' => 'btn btn-primary']) !!}
-                <a  class="bi bi-arrow-bar-left btn btn-outline-success"  href="{{route('admin.servicios.index')}}">Volver</a>
+                <a  class="bi bi-arrow-bar-left btn btn-outline-success"  href="{{route('admin.servicios.index')}}"
+                >Volver</a>
 
             {!! Form::close() !!}
         </div>
