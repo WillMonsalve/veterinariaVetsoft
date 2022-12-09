@@ -15,12 +15,15 @@
  @endsection
 
 @section('content_header')
-{{-- guardar la informacion de la historia clinica de la mascota
-    --}}
-    <a class ="btn btn-success btn-sm float-right" href="{{route('admin.historias.index')}}">Crear Historia</a>
-{{-- <a class="btn btn-success btn-sm float-right" type="submit" href="{{route('admin.historias.index')}}">Crear Historia</a> --}}
+{{-- guardar la informacion de la historia clinica de la mascota--}}
+    <a class ="btn btn-success btn-sm float-right" type="submit" href="{{route('admin.historias.index')}}">Crear Historia</a>
 
-<h1>Historia Clinica</h1>
+
+    <div class="col-12">
+    <input type ='button' class="btn btn-info btn-sm"  value = 'Agregar Nota' onclick="location.href = '{{ route('admin.detalles.index')}}'">
+    </div>
+
+<h1 class="text-center">Historia Clinica</h1>
 @stop
 
 @section('content')
@@ -242,8 +245,7 @@
                       </select>
                   </div>    
 
-                      
-                         
+                                           
                          
                       </div>
                   </div>
@@ -257,6 +259,7 @@
                           {{-- <h4 class="text-center">Detalle propietario</h4> --}}
                   </div>
 {{-- implementar un select --}}
+                        <div class="row card-body">
 
                     <div class="form-group col-6">
                       <label for="">Sistema cardiovascular</label>
@@ -314,7 +317,7 @@
                     </div>
 
                     <div class="form-group col-6">
-                      <label for="">Sistema músculo-esqueletico</label>
+                      <label for="">Sistema músculo-esquelético</label>
                       <select class="form-control" name="Sistema músculo-esqueletico" id="Sistema músculo-esqueletico">
                           <option value="Normal">Normal</option>
                           <option value="Anormal">Anormal</option>
@@ -344,26 +347,10 @@
                       </div>
                   </div>
                 </div>
-
-               
-
-              <div class="col-12">
-                <input type ='button' class="btn btn-info btn-sm"  value = 'Agregar Nota' onclick="location.href = '{{ route('admin.detalles.index')}}'">
-              </div>
-
-              {{-- <div class="col-12">
-                <button type="submit" class="btn btn-success">Guardar</button>
-              </div> --}}
-
-              {{-- <div class="col-12">
-                <input type ='button' class="btn btn-info btn-sm"  value = 'Volver' onclick="location.href = '{{ route('admin.historias.index')}}'"/>
-                <input type ='button' class="btn btn-info btn-sm"  value = 'Guardar' onclick="location.href = '{{ route('admin.historias.index')}}'"/>
-              </div> --}}
-
-
+                            
             </form>
 
-           
+            
 @stop
 
 
