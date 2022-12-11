@@ -74,10 +74,22 @@
 
 
                         <td>
-                             @can('admin.horarios.edit')
-                            <a class="btn btn-primary bi bi-pen"></a>
-                             @endcan
+                            @can('admin.horarios.destroy')
+                                    <form action="{{route('admin.horarios.destroy', $horario)}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+
+                                        <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-fw fa-trash"></i></button>
+                                   </form>
+                                @endcan
+
+                                <td >
+                                    @can('admin.horarios.edit')
+                                       <a class="btn btn-primary bi bi-pen" href="{{route('admin.horarios.edit', $horario)}}"></a>
+                                    @endcan
+                               </td>
                         </td>
+
                     </tr>
                 @endforeach
 

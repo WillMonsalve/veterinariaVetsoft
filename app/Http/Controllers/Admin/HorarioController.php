@@ -52,33 +52,40 @@ class HorarioController extends Controller
         return redirect()->route('admin.horarios.index', $horarios)->with('info', 'el horario se creo con exito');
     }
 
+    public function edit(Horario $horario)
+    {
 
-    // public function edit(Horario $id)
-    // {
+        $servicios = Servicio::pluck('nombre_servicio', 'id');
+        $roles = Role::pluck('name', 'id');
 
-    //     $servicios = Servicio::pluck('nombre_servicio', 'id');
-    //     $roles = Role::all();
-
-    //     return view('admin.horarios.edit', compact('servicios','roles'));
-    // }
-
+        return view('admin.horarios.edit', compact('horario','servicios','roles'));
+    }
 
 
-//     public function update(Request $request, Horario $id)
-//     {
-//         $request->validate([
-//             'Estado' => 'nullable',
-//             'Fecha'=>'required',
-//             'Hora_ini' => 'required',
-//             'Hora_fin'=>'required',
-//             'id_user'=>'nullable',
-//             'id_servi' => 'nullable',
-//         ]);
+    public function update(Request $request, Horario $horario)
+    {
+        $request->validate([
+            'Estado' => 'nullable',
+            'Fecha'=>'required',
+            'Hora_ini' => 'required',
+            'Hora_fin'=>'required',
+            'id_user'=>'nullable',
+            'id_servi' => 'nullable',
+        ]);
 
-//         $id->update($request->all());
+        $horario->update($request->all());
 
-//         return redirect()->route('admin.horario_agenda.index', $id)->with('info', 'El horarios se actualizo con exito');
-//     }
+        return redirect()->route('admin.horarios.index', $horario)->with('info', 'Se actualizo el horario con exito');
+    }
+
+
+
+    public function destroy(Horario $horario)
+    {
+        $horario->delete();
+
+        return redirect()->route('admin.horarios.index')->with('info', 'El horario se eliminó con éxito');
+    }
 
 
 

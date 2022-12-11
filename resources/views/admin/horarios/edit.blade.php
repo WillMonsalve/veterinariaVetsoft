@@ -3,7 +3,7 @@
 @section('title', 'usuarios')
 
 @section('content_header')
-    <h1>Editar Usuario</h1>
+    <h1>Editar Horario</h1>
 @stop
 
 @section('content')
@@ -17,11 +17,11 @@
     <div class="card">
         <div class="card-body">
 
-            {!! Form::model($horarios, ['route' => ['admin.horarios.update', $horarios], 'autocomplete' => 'off', 'method' => 'put']) !!}
+            {!! Form::model($horario, ['route' => ['admin.horarios.update', $horario], 'autocomplete' => 'off', 'method' => 'put']) !!}
 
-                
 
-             <div class="form-group col-md-4">  
+
+             <div class="form-group col-md-4">
                     <label for="Estado">Estado</label>
                     <select class="form-control" name="Estado" id="Estado">
                         <option value="1">Activo</option>
@@ -29,15 +29,14 @@
                     </select>
 
                 </div>
-                
-                <div class="form-group col-md-4">
-                        <label for="">Servicio</label>
-                     <select class="form-control" name="id_servi" id="">
-                    @foreach($servicios as $key =>$value)
-                         <option value="{{$value->id}}">{{$value->nombre_servicio}} </option>
-                    @endforeach
-                       </select>
 
+                <div class="form-group col-md-4">
+                    {!! Form::label('servicio_id', 'Servicio') !!}
+                    {!! Form::select('servicio_id',$servicios, $horario->id_servi, ['class' => 'form-control']) !!}
+
+                    @error('servicio_id')
+                    <span class="text-danger">{{$message}}</span>
+                    @enderror
 
                 </div>
 
@@ -57,24 +56,32 @@
                             <input type="time" class="form-control" name="Hora_fin" id="Hora_fin" aria-describedby="Hora_fin" placeholder="">
                  </div>
 
-                 <div class="form-group col-md-4">
-                <label for="name">Responsable</label>
-                <select class="form-control" name="rol" id="" >
-                @foreach ($roles as $key =>$value)
-                    <option value="{{$value->id}}">{{$value->name}}</option>
-                @endforeach
-                </select>
-                  </div>
+                 <div class="form-group">
+                    {!! Form::label('rol', 'Servicio') !!}
+                    {!! Form::select('rol',$roles, $horario->rol, ['class' => 'form-control']) !!}
 
-         
-             
-                
+                    @error('rol')
+                    <span class="text-danger">{{$message}}</span>
+                    @enderror
 
-                           
+                </div>
 
 
-                {!! Form::submit('Actualizar', ['class' => 'btn btn-primary mt-2']) !!}
-              {!! Form::close() !!}
+
+
+
+
+
+
+
+            {!! Form::submit('Actualizar', ['class' => 'btn btn-primary']) !!}
+
+            <td>
+                <a  class="bi bi-arrow-bar-left btn btn-outline-success"  href="{{route('admin.horarios.index')}}" >Volver</a>
+
+            </td>
+            {!! Form::close() !!}
+
 
         </div>
     </div>

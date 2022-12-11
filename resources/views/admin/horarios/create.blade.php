@@ -11,7 +11,7 @@
 <div class="card">
         <div class="card-body">
         {!! Form::open(['route' => 'admin.horarios.store', 'method' => 'post']) !!}
-            <div class="form-group col-md-4">  
+            <div class="form-group col-md-4">
                     <label for="Estado">Estado</label>
                     <select class="form-control" name="Estado" id="Estado">
                         <option value="1">Activo</option>
@@ -33,22 +33,19 @@
 
                 </div>
 
+                    <div class="form-group col-md-4">
+                    <label for="">Fecha</label>
+                    <input type="date" class="form-control" name="Fecha" id="Fecha" aria-describedby="Fecha" placeholder="">
 
 
-
-                             <div class="form-group col-md-4">
-                             <label for="">Fecha</label>
-                            <input type="date" class="form-control" name="Fecha" id="Fecha" aria-describedby="Fecha" placeholder="">
-
-                            </div>
 
                     @error('Fecha')
                         <span class="text-danger">{{$message}}</span>
                     @enderror
-
+                </div>
 
                 <div class="form-group col-md-4">
-                {!! Form::label('Hora_ini', 'Duracion') !!}
+                {!! Form::label('Hora_ini', 'Hora Inicio') !!}
                     {!! Form::time('Hora_ini', null, ['class' => 'form-control', 'placeholder' => 'Ingrese la hora del servicio']) !!}
                             </div>
 
