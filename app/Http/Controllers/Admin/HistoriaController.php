@@ -11,81 +11,108 @@ use App\Models\Cliente;
 
 class HistoriaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   public function __construct()
+    {
+        $this->middleware('can:admin.historias.index')->only('index');
+        $this->middleware('can:admin.historias.create')->only('create', 'store');
+        $this->middleware('can:admin.historias.edit')->only('edit', 'update');
+        $this->middleware('can:admin.historias.show')->only('show');
+        $this->middleware('can:admin.historias.destroy')->only('destroy');
+    }
+
     public function index()
     {
-        // $mascota = new Mascota();
+           
         $clientes = Cliente::pluck('nombre_cliente', 'id');
         $mascotas = Mascota::all();
         $historias = Historia::all();
         return view('admin.historias.index', compact('historias','mascotas','clientes'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
-        return view('admin.historias.create');
+        
+        $clientes = Cliente::pluck('nombre_cliente', 'id');
+        $mascotas = Mascota::all();
+        return view('admin.historias.create', compact('mascotas','clientes'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+   
     public function store(Request $request)
     {
-        //
+       
+        $request->validate([
+            'Fecha' => 'required',
+            'Diagnostico' => 'required',
+            'Tratamiento' => 'required',
+            'Medicamentos' => 'required',
+            'Motivo de consulta' => 'required',
+            'Dieta' => 'required',
+            'Vacunacion' => 'required',
+            'Desparacitacion' => 'required',
+            'Estado Reproductivo' => 'required',
+            'Mucosas' => 'required',
+            'Turgencia' => 'required',
+            'Pulso' => 'required',
+            'Otros' => 'required',
+            'Anamnesis' => 'required',
+            'Enfermedades o padecimientos anteriores' => 'required',
+            'Lista Problemas' => 'required',
+            'Diagnosticos diferenciales' => 'required',
+            'Plan diagnostico' => 'required',
+            'Diagnostico presuntivo' => 'required',
+            'Diagnostico definitivo' => 'required',
+            'Pronostico' => 'required',
+            'Plan terapeutico' => 'required',
+            'Observaciones' => 'required',
+            'Tratamiento al diagnostico' => 'required',
+            'Actitud' => 'required',
+            'Hidratacion' => 'required',
+            'Estado nutricional' => 'required',
+            'Modulos superficiales' => 'required',
+            'Sistema cardiovascular' => 'required',
+            'Sistema respiratorio' => 'required',
+            'Sistema digestivo' => 'required',
+            'Sistema urinario' => 'required',
+            'Sistema nervioso' => 'required',
+            'Sistema musculo-esqueletico' => 'required',
+            'Ojos' => 'required',
+            'Piel y Anexos' => 'required',
+            'mascota_id' => 'required',
+            'user_id' => 'required'
+            
+        ]);
+
+        $historia = Historia::create($request->all());
+        return redirect()->route('admin.historias.index', $historia)->with('info', 'La Historia se creo con exito');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function show(Historia $historia)
     {
+        
+        $clientes = Cliente::pluck('nombre_cliente', 'id');
+        $mascotas = Mascota::all();
         return view('admin.historias.show', compact('historias'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function edit(Historia $historia)
     {
+        
+        $clientes = Cliente::pluck('nombre_cliente', 'id');
+        $mascotas = Mascota::all();
         return view('admin.historias.edit', compact('historia'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function update(Request $request, Historia $historia)
     {
-        //
+         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function destroy(Historia $historia)
     {
         //
