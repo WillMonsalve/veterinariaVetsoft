@@ -11,81 +11,107 @@ use App\Models\Cliente;
 
 class HistoriaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   public function __construct()
+    {
+        $this->middleware('can:admin.historias.index')->only('index');
+        $this->middleware('can:admin.historias.create')->only('create', 'store');
+        $this->middleware('can:admin.historias.edit')->only('edit', 'update');
+        $this->middleware('can:admin.historias.show')->only('show');
+        $this->middleware('can:admin.historias.destroy')->only('destroy');
+    }
+
     public function index()
     {
-        // $mascota = new Mascota();
-        $clientes = Cliente::pluck('nombre_cliente', 'id');
-        $mascotas = Mascota::all();
-        $historias = Historia::all();
-        return view('admin.historias.index', compact('historias','mascotas','clientes'));
+
+        $historia = Historia::select("historias.*", "mascotas.Nombre")
+        ->join("mascotas", "historias.mascota_id","=", "mascotas.id")
+        ->get();
+
+        return view('admin.historias.index', compact('historia'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        return view('admin.historias.create');
+        $mascotas = Mascota::all();
+        return view('admin.historias.create', compact('mascotas'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'Fecha' => 'nullable',
+            'Diagnostico' => 'nullable',
+            'Tratamiento' => 'nullable',
+            'Medicamentos' => 'nullable',
+            'Motivodeconsulta' => 'nullable',
+            'Dieta' => 'nullable',
+            'Vacunacion' => 'nullable',
+            'Desparacitacion' => 'nullable',
+            'EstadoReproductivo' => 'nullable',
+            'Mucosas' => 'nullable',
+            'Turgencia' => 'nullable',
+            'Pulso' => 'nullable',
+            'Otros' => 'nullable',
+            'Anamnesis' => 'nullable',
+            'Enfermedadesoprocedimientosanteriores' => 'nullable',
+            'ListaProblemas' => 'nullable',
+            'Diagnosticosdiferenciales' => 'nullable',
+            'Plandiagnostico' => 'nullable',
+            'Diagnosticopresuntivo' => 'nullable',
+            'Diagnosticodefinitivo' => 'nullable',
+            'Pronostico' => 'nullable',
+            'Planterapeutico' => 'nullable',
+            'Observaciones' => 'nullable',
+            'Tratamientoaldiagnostico' => 'nullable',
+            'Actitud' => 'nullable',
+            'Hidratacion' => 'nullable',
+            'Estadonutricional' => 'nullable',
+            'Modulossuperficiales' => 'nullable',
+            'Sistemacardiovascular' => 'nullable',
+            'Sistemarespiratorio' => 'nullable',
+            'Sistemadigestivo' => 'nullable',
+            'Sistemaurinario' => 'nullable',
+            'Sistemanervioso' => 'nullable',
+            'Sistemamusculo-esqueletico' => 'nullable',
+            'Ojos' => 'nullable',
+            'PielyAnexos' => 'nullable',
+            'mascota_id' => 'nullable',
+
+
+        ]);
+
+        $historia = Historia::create($request->all());
+        return redirect()->route('admin.historias.index', $historia)->with('info', 'La Historia se creo con exito');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Historia $historia)
     {
+
+        $clientes = Cliente::pluck('nombre_cliente', 'id');
+        $mascotas = Mascota::all();
         return view('admin.historias.show', compact('historias'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Historia $historia)
     {
+
+        $clientes = Cliente::pluck('nombre_cliente', 'id');
+        $mascotas = Mascota::all();
         return view('admin.historias.edit', compact('historia'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, Historia $historia)
     {
-        //
+         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Historia $historia)
     {
         //

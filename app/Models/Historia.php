@@ -12,8 +12,51 @@ class Historia extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'Fecha',
+        'Diagnostico',
+        'Tratamiento',
+        'Medicamentos',
+        'Motivodeconsulta',
+        'Dieta',
+        'Vacunacion',
+        'Desparacitacion',
+        'EstadoReproductivo',
+        'Mucosas',
+        'Turgencia',
+        'Pulso',
+        'Otros',
+        'Anamnesis',
+        'Enfermedadesoprocedimientosanteriores',
+        'ListaProblemas',
+        'Diagnosticosdiferenciales',
+        'Plandiagnostico',
+        'Diagnosticopresuntivo',
+        'Diagnosticodefinitivo',
+        'Pronostico',
+        'Planterapeutico',
+        'Observaciones',
+        'Tratamientoaldiagnostico',
+        'Actitud',
+        'Hidratacion',
+        'Estadonutricional',
+        'Modulossuperficiales',
+        'Sistemacardiovascular',
+        'Sistemarespiratorio',
+        'Sistemadigestivo',
+        'Sistemaurinario',
+        'Sistemanervioso',
+        'Sistemamusculo-esqueletico',
+        'Ojos',
+        'PielyAnexos',
+        'mascota_id',
+        'cliente_id',
+
+
+    ];
+
     //Relacion uno a uno inversa
-    
+
     public function Mascotas(){
         return $this->belongsTo(Mascota::class);
     }

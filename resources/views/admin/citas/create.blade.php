@@ -2,9 +2,15 @@
 
 @section('title', 'Citas')
 
-@section('js')
+@section('css')
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<style>
+    .select2-selection {
+      height: calc(1.5em + .75rem + 2px) !important;
+    }
+</style>
+
 @endsection
 
 @section('content_header')
@@ -80,7 +86,8 @@
 
                 <td>
 
-                <a  class="bi bi-backspace-fill btn btn-danger"  href="{{route('admin.citas.index')}}" >Regresar</a>
+                <a  class="bi bi-arrow-bar-left btn btn-outline-danger"  href="{{route('admin.citas.index')}}" >Volver</a>
+
                 </td>
             {!! Form::close() !!}
         </div>
@@ -104,6 +111,12 @@
         });
     </script>
 
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        $("select").select2();
+    });
+</script>
 
 
 @endsection

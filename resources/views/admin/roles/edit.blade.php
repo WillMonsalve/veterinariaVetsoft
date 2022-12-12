@@ -22,6 +22,8 @@
                 @include('admin.roles.partials.form')
 
                 {!! Form::submit('Actualizar', ['class' => 'btn btn-primary']) !!}
+                <a  class="bi bi-arrow-bar-left btn btn-outline-success"  href="{{route('admin.roles.index')}}" >Volver</a>
+
             {!! Form::close() !!}
 
         </div>

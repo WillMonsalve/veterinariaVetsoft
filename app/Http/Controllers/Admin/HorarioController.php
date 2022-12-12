@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Servicio;
-use App\Models\User;
+use Spatie\Permission\Models\Role;
 use App\Models\Horario;
 
 class HorarioController extends Controller
@@ -19,9 +19,9 @@ class HorarioController extends Controller
 
     public function index()
     {
-        $horarios = Horario::select("horarios.*","servicios.nombre_servicio","users.name")
+        $horarios = Horario::select("horarios.*","servicios.nombre_servicio","roles.name")
         ->join("servicios", "horarios.id_servi","=", "servicios.id")
-        ->join("users", "horarios.id_user","=", "users.id")
+        ->join("roles", "horarios.rol","=", "roles.id")
         ->get();
 
         return view('admin.horarios.index', compact('horarios'));
@@ -30,9 +30,9 @@ class HorarioController extends Controller
     public function create()
     {
         $servicios = Servicio::where('estado',1)->get();
-        $users = User::all();
+        $roles = Role::all();
 
-        return view('admin.horarios.create',compact('users','servicios'));
+        return view('admin.horarios.create',compact('roles','servicios'));
     }
     public function store(Request $request)
     {
@@ -52,18 +52,17 @@ class HorarioController extends Controller
         return redirect()->route('admin.horarios.index', $horarios)->with('info', 'el horario se creo con exito');
     }
 
-
-    public function edit(Horario $id)
+    public function edit(Horario $horario)
     {
 
         $servicios = Servicio::pluck('nombre_servicio', 'id');
-        $users = User::all();
+        $roles = Role::pluck('name', 'id');
 
-        return view('admin.horarios.edit', compact('servicios','users'));
+        return view('admin.horarios.edit', compact('horario','servicios','roles'));
     }
 
 
-    public function update(Request $request, Horario $id)
+    public function update(Request $request, Horario $horario)
     {
         $request->validate([
             'Estado' => 'nullable',
@@ -74,12 +73,21 @@ class HorarioController extends Controller
             'id_servi' => 'nullable',
         ]);
 
-        $id->update($request->all());
+        $horario->update($request->all());
 
-        return redirect()->route('admin.horario_agenda.index', $id)->with('info', 'El horarios se actualizo con exito');
+        return redirect()->route('admin.horarios.index', $horario)->with('info', 'Se actualizo el horario con exito');
     }
 
 
 
-}
+    public function destroy(Horario $horario)
+    {
+        $horario->delete();
+
+        return redirect()->route('admin.horarios.index')->with('info', 'El horario se eliminó con éxito');
+    }
+
+
+
+ }
 

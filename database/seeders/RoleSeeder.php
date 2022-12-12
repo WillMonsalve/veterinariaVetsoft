@@ -134,6 +134,8 @@ class RoleSeeder extends Seeder
                             'description' => 'Agregar horario'])->syncRoles([$role1, $role2, $role3, $role4]);
         Permission::create(['name' => 'admin.horarios.edit',
                             'description' => 'Editar horario'])->syncRoles([$role1, $role2, $role3, $role4]);
+        Permission::create(['name' => 'admin.horarios.destroy',
+                            'description' => 'Eliminar detalles'])->syncRoles([$role1, $role2, $role3]);
 
         Permission::create(['name' => 'admin.mascotas.index',
                             'description' => 'lista de mascotas'])->syncRoles([$role1, $role2, $role3, $role4]);
@@ -178,5 +180,7 @@ class RoleSeeder extends Seeder
                             'description' => 'ver detalles'])->syncRoles([$role1, $role2, $role3, $role4]);
         Permission::create(['name' => 'admin.detalles.destroy',
                             'description' => 'Eliminar detalles'])->syncRoles([$role1, $role2, $role3]);
+
+
     }
 }

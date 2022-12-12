@@ -71,7 +71,8 @@
                 {!! Form::submit('Actualizar Cita', ['class' => 'btn btn-primary']) !!}
 
                 <td>
-                    <a class="btn btn-danger" href="{{route('admin.citas.index')}}">Regresar</a>
+                <a  class="bi bi-arrow-bar-left btn btn-outline-success"  href="{{route('admin.citas.index')}}" >Volver</a>
+
                 </td>
             {!! Form::close() !!}
         </div>

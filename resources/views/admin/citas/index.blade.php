@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Citas')
 
 @section('css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
@@ -13,9 +13,9 @@
 
      @can('admin.citas.create')
         <a class="btn btn-success btn-sm float-right" href="{{route('admin.citas.create')}}">Crear Cita</a>
-    @endcan 
+    @endcan
 
-   
+
     <h1>Lista de Citas</h1>
 @stop
 
@@ -71,13 +71,13 @@
                             <td>
                                 @can('admin.citas.show')
                                     <a class="btn btn-warning btn-sm" href="{{route('admin.citas.show', $cita)}}"><i class="bi bi-eye"></i></a>
-                                @endcan                                
+                                @endcan
                             </td>
 
                             <td >
-                                 @can('admin.citas.edit') 
+                                 @can('admin.citas.edit')
                                     <a class="btn btn-primary bi bi-pen" href="{{route('admin.citas.edit', $cita)}}"></a>
-                                 @endcan 
+                                 @endcan
                             </td>
 
 

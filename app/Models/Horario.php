@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Servicio;
 use App\Models\User;
-
+use Spatie\Permission\Traits\HasRoles;
 class Horario extends Model
 {
     use HasFactory;
@@ -16,7 +16,7 @@ class Horario extends Model
         'Fecha',
         'Hora_ini',
         'Hora_fin',
-        'id_user',
+        'rol',
         'id_servi',
 
     ];
@@ -24,8 +24,8 @@ class Horario extends Model
     public function Servicios(){
         return $this->belongsTo(Servicio::class);
     }
-    public function Users(){
-        return $this->belongsTo(User::class);
+    public function Roles(){
+        return $this->belongsTo(Role::class);
     }
 
 

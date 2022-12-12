@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Servicios')
 
 @section ('css')
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
@@ -11,9 +11,9 @@
 
 @section('content_header')
 
-     @can('admin.servicios.create') 
+     @can('admin.servicios.create')
         <a class="btn btn-success btn-sm float-right" href="{{route('admin.servicios.create')}}">Agregar Servicio</a>
-     @endcan 
+     @endcan
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <h1>Lista de Servicios</h1>
 @stop
@@ -61,12 +61,12 @@
                             </td>
 
 
-                          
+
 
                             <td width= "10px">
                                 @can('admin.servicios.edit')
-                                    <a class="btn btn-info " href="{{route('admin.servicios.edit', $servicio)}}"><i class="bi bi-pencil-square"></i></a>
-                                                           
+                                    <a  href="{{route('admin.servicios.edit', $servicio)}}"><i class="btn btn-primary bi bi-pen"></i></a>
+
 
                                 @endcan
                             </td>
@@ -104,7 +104,7 @@
                 'previous':'Anterior'
             }
         }
-        
+
     });
 </script>
 @endsection
