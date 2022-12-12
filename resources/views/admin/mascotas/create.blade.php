@@ -41,7 +41,7 @@
                 @enderror
 
                 <div class="form-group">                    
-                    {!! Form::label('Peso', 'Peso') !!}
+                    {!! Form::label('Peso Kl', 'Peso Kl') !!}
                     {!! Form::text('Peso', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el peso de la mascota']) !!}                    
                 </div>
 

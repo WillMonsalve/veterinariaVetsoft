@@ -20,48 +20,37 @@
                              <option value="{{$value->id}}">{{$value->Nombre}} </option>
                         @endforeach
                     </select>
-
-                    @error('mascota')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-
-                    </div>
-
-
+                </div>
 
                 <div class="form-group col-md-4">
                     <label for="">Fecha</label>
                     <input type="date" class="form-control" name="Fecha" id="Fecha" aria-describedby="Fecha"
-                        placeholder="">
-
-
-                    @error('Fecha')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
+                        placeholder="Fecha"required>
                 </div>
+                   
 
                 <div class="form-group col-6">
                     <label for="">Motivo de consulta</label>
-                    <input type="text" class="form-control" name="Motivodeconsulta">
+                    <input type="text" class="form-control" name="Motivodeconsulta" placeholder="Motivo de consulta"required>
                 </div>
 
 
                 <div class="form-group col-4">
                     <label for="">Dieta</label>
-                    <input type="text" class="form-control" name="Dieta">
+                    <input type="text" class="form-control" name="Dieta" placeholder="Dieta"required>
                 </div>
                 <div class="form-group col-6">
                     <label for="">Medicamentos</label>
-                    <input type="text" class="form-control" name="Medicamentos">
+                    <input type="text" class="form-control" name="Medicamentos" placeholder="Medicamentos"required>
                 </div>
                 <div class="form-group col-6">
                     <label for="">Enfermedades o procedimientos anteriores</label>s
-                    <input type="text" class="form-control" name="Enfermedadesoprocedimientosanteriores">
+                    <input type="text" class="form-control" name="Enfermedadesoprocedimientosanteriores" placeholder="Enfermedades o procedimientos anteriores"required>
                 </div>
 
                 <div class="form-group col-6">
                     <label for="">Mucosas</label>
-                    <input type="text" class="form-control" name="Mucosas">
+                    <input type="text" class="form-control" name="Mucosas" placeholder="Mucosas"required>
                 </div>
 
                 <div class="form-group col-6">
@@ -89,71 +78,70 @@
 
                 <div class="form-group col-6">
                     <label for="">Turgencia</label>
-                    <input type="text" class="form-control" name="Turgencia">
+                    <input type="text" class="form-control" name="Turgencia" placeholder="Turgencia"required>
                 </div>
                 <div class="form-group col-6">
                     <label for="">Pulso</label>
-                    <input type="text" class="form-control" name="Pulso">
+                    <input type="text" class="form-control" name="Pulso" placeholder="Pulso"required>
                 </div>
 
                 <div class="form-group col-6">
                     <label for="">Anamnesis</label>
-                    <input type="text" class="form-control" name="Anamnesis">
+                    <input type="text" class="form-control" name="Anamnesis" placeholder="Anamnesis"required>
                 </div>
 
                 <div class="form-group col-6">
                     <label for="">Lista Problemas</label>
-                    <input type="text" class="form-control" name="ListaProblemas">
+                    <input type="text" class="form-control" name="ListaProblemas" placeholder="Lista Problemas"required>
                 </div>
 
                 <div class="form-group col-6">
                     <label for="">Tratamiento al diagnóstico</label>
-                    <input type="text" class="form-control" name="Tratamientoaldiagnostico">
+                    <input type="text" class="form-control" name="Tratamientoaldiagnostico" placeholder="Tratamiento al diagnóstico"required>
                 </div>
 
                 <div class="form-group col-6">
                     <label for="">Diagnósticos diferenciales</label>
-                    <input type="text" class="form-control" name="Diagnosticosdiferenciales">
+                    <input type="text" class="form-control" name="Diagnosticosdiferenciales" placeholder="Diagnósticos diferenciales"required>
                 </div>
 
                 <div class="form-group col-6">
                     <label for="">Diagnóstico presuntivo</label>
-                    <input type="text" class="form-control" name="Diagnosticopresuntivo">
+                    <input type="text" class="form-control" name="Diagnosticopresuntivo" placeholder="Diagnóstico presuntivo"required>
                 </div>
                 <div class="form-group col-6">
                     <label for="">Plan diagnóstico</label>
-                    <input type="text" class="form-control" name="Plandiagnostico">
+                    <input type="text" class="form-control" name="Plandiagnostico" placeholder="Plan diagnóstico"required>
                 </div>
 
                 <div class="form-group col-6">
                     <label for="">Tratamiento</label>
-                    <input type="text" class="form-control" name="Tratamiento">
+                    <input type="text" class="form-control" name="Tratamiento" placeholder="Tratamiento"required>
                 </div>
 
                 <div class="form-group col-6">
                     <label for="">Otros</label>
-                    <input type="text" class="form-control" name="Otros">
+                    <input type="text" class="form-control" name="Otros" placeholder="Otros"required>
                 </div>
                 <div class="form-group col-6">
                     <label for="">Diagnóstico definitivo</label>
-                    <input type="text" class="form-control" name="Diagnosticodefinitivo">
+                    <input type="text" class="form-control" name="Diagnosticodefinitivo" placeholder="Diagnóstico definitivo"required>
                 </div>
 
                 <div class="form-group col-6">
                     <label for="">Pronóstico</label>
-                    <input type="text" class="form-control" name="Pronostico">
+                    <input type="text" class="form-control" name="Pronostico" placeholder="Pronóstico"required>
                 </div>
 
                 <div class="form-group col-6">
                     <label for="">Plan terapeutico</label>
-                    <input type="text" class="form-control" name="Planterapeutico">
+                    <input type="text" class="form-control" name="Planterapeutico" placeholder="Plan terapeutico"required>
                 </div>
 
                 <div class="form-group col-6">
                     <label for="">Observaciones</label>
-                    <input type="text" class="form-control" name="Observaciones">
+                    <input type="text" class="form-control" name="Observaciones" placeholder="Observaciones"required>
                 </div>
-
 
 
                 <div class="form-group col-6">
@@ -274,12 +262,15 @@
                 </div>
 
                 <div class="form-group col-6">
-                    <label for="">Diagnostico</label>
-                    <input type="text" class="form-control" name="Diagnostico">
+                    <label for="">Diagnóstico</label>
+                    <input type="text" class="form-control" name="Diagnostico" placeholder="Diagnóstico"required>
                 </div>
-
+                
 
                 {!! Form::submit('Registrar', ['class' => 'btn btn-success']) !!}
+
+                <input type ='button' class="btn btn-info btn-sm"  value = 'Agregar Nota' onclick="location.href = '{{ route('admin.detalles.index')}}'">
+
             </div>
 
         </div>
