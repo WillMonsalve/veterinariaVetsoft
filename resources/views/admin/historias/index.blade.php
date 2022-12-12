@@ -1,250 +1,51 @@
 @extends('adminlte::page')
 
-@section('title', 'Historia')
-@section ('css')
- <link rel="stylesheet" href="/css/admin_custom.css">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
- <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
- <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap4.min.css">
- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
- <style>
-  .select2-selection {
-    height: calc(1.5em + .75rem + 2px) !important;
-  }
- </style>
- @endsection
+@section('title', 'HISTORIAS CLINICAS')
+
+@section('css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap4.min.css">
+@endsection
 
 @section('content_header')
+@section('css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap4.min.css">
+@endsection
 
 
-<h1>Historia Clinica</h1>
+    <a class="btn btn-success btn-sm float-right" href="{{ route('admin.historias.create') }}">AGREGAR <i
+            class="bi bi-plus-circle-fill"></i></a>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<h1>HISTORIAS CLINICAS</h1>
 @stop
-
 @section('content')
 
-    {{-- <p>Mascotas</p> --}}
-     <div class="row">
-        <div class="col">
-            <!-- <h3 class="text-center">Mascotas</h3> -->
-            </div>
-            </div>
-            {!! Form::open(['route' => 'admin.historias.store', 'method' => 'post']) !!}
-                @csrf
-                <div class="row">
-                    <div class="col-sm-6">
+@if (session('info'))
+    <div class="alert alert-success">
+        <strong>{{ session('info') }}</strong>
+    </div>
+@endif
 
-                        <div class="card">
-                            <div class="card-head">
-                                {{-- <h4 class="text-center">Información Mascota</h4> --}}
-                            </div>
-                         <div class="row card-body">
-                           <div class="form-group col-6">
-                             <label for="">Mascota</label>
-                             <select name="id" class="form-control">
-                              <option value="">Seleccione</option>
-                              @foreach($mascotas as $value)
-                                  <option value="{{ $value->id }}">{{ $value->Nombre }}</option>
-                              @endforeach
-                             </select>
-                           </div>
+<div class="card">
 
-                           <div class="form-group col-6">
-                            <label for="">Fecha</label>
-                            <input type="date" class="form-control" fecha="Fecha">
-                           </div>
-
-                           <div class="form-group col-6">
-                            <label for="">Motivo de consulta</label>
-                            <input type="text" class="form-control" consulta="Motivo de consulta">
-                           </div>
-
-                           <div class="form-group col-6">
-                            <label for="">Dieta</label>
-                            <input type="text" class="form-control" dieta="Dieta">
-                           </div>
-
-                           <div class="form-group col-6">
-                            <label for="">Medicamentos</label>
-                            <input type="text" class="form-control" medicamento="Medicamentos">
-                           </div>
-
-                           <div class="form-group col-6">
-                            <label for="">Enfermedades o procedimientos anteriores</label>
-                            <input type="text" class="form-control" Enfermedades o procedimientos anteriores="Enfermedades o procedimientos anteriores">
-                            </div>
-
-                            <div class="form-group col-6">
-                              <label for="">Mucosas</label>
-                              <input type="text" class="form-control" Mucosas="Mucosas">
-                              </div>
-
-                              <div class="form-group col-6">
-                                <label for="">Vacunación</label>
-                                <select class="form-control" name="Vacunacion" id="Vacunacion">
-                                    <option value="Si">Si</option>
-                                    <option value="No">No</option>
-                                  </select>
-                              </div>
-
-                              <div class="form-group col-6">
-                                <label for="">Desparacitación</label>
-                                <select class="form-control" name="Desparacitación" id="Desparacitación">
-                                    <option value="Si">Si</option>
-                                    <option value="No">No</option>
-                                  </select>
-                              </div>
-
-                              <div class="form-group col-6">
-                                <label for="">Estado Reproductivo</label>
-                                <select class="form-control" name="Estado Reproductivo" id="Estado Reproductivo">
-                                    <option value="Si">Si</option>
-                                    <option value="No">No</option>
-                                  </select>
-                              </div>
-
-                         </div>
-                         </div>
-
-                        {{-- otra table --}}
-                    </div>
-                  <div class="col-sm-6">
-
-                    <div class="card">
-                        <div class="card-head">
-                            {{-- <h4 class="text-center">Detalle propietario</h4> --}}
-                    </div>
-
-                         <div class="row card-body">
-
-                            <div class="form-group col-6">
-                            <label for="">Turgencia</label>
-                            <input type="text" class="form-control" Turgencia="Turgencia">
-                            </div>
-
-                            <div class="form-group col-6">
-                            <label for="">Pulso</label>
-                            <input type="text" class="form-control" Pulso="Pulso">
-                            </div>
-
-                            <div class="form-group col-6">
-                            <label for="">Anamnesis</label>
-                            <input type="text" class="form-control" Anamnesis="Anamnesis">
-                            </div>
-
-                            <div class="form-group col-6">
-                              <label for="">Lista Problemas</label>
-                              <input type="text" class="form-control" Lista Problemas="Lista Problemas">
-                              </div>
-
-                             <div class="form-group col-6">
-                              <label for="">Tratamiento al diagnóstico</label>
-                              <input type="text" class="form-control" Tratamiento al diagnostico="Tratamiento al diagnostico">
-                              </div>
-
-                            <div class="form-group col-6">
-                            <label for="">Diagnósticos diferenciales</label>
-                            <input type="text" class="form-control" Diagnosticos diferenciales="Diagnosticos diferenciales">
-                            </div>
-
-                            <div class="form-group col-6">
-                              <label for="">Diagnóstico presuntivo</label>
-                              <input type="text" class="form-control" Diagnostico presuntivo="Diagnostico presuntivo">
-                            </div>
-
-                            <div class="form-group col-6">
-                            <label for="">Plan diagnóstico</label>
-                            <input type="text" class="form-control" Plan diagnostico="Plan diagnostico">
-                            </div>
-
-                            <div class="form-group col-6">
-                              <label for="">Tratamiento</label>
-                              <input type="text" class="form-control" trtamiento="Tratamiento">
-                             </div>
-
-                            <div class="form-group col-6">
-                              <label for="">Otros</label>
-                              <input type="text" class="form-control" Otros="Otros">
-                              </div>
-
-                          </div>
-                    </div>
-                 </div>
-
-
-                 <div class="col-sm-6">
-
-                  <div class="card">
-                      <div class="card-head">
-                          {{-- <h4 class="text-center">Detalle propietario</h4> --}}
-                  </div>
-
-                       <div class="row card-body">
-
-
-                          <div class="form-group col-6">
-                          <label for="">Diagnóstico definitivo</label>
-                          <input type="text" class="form-control" Diagnostico definitivo="Diagnostico definitivo">
-                          </div>
-
-                          <div class="form-group col-6">
-                          <label for="">Pronóstico</label>
-                          <input type="text" class="form-control" Pronostico="Pronostico">
-                          </div>
-
-                          <div class="form-group col-6">
-                          <label for="">Plan terapeutico</label>
-                          <input type="text" class="form-control" Plan terapeutico="Plan terapeutico">
-                          </div>
-
-                          <div class="form-group col-6">
-                          <label for="">Observaciones</label>
-                          <input type="text" class="form-control" Observaciones="Observaciones">
-                          </div>
+    <div class="card-body">
+        <table id="usuarios" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Cliente</th>
+                    <th>Mascota</th>
+                      <th>Fecha</th>
 
 
 
-                          <div class="form-group col-6">
-                            <label for="">Actitud</label>
-                            <select class="form-control" name="Actitud" id="Actitud">
-                                <option value="Normal">Normal</option>
-                                <option value="Anormal">Anormal</option>
-                                <option value="No evaluado">No evaluado</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group col-6">
-                          <label for="">Hidratación</label>
-                          <select class="form-control" name="Hidratacion" id="Hidratacion">
-                              <option value="Normal">Normal</option>
-                              <option value="Anormal">Anormal</option>
-                              <option value="No evaluado">No evaluado</option>
-                          </select>
-                      </div>
-
-                      <div class="form-group col-6">
-                        <label for="">Estado nutricional</label>
-                        <select class="form-control" name="Estado nutricional" id="Estado nutricional">
-                            <option value="Normal">Normal</option>
-                            <option value="Anormal">Anormal</option>
-                            <option value="No evaluado">No evaluado</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group col-6">
-                      <label for="">Modulos superficiales</label>
-                      <select class="form-control" name="Modulos superficiales" id="Modulos superficiales">
-                          <option value="Normal">Normal</option>
-                          <option value="Anormal">Anormal</option>
-                          <option value="No evaluado">No evaluado</option>
-                      </select>
-                  </div>
-
-
-
-
-                      </div>
-                  </div>
-                </div>
 
 
                 <div class="col-sm-6">
@@ -344,7 +145,9 @@
 
 
 
-
+              <div class="col-12">
+                <input type ='button' class="btn btn-info btn-sm"  value = 'Agregar Nota' onclick="location.href = '{{ route('admin.detalles.index')}}'">
+              </div>
 
               {{-- <div class="col-12">
                 <button type="submit" class="btn btn-success">Guardar</button>
@@ -355,33 +158,34 @@
                 <input type ='button' class="btn btn-info btn-sm"  value = 'Guardar' onclick="location.href = '{{ route('admin.historias.index')}}'"/>
               </div> --}}
 
-              {!! Form::submit('Registrar', ['class' => 'btn btn-success']) !!}
 
-              <td>
-
-                <a  class="btn btn-dark"  href="{{route('admin.detalles.index')}}" >Agregar Notas</a>
-
-                </td>
-            {!! Form::close() !!}
-
-
+            </form>
 
 
 @stop
-
-
 @section('js')
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap4.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
-  $(document).ready(function(){
-   $("select").select2();
-  });
+    $('#usuarios').DataTable({
+        responsive: true,
+        autoWidth: false,
+        "language": {
+            "lengthMenu": "Mostrar _MENU_ registros por página",
+            "zeroRecords": "Nada encontrado - disculpa",
+            "info": "Mostrando la página _PAGE_ de _PAGES_",
+            "infoEmpty": "No records available",
+            "infoFiltered": "(filtrado de _MAX_ registros totales)",
+            'search': 'Buscar:',
+            'paginate': {
+                'next': 'Siguiente',
+                'previous': 'Anterior'
+            }
+        }
+    });
 </script>
     <script> console.log('Hi!');  </script>
 
