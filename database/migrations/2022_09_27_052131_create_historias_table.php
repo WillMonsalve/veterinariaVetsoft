@@ -52,13 +52,12 @@ return new class extends Migration
             $table->string('Ojos');
             $table->string('PielyAnexos');
             $table->unsignedBigInteger('mascota_id');
-            $table->foreign('mascota_id')->references('id')->on('mascotas'); 
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');  
+            $table->foreign('mascota_id')->references('id')->on('mascotas');
+            $table->unsignedBigInteger('cliente_id');
+            $table->foreign('cliente_id')->references('id')->on('clientes');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

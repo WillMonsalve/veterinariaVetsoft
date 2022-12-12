@@ -23,19 +23,18 @@ class HistoriaController extends Controller
     public function index()
     {
 
-        $clientes = Cliente::pluck('nombre_cliente', 'id');
-        $mascotas = Mascota::all();
-        $historias = Historia::all();
-        return view('admin.historias.index', compact('historias','mascotas','clientes'));
+        $historia = Historia::select("historias.*", "mascotas.Nombre")
+        ->join("mascotas", "historias.mascota_id","=", "mascotas.id")
+        ->get();
+
+        return view('admin.historias.index', compact('historia'));
     }
 
 
     public function create()
     {
-
-        $clientes = Cliente::pluck('nombre_cliente', 'id');
         $mascotas = Mascota::all();
-        return view('admin.historias.create', compact('mascotas','clientes'));
+        return view('admin.historias.create', compact('mascotas'));
     }
 
 
@@ -43,48 +42,48 @@ class HistoriaController extends Controller
     {
 
         $request->validate([
-            'Fecha' => 'required',
-            'Diagnostico' => 'required',
-            'Tratamiento' => 'required',
-            'Medicamentos' => 'required',
-            'Motivodeconsulta' => 'required',
-            'Dieta' => 'required',
-            'Vacunacion' => 'required',
-            'Desparacitacion' => 'required',
-            'EstadoReproductivo' => 'required',
-            'Mucosas' => 'required',
-            'Turgencia' => 'required',
-            'Pulso' => 'required',
-            'Otros' => 'required',
-            'Anamnesis' => 'required',
-            'Enfermedadesopadecimientosanteriores' => 'required',
-            'ListaProblemas' => 'required',
-            'Diagnosticosdiferenciales' => 'required',
-            'Plandiagnostico' => 'required',
-            'Diagnosticopresuntivo' => 'required',
-            'Diagnosticodefinitivo' => 'required',
-            'Pronostico' => 'required',
-            'Planterapeutico' => 'required',
-            'Observaciones' => 'required',
-            'Tratamientoaldiagnostico' => 'required',
-            'Actitud' => 'required',
-            'Hidratacion' => 'required',
-            'Estadonutricional' => 'required',
-            'Modulossuperficiales' => 'required',
-            'Sistemacardiovascular' => 'required',
-            'Sistemarespiratorio' => 'required',
-            'Sistemadigestivo' => 'required',
-            'Sistemaurinario' => 'required',
-            'Sistemanervioso' => 'required',
-            'Sistemamusculo-esqueletico' => 'required',
-            'Ojos' => 'required',
-            'PielyAnexos' => 'required',
-            'mascota_id' => 'required',
-            'user_id' => 'required'
+            'Fecha' => 'nullable',
+            'Diagnostico' => 'nullable',
+            'Tratamiento' => 'nullable',
+            'Medicamentos' => 'nullable',
+            'Motivodeconsulta' => 'nullable',
+            'Dieta' => 'nullable',
+            'Vacunacion' => 'nullable',
+            'Desparacitacion' => 'nullable',
+            'EstadoReproductivo' => 'nullable',
+            'Mucosas' => 'nullable',
+            'Turgencia' => 'nullable',
+            'Pulso' => 'nullable',
+            'Otros' => 'nullable',
+            'Anamnesis' => 'nullable',
+            'Enfermedadesoprocedimientosanteriores' => 'nullable',
+            'ListaProblemas' => 'nullable',
+            'Diagnosticosdiferenciales' => 'nullable',
+            'Plandiagnostico' => 'nullable',
+            'Diagnosticopresuntivo' => 'nullable',
+            'Diagnosticodefinitivo' => 'nullable',
+            'Pronostico' => 'nullable',
+            'Planterapeutico' => 'nullable',
+            'Observaciones' => 'nullable',
+            'Tratamientoaldiagnostico' => 'nullable',
+            'Actitud' => 'nullable',
+            'Hidratacion' => 'nullable',
+            'Estadonutricional' => 'nullable',
+            'Modulossuperficiales' => 'nullable',
+            'Sistemacardiovascular' => 'nullable',
+            'Sistemarespiratorio' => 'nullable',
+            'Sistemadigestivo' => 'nullable',
+            'Sistemaurinario' => 'nullable',
+            'Sistemanervioso' => 'nullable',
+            'Sistemamusculo-esqueletico' => 'nullable',
+            'Ojos' => 'nullable',
+            'PielyAnexos' => 'nullable',
+            'mascota_id' => 'nullable',
+
 
         ]);
 
-        $historia = Historia::create( $request->all() );
+        $historia = Historia::create($request->all());
         return redirect()->route('admin.historias.index', $historia)->with('info', 'La Historia se creo con exito');
     }
 

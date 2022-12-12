@@ -27,7 +27,7 @@ class Historia extends Model
         'Pulso',
         'Otros',
         'Anamnesis',
-        'Enfermedadesopadecimientosanteriores',
+        'Enfermedadesoprocedimientosanteriores',
         'ListaProblemas',
         'Diagnosticosdiferenciales',
         'Plandiagnostico',
@@ -50,13 +50,13 @@ class Historia extends Model
         'Ojos',
         'PielyAnexos',
         'mascota_id',
-        'user_id'
-        
-               
+        'cliente_id',
+
+
     ];
 
     //Relacion uno a uno inversa
-    
+
     public function Mascotas(){
         return $this->belongsTo(Mascota::class);
     }
