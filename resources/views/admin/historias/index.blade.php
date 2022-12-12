@@ -15,27 +15,24 @@
  @endsection
 
 @section('content_header')
-{{-- guardar la informacion de la historia clinica de la mascota
-    --}}
-    <a class ="btn btn-success btn-sm float-right" href="{{route('admin.historias.index')}}">Crear Historia</a>
-{{-- <a class="btn btn-success btn-sm float-right" type="submit" href="{{route('admin.historias.index')}}">Crear Historia</a> --}}
+
 
 <h1>Historia Clinica</h1>
 @stop
 
 @section('content')
-     
+
     {{-- <p>Mascotas</p> --}}
      <div class="row">
         <div class="col">
             <!-- <h3 class="text-center">Mascotas</h3> -->
             </div>
             </div>
-            <form action="#" method="post">
+            {!! Form::open(['route' => 'admin.historias.store', 'method' => 'post']) !!}
                 @csrf
                 <div class="row">
                     <div class="col-sm-6">
-                        
+
                         <div class="card">
                             <div class="card-head">
                                 {{-- <h4 class="text-center">Información Mascota</h4> --}}
@@ -60,7 +57,7 @@
                             <label for="">Motivo de consulta</label>
                             <input type="text" class="form-control" consulta="Motivo de consulta">
                            </div>
-                           
+
                            <div class="form-group col-6">
                             <label for="">Dieta</label>
                             <input type="text" class="form-control" dieta="Dieta">
@@ -104,21 +101,21 @@
                                     <option value="No">No</option>
                                   </select>
                               </div>
-                           
+
                          </div>
                          </div>
 
                         {{-- otra table --}}
                     </div>
                   <div class="col-sm-6">
-                    
+
                     <div class="card">
                         <div class="card-head">
                             {{-- <h4 class="text-center">Detalle propietario</h4> --}}
                     </div>
 
                          <div class="row card-body">
-                                            
+
                             <div class="form-group col-6">
                             <label for="">Turgencia</label>
                             <input type="text" class="form-control" Turgencia="Turgencia">
@@ -128,7 +125,7 @@
                             <label for="">Pulso</label>
                             <input type="text" class="form-control" Pulso="Pulso">
                             </div>
-                           
+
                             <div class="form-group col-6">
                             <label for="">Anamnesis</label>
                             <input type="text" class="form-control" Anamnesis="Anamnesis">
@@ -138,12 +135,12 @@
                               <label for="">Lista Problemas</label>
                               <input type="text" class="form-control" Lista Problemas="Lista Problemas">
                               </div>
-                            
+
                              <div class="form-group col-6">
                               <label for="">Tratamiento al diagnóstico</label>
                               <input type="text" class="form-control" Tratamiento al diagnostico="Tratamiento al diagnostico">
                               </div>
-                           
+
                             <div class="form-group col-6">
                             <label for="">Diagnósticos diferenciales</label>
                             <input type="text" class="form-control" Diagnosticos diferenciales="Diagnosticos diferenciales">
@@ -173,9 +170,9 @@
                     </div>
                  </div>
 
-                 
+
                  <div class="col-sm-6">
-                    
+
                   <div class="card">
                       <div class="card-head">
                           {{-- <h4 class="text-center">Detalle propietario</h4> --}}
@@ -183,7 +180,7 @@
 
                        <div class="row card-body">
 
-                        
+
                           <div class="form-group col-6">
                           <label for="">Diagnóstico definitivo</label>
                           <input type="text" class="form-control" Diagnostico definitivo="Diagnostico definitivo">
@@ -203,8 +200,8 @@
                           <label for="">Observaciones</label>
                           <input type="text" class="form-control" Observaciones="Observaciones">
                           </div>
-                                                 
-                         
+
+
 
                           <div class="form-group col-6">
                             <label for="">Actitud</label>
@@ -240,18 +237,18 @@
                           <option value="Anormal">Anormal</option>
                           <option value="No evaluado">No evaluado</option>
                       </select>
-                  </div>    
+                  </div>
 
-                      
-                         
-                         
+
+
+
                       </div>
                   </div>
                 </div>
 
 
                 <div class="col-sm-6">
-                    
+
                   <div class="card">
                       <div class="card-head">
                           {{-- <h4 class="text-center">Detalle propietario</h4> --}}
@@ -284,7 +281,7 @@
                           <option value="No evaluado">No evaluado</option>
                       </select>
                     </div>
-                          
+
 
                     <div class="form-group col-6">
                       <label for="">Sistema reproductivo</label>
@@ -339,17 +336,15 @@
                           <option value="No evaluado">No evaluado</option>
                       </select>
                     </div>
-                       
-                         
+
+
                       </div>
                   </div>
                 </div>
 
-               
 
-              <div class="col-12">
-                <input type ='button' class="btn btn-info btn-sm"  value = 'Agregar Nota' onclick="location.href = '{{ route('admin.detalles.index')}}'">
-              </div>
+
+
 
               {{-- <div class="col-12">
                 <button type="submit" class="btn btn-success">Guardar</button>
@@ -360,10 +355,18 @@
                 <input type ='button' class="btn btn-info btn-sm"  value = 'Guardar' onclick="location.href = '{{ route('admin.historias.index')}}'"/>
               </div> --}}
 
+              {!! Form::submit('Registrar', ['class' => 'btn btn-success']) !!}
 
-            </form>
+              <td>
 
-           
+                <a  class="btn btn-dark"  href="{{route('admin.detalles.index')}}" >Agregar Notas</a>
+
+                </td>
+            {!! Form::close() !!}
+
+
+
+
 @stop
 
 
@@ -381,5 +384,5 @@
   });
 </script>
     <script> console.log('Hi!');  </script>
-    
+
 @stop

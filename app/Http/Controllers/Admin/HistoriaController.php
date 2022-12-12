@@ -22,26 +22,26 @@ class HistoriaController extends Controller
 
     public function index()
     {
-           
+
         $clientes = Cliente::pluck('nombre_cliente', 'id');
         $mascotas = Mascota::all();
         $historias = Historia::all();
         return view('admin.historias.index', compact('historias','mascotas','clientes'));
     }
 
-    
+
     public function create()
     {
-        
+
         $clientes = Cliente::pluck('nombre_cliente', 'id');
         $mascotas = Mascota::all();
         return view('admin.historias.create', compact('mascotas','clientes'));
     }
 
-   
+
     public function store(Request $request)
     {
-       
+
         $request->validate([
             'Fecha' => 'required',
             'Diagnostico' => 'required',
@@ -81,38 +81,38 @@ class HistoriaController extends Controller
             'Piel y Anexos' => 'required',
             'mascota_id' => 'required',
             'user_id' => 'required'
-            
+
         ]);
 
         $historia = Historia::create($request->all());
         return redirect()->route('admin.historias.index', $historia)->with('info', 'La Historia se creo con exito');
     }
 
-   
+
     public function show(Historia $historia)
     {
-        
+
         $clientes = Cliente::pluck('nombre_cliente', 'id');
         $mascotas = Mascota::all();
         return view('admin.historias.show', compact('historias'));
     }
 
-   
+
     public function edit(Historia $historia)
     {
-        
+
         $clientes = Cliente::pluck('nombre_cliente', 'id');
         $mascotas = Mascota::all();
         return view('admin.historias.edit', compact('historia'));
     }
 
-   
+
     public function update(Request $request, Historia $historia)
     {
          //
     }
 
-   
+
     public function destroy(Historia $historia)
     {
         //
