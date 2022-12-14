@@ -46,7 +46,7 @@ class ClienteController extends Controller
 
         $cliente = Cliente::create($request->all());
 
-        return redirect()->route('admin.clientes.index', $cliente)->with('info', 'El cliente se creo con exito');
+        return redirect()->route('admin.clientes.index', $cliente)->with('info', 'El cliente se creo con éxito');
     }
 
      public function show($id)
@@ -83,7 +83,7 @@ class ClienteController extends Controller
 
         $cliente->update($request->all());
 
-        return redirect()->route('admin.clientes.index', $cliente)->with('info', 'El cliente se actualizo con exito');
+        return redirect()->route('admin.clientes.index', $cliente)->with('info', 'El cliente se actualizo con éxito');
     }
 
 
@@ -91,6 +91,6 @@ class ClienteController extends Controller
     {
         $cliente->delete();
 
-        return redirect()->route('admin.clientes.index')->with('info', 'El servicio se elimino con exito');
+        return redirect()->route('admin.clientes.index')->with('info', 'El servicio se elimino con éxito');
     }
 }

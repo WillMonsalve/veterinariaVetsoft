@@ -93,7 +93,7 @@ class CitaController extends Controller
 
         $cita->update($request->all());
 
-        return redirect()->route('admin.citas.index', $cita)->with('info', 'La Cita Se actualizo con exito');
+        return redirect()->route('admin.citas.index', $cita)->with('info', 'La Cita Se actualizo con éxito');
     }
 
 
@@ -101,6 +101,6 @@ class CitaController extends Controller
     {
         $cita->delete();
 
-        return redirect()->route('admin.citas.index')->with('info', 'La cita se elimino con exito');;
+        return redirect()->route('admin.citas.index')->with('info', 'La cita se elimino con éxito');;
     }
 }
