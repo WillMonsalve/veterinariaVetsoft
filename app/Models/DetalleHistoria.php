@@ -9,6 +9,11 @@ class DetalleHistoria extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'historia_id',
+        'descripcion',
+    ];
+
     public function Historias(){
        return $this->belongsTo(Historia::class);
         

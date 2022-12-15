@@ -51,9 +51,9 @@ return new class extends Migration
             $table->string('Sistemamusculo-esqueletico');
             $table->string('Ojos');
             $table->string('PielyAnexos');
-            $table->unsignedBigInteger('mascota_id');
+            $table->unsignedBigInteger('mascota_id')->nullable();
             $table->foreign('mascota_id')->references('id')->on('mascotas');
-            $table->unsignedBigInteger('cliente_id');
+            $table->unsignedBigInteger('cliente_id')->nullable();
             $table->foreign('cliente_id')->references('id')->on('clientes');
             $table->timestamps();
         });

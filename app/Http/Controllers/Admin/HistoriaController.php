@@ -108,12 +108,56 @@ class HistoriaController extends Controller
 
     public function update(Request $request, Historia $historia)
     {
-         //
+        $request->validate([
+            'Fecha' => 'nullable',
+            'Diagnostico' => 'nullable',
+            'Tratamiento' => 'nullable',
+            'Medicamentos' => 'nullable',
+            'Motivodeconsulta' => 'nullable',
+            'Dieta' => 'nullable',
+            'Vacunacion' => 'nullable',
+            'Desparacitacion' => 'nullable',
+            'EstadoReproductivo' => 'nullable',
+            'Mucosas' => 'nullable',
+            'Turgencia' => 'nullable',
+            'Pulso' => 'nullable',
+            'Otros' => 'nullable',
+            'Anamnesis' => 'nullable',
+            'Enfermedadesoprocedimientosanteriores' => 'nullable',
+            'ListaProblemas' => 'nullable',
+            'Diagnosticosdiferenciales' => 'nullable',
+            'Plandiagnostico' => 'nullable',
+            'Diagnosticopresuntivo' => 'nullable',
+            'Diagnosticodefinitivo' => 'nullable',
+            'Pronostico' => 'nullable',
+            'Planterapeutico' => 'nullable',
+            'Observaciones' => 'nullable',
+            'Tratamientoaldiagnostico' => 'nullable',
+            'Actitud' => 'nullable',
+            'Hidratacion' => 'nullable',
+            'Estadonutricional' => 'nullable',
+            'Modulossuperficiales' => 'nullable',
+            'Sistemacardiovascular' => 'nullable',
+            'Sistemarespiratorio' => 'nullable',
+            'Sistemadigestivo' => 'nullable',
+            'Sistemaurinario' => 'nullable',
+            'Sistemanervioso' => 'nullable',
+            'Sistemamusculo-esqueletico' => 'nullable',
+            'Ojos' => 'nullable',
+            'PielyAnexos' => 'nullable',
+            'mascota_id' => 'nullable',
+        ]);
+
+        $historia->update($request->all());
+
+        return redirect()->route('admin.historias.index', $historia)->with('info', 'La Historia se actualizo con exito');
     }
 
 
     public function destroy(Historia $historia)
     {
-        //
+        $historia->delete();
+
+        return redirect()->route('admin.historias.index')->with('info', 'La Historia se elimino con exito');
     }
 }

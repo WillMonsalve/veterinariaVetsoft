@@ -23,7 +23,7 @@ return new class extends Migration
             $table->integer('Edad');
             $table->string('Sexo', 45);
             $table->enum('estado', [1, 2]);
-            $table->unsignedBigInteger('cliente_id');
+            $table->unsignedBigInteger('cliente_id')->nullable();
             $table->foreign('cliente_id')->references('id')->on('clientes');
             $table->timestamps();
         });
