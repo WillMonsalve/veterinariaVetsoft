@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('telefono', 20);
             $table->string('email')->unique();
             $table->enum('estado', [1, 2]);
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
